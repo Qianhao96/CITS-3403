@@ -36,3 +36,10 @@ the purpose of the web application, explaining both the context and the social c
 
 # Add .Ds_store to global git ignor
   - https://code.likeagirl.io/how-to-get-rid-of-ds-store-and-node-modules-in-git-repositories-d37b8a391247
+
+# Naming Conventions
+  - Class names: CamelCase, with acronyms kept uppercase (HTTPWriter and not HttpWriter)
+  - Variable names: lowercase_with_underscores
+  - Method and function names: lowercase_with_underscores
+  - Constants: UPPERCASE_WITH_UNDERSCORES
+  - precompiled regular expressions: name_re
