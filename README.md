@@ -34,5 +34,5 @@ the purpose of the web application, explaining both the context and the social c
   - pip install flask 
   - python run survey.py
 
-# Add .Ds_stor to global git ignor
+# Add .Ds_store to global git ignor
   - https://code.likeagirl.io/how-to-get-rid-of-ds-store-and-node-modules-in-git-repositories-d37b8a391247
