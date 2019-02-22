@@ -6,7 +6,7 @@
 		<div class="col-md-6">
 			<div class="card">
 				<header class="card-header">
-					<a href="" class="float-right btn btn-outline-primary mt-1">Log in</a>
+					<a href="{{ url_for('login') }}" class="float-right btn btn-outline-primary mt-1">Log in</a>
 					<h4 class="card-title mt-2">Sign up</h4>
 				</header>
 				<article class="card-body">
@@ -61,8 +61,11 @@
 					        <button type="submit" class="btn btn-primary btn-block"> Register  </button>
 					    </div> <!-- form-group// -->                                          
 					</form>
+					<div class="text-center">
+						<h7>Have an account ?</h7> <br>
+						<a href="{{ url_for('login') }}">Log In</a>
+					</div>
 				</article> <!-- card-body end .// -->
-				<div class="border-top card-body text-center">Have an account? <a href="">Log In</a></div>
 			</div> <!-- card.// -->
 		</div> <!-- col.//-->
 	</div> <!-- row.//-->
