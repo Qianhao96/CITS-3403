@@ -1,2 +1,5 @@
 Login page
 	- Add background image
+
+Base template
+	-Change functionality of Nav-Bar
