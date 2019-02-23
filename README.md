@@ -34,7 +34,7 @@ the purpose of the web application, explaining both the context and the social c
   - pip3 install flask 
   - pip3 install flask-sqlalchemy
   - pip3 install flask-wtf
-  - In Python shell 
+  - In Python3 shell 
     - from survey import db
     - db.create_all()
   
