@@ -33,6 +33,11 @@ the purpose of the web application, explaining both the context and the social c
 # requirment:
   - pip install flask 
   - python run survey.py
+  - pip3 install flask-sqlalchemy
+  - In Python shell 
+    - from survey import db
+    - db.create_all()
+  -pip3 install flask-wtf
 
 # Add .Ds_store to global git ignor
   - https://code.likeagirl.io/how-to-get-rid-of-ds-store-and-node-modules-in-git-repositories-d37b8a391247
@@ -43,3 +48,6 @@ the purpose of the web application, explaining both the context and the social c
   - Method and function names: lowercase_with_underscores
   - Constants: UPPERCASE_WITH_UNDERSCORES
   - precompiled regular expressions: name_re
+
+# Tutorial
+  - https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH&index=1

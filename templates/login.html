@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% block title %} {{ title }} {% endblock title %}
+
 {% block content %}
 <div class="container" id="login_form">
 	<div class="card">
@@ -7,13 +9,14 @@
 			<h4 class="card-title text-center mb-4 mt-1">Sign in</h4>
 			<hr>
 			<p class="text-success text-center">Please use your Email to login</p>
-			<form>
+			<form method="POST" action="">
+				{{ form.hidden_tag() }}
 				<div class="form-group">
 					<div class="input-group">
 						<div class="input-group-prepend">
 						    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
 						</div>
-						<input name="" class="form-control" placeholder="Email" type="email">
+						{{ form.email(class="form-control") }}
 					</div> <!-- input-group.// -->
 				</div> <!-- form-group// -->
 				<div class="form-group">
@@ -21,19 +24,58 @@
 						<div class="input-group-prepend">
 						    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 						</div>
-					    <input class="form-control" placeholder="******" type="password">
+					    {{ form.password(class="form-control") }}
 					</div> <!-- input-group.// -->
 				</div> <!-- form-group// -->
 				<div class="form-group">
-					<button type="submit" class="btn btn-primary btn-block"> Login  </button>
+					{{ form.submit(class="btn btn-primary btn-block") }}
 				</div> <!-- form-group// -->
 				<p class="text-center"><a href="#" >Forgot password ?</a></p>
 				<div class="text-center">
 					<h7>Don't Have an account ?</h7> <br>
-					<a href="{{ url_for('sign_up') }}">Sign Up</a>
+					<a href="{{ url_for('register') }}">Sign Up</a>
 				</div>
 			</form>
 		</article>
 	</div> <!-- card.// -->
 </div>
 {% endblock content %}
+
+
+
+<!-- <div class="container" id="login_form">
+	<div class="card">
+		<article class="card-body">
+			<h4 class="card-title text-center mb-4 mt-1">Sign in</h4>
+			<hr>
+			<p class="text-success text-center">Please use your Email to login</p>
+			<form method="POST" action="">
+				{{ form.hidden_tag() }}
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-prepend">
+						    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+						</div>
+						<input name="" class="form-control" placeholder="Email" type="email">
+					</div> 
+				</div> 
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-prepend">
+						    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+						</div>
+					    <input class="form-control" placeholder="******" type="password">
+					</div> 
+				</div> 
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary btn-block"> Login  </button>
+				</div> 
+				<p class="text-center"><a href="#" >Forgot password ?</a></p>
+				<div class="text-center">
+					<h7>Don't Have an account ?</h7> <br>
+					<a href="{{ url_for('register') }}">Sign Up</a>
+				</div>
+			</form>
+		</article>
+	</div> 
+</div> -->

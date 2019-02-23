@@ -1,5 +1,21 @@
 Login page
 	- Add background image
+	- Password validation
+	- Disable button after clicked
+	- flash message for login successful or not 
+
+register
+	- Password validation
+	- Email validation
+	- Disable button after clicked
+	- Add flash message after succeffuly registered or not 
 
 Base template
-	-Change functionality of Nav-Bar
+	- Change functionality of Nav-Bar
+
+Security
+	- Add crsf token and secret_key for every post forms. {{ form.hidden_tag() }}
+
+Database 
+	- Using sqlite (set up is in readme)
+	- User table (qianhao)
