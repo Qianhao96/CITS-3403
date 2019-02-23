@@ -31,13 +31,14 @@ the purpose of the web application, explaining both the context and the social c
   - Include commit logs, showing contributions and review from both contributing students
 
 # requirment:
-  - pip install flask 
-  - python run survey.py
+  - pip3 install flask 
   - pip3 install flask-sqlalchemy
+  - pip3 install flask-wtf
   - In Python shell 
     - from survey import db
     - db.create_all()
-  -pip3 install flask-wtf
+  
+
 
 # Add .Ds_store to global git ignor
   - https://code.likeagirl.io/how-to-get-rid-of-ds-store-and-node-modules-in-git-repositories-d37b8a391247
@@ -49,5 +50,5 @@ the purpose of the web application, explaining both the context and the social c
   - Constants: UPPERCASE_WITH_UNDERSCORES
   - precompiled regular expressions: name_re
 
-# Tutorial
+# Flask Tutorial
   - https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH&index=1
