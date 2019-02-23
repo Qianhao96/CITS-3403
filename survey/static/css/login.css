@@ -2,3 +2,8 @@
     margin-top: 100px;
     width: 500px;
 }
+
+.form-check{
+	text-align: -webkit-center;
+	margin-bottom: 10px
+}
