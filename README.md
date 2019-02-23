@@ -44,7 +44,7 @@ the purpose of the web application, explaining both the context and the social c
     - db.create_all()
     - check table
       - from survey.models import User
-      - user = User.query.all()
+      - User.query.all()
       - should be empty array
   
 
