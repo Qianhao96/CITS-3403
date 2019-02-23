@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% block extraCss %} 
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/register.css') }}">
+{% endblock extraCss %}
+
 {% block title %} {{ title }} {% endblock title %}
 
 {% block content %}
