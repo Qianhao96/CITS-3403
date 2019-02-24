@@ -1,9 +1,9 @@
 
-#strength {
-    width: 80%;
-    color:  beige;
+.progress {
+    font-size: 0.5em;
+    max-height: 1em;
 }
-#progress-bar {
-  margin-top: 1em;
-}
+
+
+
 
