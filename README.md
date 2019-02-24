@@ -36,6 +36,7 @@ the purpose of the web application, explaining both the context and the social c
   - pip3 install flask-wtf
   - pip3 install flask-bcrypt
   - pip3 install flask-login (used for session)
+  - pip3 install flask-mail
   - python3 run.py
 
 # database creation   
