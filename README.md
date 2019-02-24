@@ -47,7 +47,10 @@ the purpose of the web application, explaining both the context and the social c
       - from survey.models import User
       - User.query.all()
       - should be empty array
-  
+
+# email testing 
+  - in __init__.py
+  - put your email and password
 
 
 # Add .Ds_store to global git ignor
