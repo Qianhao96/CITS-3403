@@ -5,8 +5,8 @@ Login page
 	- flash message for login successful or not 
 
 register
-	- Password validation
-	- Email validation
+	- Password validation(UI done, strength caculation have some problem, but works, not very good)
+	- Email validation(怎么验证 regex， 还是网络(比如发一个连接)？？？)
 	- Disable button after clicked
 	- Add flash message after succeffuly registered or not 
 
