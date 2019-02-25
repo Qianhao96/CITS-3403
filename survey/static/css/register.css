@@ -1,9 +1,13 @@
 
 .progress {
+    position: relative;
     font-size: 0.5em;
     max-height: 1em;
+    margin-top: -1.8%;
 }
 
-
-
-
+#strength {
+    background-color: blue !important;
+    width: 0%;
+    text-align: left;
+}
