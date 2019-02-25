@@ -1,17 +1,3 @@
-var prama = {
-    containsUsername: "ops, seems like this passwork contain the username",
-    shortPWD: "The password is too short",
-    weekPWD: "Too week; combination of letters & numbers, plz",
-    mediumPWD: "OkOk; try some symbols to make it harder",
-    strongPWD: "Strong Passwork",
-    onlyChar: "add some Numbers & Symbols",
-    onlyNumber: "add some Charters & Symbols",
-    onlySymbols: "add some Charters & Numbers",
-    username: false,
-    minimumLength: 8,
-    pass: true
-};
-
 var display = false;
 
 // red orange green blue
