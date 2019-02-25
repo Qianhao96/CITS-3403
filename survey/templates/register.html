@@ -12,11 +12,11 @@
 		<div class="col-md-6">
 			<div class="card">
 				<header class="card-header">
-					<a href="{{ url_for('login') }}" class="float-right btn btn-outline-primary mt-1">Log in</a>
+					<a href="{{ url_for('users.login') }}" class="float-right btn btn-outline-primary mt-1">Log in</a>
 					<h4 class="card-title mt-2">Sign up</h4>
 				</header>
 				<article class="card-body">
-					<form method="POST" action="{{ url_for('register') }}">
+					<form method="POST" action="{{ url_for('users.register') }}">
 						{{ form.hidden_tag() }}
 						<div class="form-row">
 							<div class="col form-group">
@@ -117,7 +117,7 @@
 					</form>
 					<div class="text-center">
 						<h7>Have an account ?</h7> <br>
-						<a href="{{ url_for('login') }}">Log In</a>
+						<a href="{{ url_for('users.login') }}">Log In</a>
 					</div>
 				</article> <!-- card-body end .// -->
 			</div> <!-- card.// -->

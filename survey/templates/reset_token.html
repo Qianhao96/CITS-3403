@@ -13,7 +13,7 @@
 		<article class="card-body">
 			<h4 class="card-title text-center mb-4 mt-1">Please Enter Your New Password</h4>
 			<hr>
-			<form method="POST" action="{{ url_for('reset_token', token= token ) }}">
+			<form method="POST" action="{{ url_for('users.reset_token', token= token ) }}">
 				{{ form.hidden_tag() }}
 				<div class="form-group">
 					<div class="input-group mb-2">
