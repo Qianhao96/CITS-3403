@@ -49,7 +49,7 @@ the purpose of the web application, explaining both the context and the social c
       - should be empty array
 
 # email testing 
-  - in __init__.py
+  - in config.py
   - put your email and password
 
 
