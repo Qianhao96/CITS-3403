@@ -31,24 +31,27 @@ function passwordC() {
         }
     }
 
-    var score = 100;
-    if (PWDlength < 8) {
+    var score;
+
+    if (PWDlength < 8){
         score = 50;
+    }else{
+        score = 100;
     }
 
     if (PWDlength > 8 && PWDlength <= 13) {
-        score -= (13 - PWDlength) * 10;
-    }
-    // password has 3 numbers
-    if (password.match(/(.*[0-9].*[0-9].*[0-9])/)) {
-        score += 5;
+        score +=(13-PWDlength)*10;
     }
 
-    // password has at least 2 sybols
+    if (score > 100) {
+        score = 100;
+    }
+
+    // password has at least 1 sybols
     var symbols = '.*[!,@,#,$,%,^,&,*,?,_,~]';
-    symbols = new RegExp('(' + symbols + symbols + ')');
-    if (password.match(symbols)) {
-        score += 5;
+    symbols = new RegExp('(' + symbols + ')');
+    if (!password.match(symbols)) {
+        score -= 10;
     }
 
     // password has Upper and Lower chars
@@ -57,16 +60,12 @@ function passwordC() {
     }
 
     if (!password.match(/([A-Z])/)) {
-        score -= 10;
-    }
-
-    // password has number and chars
-    if (!password.match(/([0-9])/)) {
         score -= 15;
     }
 
-    if (score > 100) {
-        score = 100;
+    // password has number
+    if (!password.match(/([0-9])/)) {
+        score -= 15;
     }
 
     if (score < 0 || PWDlength === 0) {
