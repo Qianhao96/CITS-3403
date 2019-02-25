@@ -73,6 +73,7 @@ function passwordC() {
         score = 0;
     }
 
+    //color chosen
     if (score >= 25 && score <= 50) {
         $("#strength").css("background-color", "orange");
     }else if(score > 50 && score <= 75){
@@ -83,6 +84,7 @@ function passwordC() {
         $("#strength").css("background-color", "red");
     }
 
+    // change the width of the progress
     var percent = score.toString() + "%";
     $("#strength").css("width", percent);
     display = false;
