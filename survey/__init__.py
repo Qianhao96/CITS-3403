@@ -2,16 +2,31 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
+from flask_mail import Mail
+from survey.config import Config
 
 
-app = Flask(__name__)
-app.config['SECRET_KEY'] = '53b240c28fcb03bab6e190ecb565d0aa'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///survey.db'
-db = SQLAlchemy(app)
-bcrypt = Bcrypt(app)
-login_manager = LoginManager(app)
-login_manager.login_view = 'login'
+db = SQLAlchemy()
+bcrypt = Bcrypt()
+login_manager = LoginManager()
+login_manager.login_view = 'users.login'
 login_manager.login_message_category = 'info'
 
-from survey import routes
+mail = Mail()
+
+
+def create_app(confif_class=Config):
+	app = Flask(__name__)
+	app.config.from_object(Config)
+
+	db.init_app(app)
+	bcrypt.init_app(app)
+	login_manager.init_app(app)
+	mail.init_app(app)
+
+	from survey.users.routes import users
+	from survey.main.routes import main
+	app.register_blueprint(users)
+	app.register_blueprint(main)
+
+	return app

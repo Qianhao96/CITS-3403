@@ -36,6 +36,7 @@ the purpose of the web application, explaining both the context and the social c
   - pip3 install flask-wtf
   - pip3 install flask-bcrypt
   - pip3 install flask-login (used for session)
+  - pip3 install flask-mail
   - python3 run.py
 
 # database creation   
@@ -46,11 +47,18 @@ the purpose of the web application, explaining both the context and the social c
       - from survey.models import User
       - User.query.all()
       - should be empty array
-  
+
+# email testing 
+  - in config.py
+  - put your email and password
 
 
 # Add .Ds_store to global git ignor
   - https://code.likeagirl.io/how-to-get-rid-of-ds-store-and-node-modules-in-git-repositories-d37b8a391247
+
+# Github 
+  - git reset --hard origin/<branch_name>
+  - 同步github上的branch， 会删除所有local change
 
 # Naming Conventions
   - Class names: CamelCase, with acronyms kept uppercase (HTTPWriter and not HttpWriter)

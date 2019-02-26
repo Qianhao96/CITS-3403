@@ -3,7 +3,6 @@ from wtforms import StringField, PasswordField, RadioField, SubmitField, Boolean
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from survey.models import User
 
-
 class RegistrationForm(FlaskForm):
 	firstname = StringField('Firstname',
 		validators=[DataRequired(), Length(min=2, max=20)])
@@ -33,3 +32,19 @@ class LoginForm(FlaskForm):
 	password = PasswordField('Password', validators=[DataRequired()])
 	remember = BooleanField('Remember Me')
 	submit = SubmitField('Login')
+
+
+class RequestResetFrom(FlaskForm):
+	email = StringField('Email', validators=[DataRequired(), Email()])
+	submit = SubmitField('Request Password Reset')
+
+	def validate_email(self, email):
+		user = User.query.filter_by(email=email.data).first()
+		if user is None:
+			raise ValidationError('There is no account with taht email. You must register first')
+
+
+class ResetPasswordFrom(FlaskForm):
+	password = PasswordField('Password', validators=[DataRequired()])
+	confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
+	submit = SubmitField('Reset Password')
