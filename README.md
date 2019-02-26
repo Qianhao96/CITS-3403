@@ -69,3 +69,6 @@ the purpose of the web application, explaining both the context and the social c
 
 # Flask Tutorial
   - https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH&index=1
+
+# Project structure 
+  - In Web structure folder
