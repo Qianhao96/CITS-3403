@@ -1,23 +1,15 @@
 var display = false;
+var PWDlength;
+var password;
+var score;
 
 // red orange green blue
 function passwordC() {
     "use strict";
-    var username = $('#firstname').val() + $('#lastname').val();
-    var password = $("#password").val();
-    var PWDlength = password.length;
-    // password === username
-    if (username) {
-        if (password.toLowerCase().equals(username.toLowerCase())) {
-            score = 0;
-        }
-        var user = new RegExp(username.toLowerCase());
-        if (password.toLowerCase().match(user)) {
-            score = 0;
-        }
-    }
+    password = $("#password").val();
+    PWDlength = password.length;
 
-    var score = 50;
+    score = 50;
 
     if (PWDlength < 7) {
         if (!display) {
@@ -56,7 +48,7 @@ function passwordC() {
         if (!display) {
             $("#strength").html("Add some Upper case characters to make it stronger");
         }
-         display = true;
+        display = true;
         score -= 15;
     }
 
@@ -74,16 +66,16 @@ function passwordC() {
     }
     //color chosen
     if (score >= 25 && score <= 50) {
-        $("#submit").prop("disabled",true);
+        $("#submit").prop("disabled", true);
         $("#strength").css("background-color", "orange");
-    }else if(score > 50 && score <= 75){
-        $("#submit").prop("disabled",false);
+    } else if (score > 50 && score <= 75) {
+        $("#submit").prop("disabled", false);
         $("#strength").css("background-color", "green");
-    }else if (score > 75){
-        $("#submit").prop("disabled",false);
+    } else if (score > 75) {
+        $("#submit").prop("disabled", false);
         $("#strength").css("background-color", "blue");
-    }else{
-        $("#submit").prop("disabled",true);
+    } else {
+        $("#submit").prop("disabled", true);
         $("#strength").css("background-color", "red");
     }
 
@@ -95,7 +87,7 @@ function passwordC() {
 
 jQuery((document)).ready(function () {
     "use strict";
-    $("#submit").prop("disabled",true);
+    $("#submit").prop("disabled", true);
     $("#password").keydown(function () {
         passwordC();
     });
