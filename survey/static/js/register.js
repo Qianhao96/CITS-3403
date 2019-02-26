@@ -9,11 +9,11 @@ function passwordC() {
     // password === username
     if (username) {
         if (password.toLowerCase().equals(username.toLowerCase())) {
-            return 0;
+            score = 0;
         }
         var user = new RegExp(username.toLowerCase());
         if (password.toLowerCase().match(user)) {
-            return 0;
+            score = 0;
         }
     }
 
@@ -95,6 +95,7 @@ function passwordC() {
 
 jQuery((document)).ready(function () {
     "use strict";
+    $("#submit").prop("disabled",true);
     $("#password").keydown(function () {
         passwordC();
     });
