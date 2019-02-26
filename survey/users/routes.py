@@ -1,10 +1,9 @@
 from flask import render_template, url_for, redirect, request, flash, Blueprint
 from survey import db, bcrypt
-from survey.users.forms import RegistrationForm, LoginForm, RequestResetFrom, ResetPasswordFrom
+from survey.users.forms import RegistrationForm, LoginForm, RequestResetFrom, ResetPasswordFrom, accountResetPasswordForm
 from survey.models import User
 from flask_login import login_user, current_user, logout_user, login_required
 from survey.users.utils import send_reset_email
-
 
 users = Blueprint('users', __name__)
 
@@ -51,17 +50,10 @@ def logout():
 	return redirect(url_for('main.index'))
 
 
-@users.route("/account")
-# login_required makes this rout only can be accessed by an authenticated user
-@login_required 
-def account():
-	return render_template('account.html')
-
-
 @users.route("/reset_password", methods=['GET', 'POST'])
 def reset_request():
 	if current_user.is_authenticated:
-		return redirect(url_for('index'))
+		return redirect(url_for('main.index'))
 	form = RequestResetFrom()
 	if form.validate_on_submit():
 		user = User.query.filter_by(email=form.email.data).first()
@@ -88,3 +80,28 @@ def reset_token(token):
 		flash('Your password has been updated! You are now able to login', 'success')
 		return redirect(url_for('users.login'))
 	return render_template('reset_token.html', title='Reset Password', form=form, token=token)
+
+
+def load_users():
+    if current_user.is_authenticated():
+        return current_user.get_id() # return username in get_id()
+    else:
+        return None
+
+
+@users.route("/account_reset_password", methods=['GET', 'POST'])
+@login_required
+def account_reset_password():
+    form = accountResetPasswordForm()
+    if not current_user.is_authenticated:
+        return redirect(url_for('users.login'))
+    if form.validate_on_submit():
+        if bcrypt.check_password_hash(current_user.password, form.odd_password.data):
+            hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+            current_user.password = hashed_password
+            db.session.commit()
+            flash('Your password has been updated.')
+            return redirect(url_for('users.login'))
+        else:
+            flash('Invalid password.')
+    return render_template('account.html', form=form)

@@ -1,0 +1,15 @@
+.row {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 8%;
+    padding: 20px;
+    cursor: default;
+    background: #fff url(http://tympanus.net/Tutorials/OriginalHoverEffects/images/bgimg.jpg) repeat;
+    -webkit-box-shadow: 0 5px 10px #666;
+    -moz-box-shadow: 0 5px 10px #666;
+    box-shadow: 0 5px 10px #666;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+}

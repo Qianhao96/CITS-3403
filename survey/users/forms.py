@@ -2,6 +2,9 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, RadioField, SubmitField, BooleanField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from survey.models import User
+from flask_login import current_user
+from survey import bcrypt
+from flask import flash
 
 class RegistrationForm(FlaskForm):
 	firstname = StringField('Firstname',
@@ -48,3 +51,11 @@ class ResetPasswordFrom(FlaskForm):
 	password = PasswordField('Password', validators=[DataRequired()])
 	confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
 	submit = SubmitField('Reset Password')
+
+
+class accountResetPasswordForm(FlaskForm):
+
+    odd_password = PasswordField('Odd Password', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password', message='Passwords must match')])
+    reset_password= SubmitField('Reset Password')
