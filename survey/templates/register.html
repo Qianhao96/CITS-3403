@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block extraCss %} 
+{% block extraCss %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/register.css') }}">
 {% endblock extraCss %}
 
@@ -97,6 +97,9 @@
 							{% else %}	
 								{{ form.password(class="form-control") }}
 							{% endif %}
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" id="strength" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Set up your password</div>
+                            </div>
 						</div> <!-- form-group end.// -->  
 						<div class="form-group">
 							{{ form.confirm_password.label() }}
@@ -124,5 +127,6 @@
 		</div> <!-- col.//-->
 	</div> <!-- row.//-->
 </div> 
+>>>>>>> master
 {% endblock content %}
-{% block extraScript %} <script type="text/javascript" src="{{url_for('static', filename='js/register.js')}}" ></script> {% endblock extraScript %}
+{% block extraScript %} <script type="text/javascript" src="{{url_for('static', filename='js/register.js')}}"></script> {% endblock extraScript %}
