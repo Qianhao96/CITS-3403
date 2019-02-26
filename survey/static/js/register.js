@@ -72,15 +72,18 @@ function passwordC() {
     if (score < 0 || PWDlength === 0) {
         score = 0;
     }
-
     //color chosen
     if (score >= 25 && score <= 50) {
+        $("#submit").prop("disabled",true);
         $("#strength").css("background-color", "orange");
     }else if(score > 50 && score <= 75){
+        $("#submit").prop("disabled",false);
         $("#strength").css("background-color", "green");
     }else if (score > 75){
+        $("#submit").prop("disabled",false);
         $("#strength").css("background-color", "blue");
     }else{
+        $("#submit").prop("disabled",true);
         $("#strength").css("background-color", "red");
     }
 
@@ -92,7 +95,7 @@ function passwordC() {
 
 jQuery((document)).ready(function () {
     "use strict";
-    $("#password").keypress(function () {
+    $("#password").keydown(function () {
         passwordC();
     });
 });
