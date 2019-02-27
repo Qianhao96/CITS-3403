@@ -13,3 +13,11 @@
     -o-border-radius: 5px;
     border-radius: 5px;
 }
+.reset_password{
+    position: relative;
+    right: 30%;
+}
+
+#account_table {
+    width: 100%;
+}

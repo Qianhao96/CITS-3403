@@ -100,8 +100,9 @@ def account_reset_password():
             hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
             current_user.password = hashed_password
             db.session.commit()
-            flash('Your password has been updated.')
+            flash('Your password has been updated.', 'success')
+            logout_user()
             return redirect(url_for('users.login'))
         else:
-            flash('Invalid password.')
+            flash('Invalid password.',"danger")
     return render_template('account.html', form=form)

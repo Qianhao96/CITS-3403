@@ -8,20 +8,48 @@
 
 {% block content %}
 <div class="text-secondary">User Name</div>
-<div class="row bg-dark">
+<div class="row">
     <div class="col-3">
         <div class="nav flex-column" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Dashboard</a>
-            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">My Polls</a>
-            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Edit Account</a>
-            <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Change Password</a>
+            <a class="nav-link active" id="Dashboard_tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Dashboard</a>
+            <a class="nav-link" id="polls_tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">My Polls</a>
+            <a class="nav-link" id="edit_account_tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Edit Account</a>
+            <a class="nav-link" id="change_password_tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Change Password</a>
         </div>
     </div>
     <div class="col-9 border border-secondary">
         <div class="tab-content " id="v-pills-tabContent">
-            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"></div>
-            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">2</div>
-            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">3</div>
+            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">info</div>
+            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                <!-- table strat.// -->
+                <table class="table table-sm" id="account_table">
+                    <thread>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Polls</th>
+                            <th scope="col">Progress</th>
+                            <th scope="col">Submission Data</th>
+                        </tr>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Example1</td>
+                                <td>Success</td>
+                                <td>01/01/1807</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Example2</td>
+                                <td>In Progress</td>
+                                <td>01/02/1807</td>
+                            </tr>
+                        </tbody>
+                    </thread>
+                </table>
+                <!-- table end.// -->
+            </div>
+            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">3
+            </div>
             <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
                 <form method="POST" action="">
                     {{ form.hidden_tag() }}
@@ -76,3 +104,4 @@
     </div>
 </div>
 {% endblock content %}
+{% block extraScript %} <script type="text/javascript" src="{{url_for('static', filename='js/account.js')}}"></script> {% endblock extraScript %}
