@@ -36,14 +36,17 @@ the purpose of the web application, explaining both the context and the social c
   - pip3 install flask-wtf
   - pip3 install flask-bcrypt
   - pip3 install flask-login (used for session)
+  - pip3 install flask-admin
   - pip3 install flask-mail
   - python3 run.py
 
-# database creation   
+# database creation (New way after restructure) 
   - In Python3 shell 
-    - from survey.models import db
-    - db.create_all()
-    - check table
+    >>> from survey import create_app
+    >>> app = create_app()
+    >>> app.app_context().push()
+    >>> from survey.models import db
+    >>> db.create_all()
       - from survey.models import User
       - User.query.all()
       - should be empty array
