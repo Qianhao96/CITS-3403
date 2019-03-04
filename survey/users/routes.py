@@ -82,13 +82,6 @@ def reset_token(token):
 	return render_template('reset_token.html', title='Reset Password', form=form, token=token)
 
 
-def load_users():
-    if current_user.is_authenticated():
-        return current_user.get_id() # return username in get_id()
-    else:
-        return None
-
-
 @users.route("/account_reset_password", methods=['GET', 'POST'])
 @login_required
 def account_reset_password():
@@ -102,18 +95,27 @@ def account_reset_password():
         flash('Your password has been updated.', 'success')
         logout()
         return redirect(url_for('users.login'))
-    return render_template('account.html', form=form)
+    return render_template('reset_password.html', form=form)
 
 
-def save_picture(form_picture):
-    random_hex = secrets.token_hex(8)
-    _, f_ext = os.path.splitext(form_picture.filename)
-    picture_fn = random_hex + f_ext
-    picture_path = os.path.join(app.root_path, 'static/profile_pics', picture_fn)
+@users.route("/my_account", methods=['GET', 'POST'])
+@login_required
+def my_account():
+    if not current_user.is_authenticated:
+        return redirect(url_for('users.login'))
+    return render_template('account.html')
 
-    output_size = (125, 125)
-    i = Image.open(form_picture)
-    i.thumbnail(output_size)
-    i.save(picture_path)
 
-    return picture_fn
+@users.route("/change_info", methods=['GET', 'POST'])
+@login_required
+def change_info():
+    firstname = request.form['info_firstname']
+    lastname = request.form['info_lastname']
+    email = request.form['info_email']
+
+    current_user.firstname = firstname
+    current_user.lastname = lastname
+    current_user.email = email
+    db.session.commit()
+
+    return redirect(url_for('users.my_account'))
