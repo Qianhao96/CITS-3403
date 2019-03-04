@@ -1,3 +1,97 @@
 {% extends 'base.html' %}
 
+{% block extraCss %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/account.css') }}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% endblock extraCss %}
+
 {% block title %} {{ current_user.firstname }} {% endblock title %}
+{% block content %}
+<div class="content-section" id="test">
+    <div class="row" id="row">
+        <div class="col-md-3">
+            <div class="nav flex-column" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a class="nav-link active" id="Dashboard_tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Dashboard</a>
+                <a class="nav-link" id="polls_tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">My Polls</a>
+                <a class="nav-link" id="edit_account_tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Edit Account</a>
+                <a class="nav-link" id="change_password_tab" href="{{ url_for('users.account_reset_password') }}">Change Password</a>
+            </div>
+        </div>
+        <div class="col-md-9 border border-secondary">
+            <div class="tab-content " id="v-pills-tabContent">
+                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                    <div class="card mt-5 mb-5" id="card" style="width: 50%;">
+                        <div class="card-header">
+                            Featured
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">First Name: {{ current_user.firstname }}</li>
+                            <li class="list-group-item">First Name: {{ current_user.lastname }}</li>
+                            <li class="list-group-item">Email: {{ current_user.email }}</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                    <!-- table strat.// -->
+                    <table class="table table-lg" id="account_table">
+                        <thread>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Polls</th>
+                                <th scope="col">Progress</th>
+                                <th scope="col">Submission Data</th>
+                            </tr>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Example1</td>
+                                    <td>Success</td>
+                                    <td>01/01/1807</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Example2</td>
+                                    <td>In Progress</td>
+                                    <td>01/02/1807</td>
+                                </tr>
+                            </tbody>
+                        </thread>
+                    </table>
+                    <!-- table end.// -->
+                </div>
+                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                    <form method="POST" id="info_form" action="/change_info">
+                        <div class="form-row">
+                            <div class="col form-group">
+                                <label for="info_firstname">Firstname</label>
+
+                                <input class="form-control" id="info_firstname" name="info_firstname" required type="text" value="">
+
+                            </div> <!-- form-group end.// -->
+                            <div class="col form-group">
+                                <label for="info_lastname">Lastname</label>
+
+                                <input class="form-control" id="info_lastname" name="info_lastname" required type="text" value="">
+
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-row end.// -->
+
+                        <div class="form-group">
+                            <label for="info_email">Email</label>
+
+                            <input class="form-control" id="info_email" name="info_email" required type="email" value="">
+
+                            <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div> <!-- form-group end.// -->
+
+                        <div class="form-group">
+                            <input class="btn btn-primary btn-block" id="info_submit" name="info_submit" type="submit" value="Change Info">
+                        </div> <!-- form-group// -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+{% block extraScript %} <script type="text/javascript" src="{{url_for('static', filename='js/account.js')}}"></script> {% endblock extraScript %}

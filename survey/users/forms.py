@@ -1,7 +1,11 @@
+import os
+import secrets
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, RadioField, SubmitField, BooleanField
+from wtforms import StringField, PasswordField, RadioField, SubmitField, BooleanField, TextField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from survey.models import User
+from flask_login import current_user
+from survey import bcrypt
 
 class RegistrationForm(FlaskForm):
 	firstname = StringField('Firstname',
@@ -48,3 +52,16 @@ class ResetPasswordFrom(FlaskForm):
 	password = PasswordField('Password', validators=[DataRequired()])
 	confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
 	submit = SubmitField('Reset Password')
+
+
+class accountResetPasswordForm(FlaskForm):
+    #update password section
+    odd_password = PasswordField('Odd Password', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password', message='Passwords must match')])
+    reset_password= SubmitField('Reset Password')
+
+    def validate_odd_password(self, odd_password):
+        PWD = User.query.filter_by(email=current_user.email).first()
+        if  not bcrypt.check_password_hash(PWD.password, odd_password.data):
+            raise ValidationError('Pasword Incorrect')
