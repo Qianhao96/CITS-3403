@@ -6,7 +6,7 @@ Login page
 
 register
 	- Password validation(UI done, strength caculation have some problem, but works, not very good)
-	- Email validation(怎么验证 regex， 还是网络(比如发一个连接)？？？)
+	- Email validation 
 	- Disable button after clicked
 	- Add flash message after succeffuly registered or not 
 
@@ -19,3 +19,11 @@ Security
 Database 
 	- Using sqlite (set up is in readme)
 	- User table (qianhao)
+
+reset password
+	- strength on reset password using email process
+	- strength on reset password using password process
+	- new passowrd is different to onld password
+
+account page
+	- UI Beautify
