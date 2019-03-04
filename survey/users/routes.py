@@ -96,13 +96,24 @@ def account_reset_password():
     if not current_user.is_authenticated:
         return redirect(url_for('users.login'))
     if form.validate_on_submit():
-        if bcrypt.check_password_hash(current_user.password, form.odd_password.data):
-            hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-            current_user.password = hashed_password
-            db.session.commit()
-            flash('Your password has been updated.', 'success')
-            logout_user()
-            return redirect(url_for('users.login'))
-        else:
-            flash('Invalid password.',"danger")
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        current_user.password = hashed_password
+        db.session.commit()
+        flash('Your password has been updated.', 'success')
+        logout()
+        return redirect(url_for('users.login'))
     return render_template('account.html', form=form)
+
+
+def save_picture(form_picture):
+    random_hex = secrets.token_hex(8)
+    _, f_ext = os.path.splitext(form_picture.filename)
+    picture_fn = random_hex + f_ext
+    picture_path = os.path.join(app.root_path, 'static/profile_pics', picture_fn)
+
+    output_size = (125, 125)
+    i = Image.open(form_picture)
+    i.thumbnail(output_size)
+    i.save(picture_path)
+
+    return picture_fn

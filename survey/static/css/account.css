@@ -1,8 +1,9 @@
-.row {
+#row {
     width: 70%;
-    margin: 0 auto;
+    position: relative;
+    margin-left: 15%;
     margin-top: 8%;
-    padding: 20px;
+    padding: 10px;
     cursor: default;
     background: #fff url(http://tympanus.net/Tutorials/OriginalHoverEffects/images/bgimg.jpg) repeat;
     -webkit-box-shadow: 0 5px 10px #666;
@@ -13,11 +14,14 @@
     -o-border-radius: 5px;
     border-radius: 5px;
 }
-.reset_password{
-    position: relative;
-    right: 30%;
-}
+
 
 #account_table {
     width: 100%;
+}
+
+
+#reset_password{
+    position: relative;
+    left: 31%;
 }
