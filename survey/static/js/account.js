@@ -20,6 +20,3 @@ jQuery((document)).ready(function () {
         //TODO
     });
 });
-
-//AJAX function
-

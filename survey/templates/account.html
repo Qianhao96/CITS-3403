@@ -7,26 +7,30 @@
 
 {% block title %} {{ current_user.firstname }} {% endblock title %}
 {% block content %}
-<div class="content-section">
-    <div class="media">
-        <img class="rounded-circle account-img" src="{{ image_file }}">
-        <div class="media-body">
-            <h2 class="account-heading">{{ current_user.firstname + current_user.lastname }}</h2>
-            <p class="text-secondary">{{ current_user.email }}</p>
-        </div>
-    </div>
-    <div class="row" id = "row">
+<div class="content-section" id="test">
+    <div class="row" id="row">
         <div class="col-md-3">
             <div class="nav flex-column" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                <a class="nav-link active" id="Dashboard_tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">{{ form.dashboard.label() }}</a>
-                <a class="nav-link" id="polls_tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">{{ form.myPolls.label() }}</a>
-                <a class="nav-link" id="edit_account_tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">{{ form.editAccount.label() }}</a>
-                <a class="nav-link" id="change_password_tab" data-toggle="pill" href="#v-pills-password" role="tab" aria-controls="v-pills-password" aria-selected="false">{{ form.changePassword.label() }}</a>
+                <a class="nav-link active" id="Dashboard_tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Dashboard</a>
+                <a class="nav-link" id="polls_tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">My Polls</a>
+                <a class="nav-link" id="edit_account_tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Edit Account</a>
+                <a class="nav-link" id="change_password_tab" href="{{ url_for('users.account_reset_password') }}">Change Password</a>
             </div>
         </div>
         <div class="col-md-9 border border-secondary">
             <div class="tab-content " id="v-pills-tabContent">
-                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">info</div>
+                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                    <div class="card mt-5 mb-5" id="card" style="width: 50%;">
+                        <div class="card-header">
+                            Featured
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">First Name: {{ current_user.firstname }}</li>
+                            <li class="list-group-item">First Name: {{ current_user.lastname }}</li>
+                            <li class="list-group-item">Email: {{ current_user.email }}</li>
+                        </ul>
+                    </div>
+                </div>
                 <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                     <!-- table strat.// -->
                     <table class="table table-lg" id="account_table">
@@ -55,55 +59,33 @@
                     </table>
                     <!-- table end.// -->
                 </div>
-                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">3
-                </div>
-                <div class="tab-pane fade" id="v-pills-password" role="tabpanel" aria-labelledby="v-pills-password-tab">
-                    <form method="POST" action="">
-                        {{ form.hidden_tag() }}
-                        <div class="col form-group">
-                            {{ form.odd_password.label() }}
-                            {% if form.odd_password.errors %}
-                            {{ form.odd_password(class="form-control is-invalid") }}
-                            <div class="invalid-feedback">
-                                {% for error in form.odd_password.errors %}
-                                <span>{{ error }}</span>
-                                {% endfor %}
-                            </div>
-                            {% else %}
-                            {{ form.odd_password(class="form-control") }}
-                            {% endif %}
+                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                    <form method="POST" id="info_form" action="/change_info">
+                        <div class="form-row">
+                            <div class="col form-group">
+                                <label for="info_firstname">Firstname</label>
 
-                        </div> <!-- form-group end.// -->
+                                <input class="form-control" id="info_firstname" name="info_firstname" required type="text" value="">
 
-                        <div class="col form-group">
-                            {{ form.password.label() }}
-                            {% if form.password.errors %}
-                            {{ form.password(class="form-control is-invalid") }}
-                            <div class="invalid-feedback">
-                                {% for error in form.password.errors %}
-                                <span>{{ error }}</span>
-                                {% endfor %}
-                            </div>
-                            {% else %}
-                            {{ form.password(class="form-control") }}
-                            {% endif %}
-                        </div> <!-- form-group end.// -->
+                            </div> <!-- form-group end.// -->
+                            <div class="col form-group">
+                                <label for="info_lastname">Lastname</label>
 
-                        <div class="col form-group">
-                            {{ form.confirm_password.label() }}
-                            {% if form.confirm_password.errors %}
-                            {{ form.confirm_password(class="form-control is-invalid") }}
-                            <div class="invalid-feedback">
-                                {% for error in form.confirm_password.errors %}
-                                <span>{{ error }}</span>
-                                {% endfor %}
-                            </div>
-                            {% else %}
-                            {{ form.confirm_password(class="form-control") }}
-                            {% endif %}
-                        </div> <!-- form-group end.// -->
+                                <input class="form-control" id="info_lastname" name="info_lastname" required type="text" value="">
+
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-row end.// -->
+
                         <div class="form-group">
-                            {{ form.reset_password(class="btn btn-outline-secondary btn-lg") }}
+                            <label for="info_email">Email</label>
+
+                            <input class="form-control" id="info_email" name="info_email" required type="email" value="">
+
+                            <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div> <!-- form-group end.// -->
+
+                        <div class="form-group">
+                            <input class="btn btn-primary btn-block" id="info_submit" name="info_submit" type="submit" value="Change Info">
                         </div> <!-- form-group// -->
                     </form>
                 </div>
