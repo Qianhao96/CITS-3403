@@ -9,9 +9,12 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Email, ValidationError
 
+
 class MyModelView(ModelView):
 	def is_accessible(self):
-		return current_user.is_authenticated
+		if current_user.is_active:
+			if current_user.is_admin:
+				return current_user.is_authenticated
 
 
 	def inaccessible_callback(self, name, **kwargs):
@@ -21,7 +24,11 @@ class MyModelView(ModelView):
 class MyLoginView(BaseView):
 
 	def is_accessible(self):
-		return not current_user.is_authenticated
+		if current_user.is_active:
+			if current_user.is_admin:
+				return not current_user.is_authenticated
+		else:
+			return not current_user.is_authenticated
 
 	@expose('/', methods=['POST', 'GET'])
 	def index(self):
@@ -40,7 +47,9 @@ class MyLoginView(BaseView):
 
 class MyLogoutView(BaseView):
 	def is_accessible(self):
-		return current_user.is_authenticated
+		if current_user.is_active:
+			if current_user.is_admin:
+				return current_user.is_authenticated
 	
 	@expose('/')
 	def index(self):
