@@ -6,7 +6,6 @@ from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationE
 from survey.models import User
 from flask_login import current_user
 from survey import bcrypt
-from flask import flash, url_for
 
 class RegistrationForm(FlaskForm):
 	firstname = StringField('Firstname',
@@ -56,12 +55,6 @@ class ResetPasswordFrom(FlaskForm):
 
 
 class accountResetPasswordForm(FlaskForm):
-    ##set up the page
-    dashboard = TextField('Dashboard')
-    myPolls = TextField('My Polls')
-    editAccount = TextField('Edit Account')
-    changePassword = TextField('Change Password')
-
     #update password section
     odd_password = PasswordField('Odd Password', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
