@@ -17,6 +17,9 @@ function build_table(){
 
 jQuery((document)).ready(function () {
     $('#polls_tab').on('click', function (e) {
-        alert("this is an expernment");
+        //TODO
     });
 });
+
+//AJAX function
+
