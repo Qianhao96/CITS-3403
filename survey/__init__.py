@@ -27,7 +27,7 @@ def create_app(confif_class=Config):
 	admin.init_app(app)
 	admin.add_view(MyModelView(User, db.session))
 	admin.add_view(MyLoginView(name='Login', endpoint='login'))
-	admin.add_view(MyLogoutView(name='Logout'))
+	admin.add_view(MyLogoutView(name='Logout', endpoint='logout'))
 
 	db.init_app(app)
 	bcrypt.init_app(app)
