@@ -88,7 +88,7 @@ def account_reset_password():
     form = accountResetPasswordForm()
     if not current_user.is_authenticated:
         return redirect(url_for('users.login'))
-    if form.validate_on_submit():
+2    if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
         current_user.password = hashed_password
         db.session.commit()
