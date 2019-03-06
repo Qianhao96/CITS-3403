@@ -36,7 +36,7 @@ class User(db.Model, UserMixin):
 
 
 	def __repr__(self):
-		return f"User('{self.firstname}', '{self.lastname}', '{self.email}')"
+		return f"User('{self.firstname}', '{self.lastname}','{self.gender}', '{self.email}')"
 
 
 class Category(db.Model):
@@ -58,7 +58,7 @@ class Pool(db.Model):
 
 
 	def __repr__(self):
- 		return f"Category('{self.name}', '{self.rank}')"
+ 		return f"Pool('{self.name}', '{self.rank}')"
 
 
 class Response(db.Model):

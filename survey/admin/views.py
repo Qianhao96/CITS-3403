@@ -22,7 +22,6 @@ class MyModelView(ModelView):
 
 
 class MyLoginView(BaseView):
-
 	def is_accessible(self):
 		if current_user.is_active:
 			if current_user.is_admin:
