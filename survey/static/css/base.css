@@ -1,9 +1,8 @@
-body{ 
-	background-image:url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg"); 
+body {
+	background-image: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 225, 1)),url('../image/general/tree.jpg');
+	background-position: left, ;
 }
 
-#alert_message{
+#alert_message {
 	text-align: -webkit-center;
 }
-
-
