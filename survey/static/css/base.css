@@ -1,5 +1,5 @@
-body{ 
-	background-image:url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg"); 
+body {
+	background: linear-gradient(to right, rgb(148, 175, 255), rgb(233, 186, 12)); /* Standard syntax */
 }
 
 #alert_message{
