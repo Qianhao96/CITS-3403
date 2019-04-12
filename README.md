@@ -30,7 +30,7 @@ the purpose of the web application, explaining both the context and the social c
   - describe some unit tests for the web application, and how to run them.
   - Include commit logs, showing contributions and review from both contributing students
 
-# requirment:
+# How to run and requirment:
   - pip3 install flask 
   - pip3 install flask-sqlalchemy
   - pip3 install flask-wtf
@@ -38,9 +38,11 @@ the purpose of the web application, explaining both the context and the social c
   - pip3 install flask-login (used for session)
   - pip3 install flask-admin
   - pip3 install flask-mail
+  - If still having problem please install all dependency from requirment.txt
   - python3 run.py
 
 # database creation (New way after restructure) 
+  - sqlite3
   - In Python3 shell 
     - from survey import create_app
     - app = create_app()
@@ -62,6 +64,8 @@ the purpose of the web application, explaining both the context and the social c
 # Github 
   - git reset --hard origin/<branch_name>
   - 同步github上的branch， 会删除所有local change
+  - git add -u :/ (只会 add 已经track的 file)
+  - git push <remote_name> --delete <branch_name> (Delete remote branch)
 
 # Naming Conventions
   - Class names: CamelCase, with acronyms kept uppercase (HTTPWriter and not HttpWriter)
