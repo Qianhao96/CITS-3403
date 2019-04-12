@@ -111,3 +111,9 @@ def my_account():
 		current_user.email = emails
 		db.session.commit()
 	return render_template('account.html', form = form)
+
+
+@users.route("/polls")
+def polls():
+	##form = pollsForm()
+	return render_template('polls.html', title='Polls')
