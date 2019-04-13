@@ -66,6 +66,7 @@ the purpose of the web application, explaining both the context and the social c
   - 同步github上的branch， 会删除所有local change
   - git add -u :/ (只会 add 已经track的 file)
   - git push <remote_name> --delete <branch_name> (Delete remote branch)
+  - git clone --single-branch --branch <branchname> host:/dir.git
 
 # Naming Conventions
   - Class names: CamelCase, with acronyms kept uppercase (HTTPWriter and not HttpWriter)
