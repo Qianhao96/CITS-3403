@@ -55,13 +55,30 @@ class ResetPasswordFrom(FlaskForm):
 
 
 class accountResetPasswordForm(FlaskForm):
-    #update password section
-    odd_password = PasswordField('Odd Password', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password', message='Passwords must match')])
-    reset_password= SubmitField('Reset Password')
+	old_password = PasswordField('Old Password', validators=[DataRequired()])
+	password = PasswordField('Password', validators=[DataRequired()])
+	confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password', message='Passwords must match')])
+	reset_password= SubmitField('Reset Password')
 
-    def validate_odd_password(self, odd_password):
-        PWD = User.query.filter_by(email=current_user.email).first()
-        if  not bcrypt.check_password_hash(PWD.password, odd_password.data):
-            raise ValidationError('Pasword Incorrect')
+	def validate_old_password(self, old_password):
+		PWD = User.query.filter_by(email=current_user.email).first()
+		if not bcrypt.check_password_hash(PWD.password, old_password.data):
+			raise ValidationError('Pasword Incorrect')
+
+class accountForm(FlaskForm):
+	new_firstname = StringField('First Name', validators=[DataRequired()])
+	new_lasttname = StringField('Lirst Name', validators=[DataRequired()])
+	new_email = StringField('Email', validators=[DataRequired(), Email()])
+	change_info= SubmitField('Change Info')
+
+	def validate_new_firstname(self, new_firstname):
+		user = User.query.filter_by(firstname=new_firstname.data).first()
+		if user:
+			raise ValidationError('That first name is taken. Please choose a different one')
+
+	def validate_new_email(self, new_email):
+		user = User.query.filter_by(email=new_email.data).first()
+		if user:
+			raise ValidationError('That email is taken. Please choose a different one')
+
+

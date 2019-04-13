@@ -1,26 +1,112 @@
 #row {
-    width: 70%;
-    position: relative;
-    margin-left: 15%;
-    margin-top: 8%;
-    padding: 10px;
-    cursor: default;
-    background: #fff url(http://tympanus.net/Tutorials/OriginalHoverEffects/images/bgimg.jpg) repeat;
-    -webkit-box-shadow: 0 5px 10px #666;
-    -moz-box-shadow: 0 5px 10px #666;
-    box-shadow: 0 5px 10px #666;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -o-border-radius: 5px;
-    border-radius: 5px;
+	min-width: 230px;
+	min-height: 200px;
+	width: 70%;
+	position: relative;
+	margin: 0 auto;
+	margin-top: 10%;
+	cursor: default;
+	box-shadow: 0 5px 10px #666;
+	border-radius: 5px;
 }
 
+#col-md-3 {
+	padding: 0px;
+	background-color: #233142;
+}
 
-#account_table {
-    width: 100%;
+#col-md-9 {
+	background-color: #f6f5f5;
+	padding: 10px;
+}
+
+@media only screen and (max-width: 535px) {
+	#row {
+		width: 95%;
+		padding: 1px;
+	}
+}
+
+@media only screen and (max-width:275px) {
+
+	#card_featured,
+	#card_firstname,
+	#card_lastname,
+	#card_email {
+		padding: 1px;
+	}
 }
 
 #card {
-    position: relative;
-    left: 25%;
+	position: relative;
+}
+
+.res_table {
+	margin: 1em 0;
+	color: black;
+	border-radius: 0.4em;
+	overflow: hidden;
+	width: 100%;
+	border-color: #46637f
+}
+
+.res_table th,
+.res_table td:before {
+	color: #007bff;
+}
+
+@media only screen and (max-width: 390px) {
+
+	table,
+	thead,
+	tbody,
+	th,
+	td,
+	tr {
+		display: block;
+	}
+
+	thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+	tr {
+		border: 1px solid #ccc;
+	}
+
+	td {
+		border: none;
+		border-bottom: 1px solid #eee;
+		position: relative;
+	}
+
+	td:before {
+		content: attr(data-th) ":  ";
+		font-weight: bold;
+		display: inline-block;
+		width: 6.5em;
+	}
+
+	td:nth-of-type(1):before {
+		content: "#";
+	}
+
+	td:nth-of-type(2):before {
+		content: "Polls";
+	}
+
+	td:nth-of-type(3):before {
+		content: "Progress";
+	}
+
+	td:nth-of-type(4):before {
+		content: "Due Date";
+	}
+}
+
+.res_table th,
+.rwd-table td {
+	text-align: left;
 }

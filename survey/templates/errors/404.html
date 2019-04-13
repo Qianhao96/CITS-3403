@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block extraCss %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/404.css') }}">
+{% endblock extraCss %}
+
+{% block title %} {{ 404 }} {% endblock title %}
+{% block content %}
+<div class="page">
+	<div class="error">
+		<h1 class="header">
+			<a href="/" class="logo">
+				<img src="../../static/image/general/Octocat_4.png" srcset="../../static/image/general/Octocat_4.png 2x" alt="Octocat">
+			</a>
+			-
+			<img src="../../static/image/general/4.png" srcset="../../static/image/general/4.png 10x" alt="Is 4">
+			<img src="../../static/image/general/0.png" srcset="../../static/image/general/0.png 10x" alt="Is 4">
+			<img src="../../static/image/general/4.png" srcset="../../static/image/general/4.png 10x" alt="Is 4">
+		</h1>
+		<div class="content">
+			<p>
+				<strong>Polls of unknow, opps! <br> Detected 404 <br> That’s all we find ....? </strong>
+			</p>
+			<p>Take me back please</p>
+			<hr>
+			<p>
+				<a href="/">Back to Home</a>
+				<span>Or</span>
+				<a href="javascript:;" id="js-history-back">Previous page</a>
+			</p>
+		</div>
+	</div>
+</div>
+{% endblock content %}
+{% block extraScript %}
+<script type="text/javascript" src="{{url_for('static', filename='js/404.js')}}"></script>
+{% endblock extraScript %}

@@ -1,9 +1,8 @@
 body {
-	background: linear-gradient(to right, rgb(148, 175, 255), rgb(233, 186, 12)); /* Standard syntax */
+	background-image: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 225, 1)),url('../image/general/tree.jpg');
+	background-position: left, ;
 }
 
-#alert_message{
+#alert_message {
 	text-align: -webkit-center;
 }
-
-

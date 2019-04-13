@@ -1,6 +1,6 @@
-from flask import render_template, url_for, redirect, request, flash, Blueprint
+from flask import render_template, url_for, redirect, request, flash, Blueprint, jsonify
 from survey import db, bcrypt
-from survey.users.forms import RegistrationForm, LoginForm, RequestResetFrom, ResetPasswordFrom, accountResetPasswordForm
+from survey.users.forms import RegistrationForm, LoginForm, RequestResetFrom, ResetPasswordFrom, accountResetPasswordForm, accountForm
 from survey.models import User
 from flask_login import login_user, current_user, logout_user, login_required
 from survey.users.utils import send_reset_email
@@ -85,37 +85,35 @@ def reset_token(token):
 @users.route("/account_reset_password", methods=['GET', 'POST'])
 @login_required
 def account_reset_password():
-    form = accountResetPasswordForm()
-    if not current_user.is_authenticated:
-        return redirect(url_for('users.login'))
-    if form.validate_on_submit():
-        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        current_user.password = hashed_password
-        db.session.commit()
-        flash('Your password has been updated.', 'success')
-        logout()
-        return redirect(url_for('users.login'))
-    return render_template('reset_password.html', form=form)
+	form = accountResetPasswordForm()
+	if not current_user.is_authenticated:
+		return redirect(url_for('users.login'))
+	if form.validate_on_submit():
+		hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+		current_user.password = hashed_password
+		db.session.commit()
+		flash('Your password has been updated.', 'success')
+		logout()
+		return redirect(url_for('users.login'))
+	return render_template('reset_password.html', form=form)
 
 
 @users.route("/my_account", methods=['GET', 'POST'])
 @login_required
 def my_account():
-    if not current_user.is_authenticated:
-        return redirect(url_for('users.login'))
-    return render_template('account.html')
+	form = accountForm()
+	if not current_user.is_authenticated:
+		return redirect(url_for('users.login'))
+
+	if form.validate_on_submit():
+		current_user.firstname = firstnames
+		current_user.lastname = lastnames
+		current_user.email = emails
+		db.session.commit()
+	return render_template('account.html', form = form)
 
 
-@users.route("/change_info", methods=['GET', 'POST'])
-@login_required
-def change_info():
-    firstname = request.form['info_firstname']
-    lastname = request.form['info_lastname']
-    email = request.form['info_email']
-
-    current_user.firstname = firstname
-    current_user.lastname = lastname
-    current_user.email = email
-    db.session.commit()
-
-    return redirect(url_for('users.my_account'))
+@users.route("/polls")
+def polls():
+	##form = pollsForm()
+	return render_template('polls.html', title='Polls')

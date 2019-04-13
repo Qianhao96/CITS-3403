@@ -1,0 +1,148 @@
+/* Extra small devices (portrait phones, less than 576px)*/
+/* No media query for `xs` since this is the default in Bootstrap*/
+
+/* Small devices (landscape phones, 576px and up)*/
+body {
+	background-image: none;
+}
+
+.page {
+	background: #000 url(../image/general/stripe.gif) repeat top left !important;
+}
+
+.page {
+	height: 600px;
+	margin: 0 auto;
+	padding: 0;
+	display: block;
+}
+
+.menu {
+	position: relative;
+	width: 70%;
+	height: 70%;
+	font-size: 14px;
+	text-transform: uppercase;
+	color: #fff;
+	margin: 0 auto;
+	right: 4%;
+}
+
+.item {
+	text-align: center;
+	width: 30%;
+	height: 490px;
+	padding: 0px;
+	float: left;
+	border-bottom: 1px solid #000;
+	position: relative;
+	top: 4%;
+	left: 4%;
+	margin-right: 2%;
+	box-shadow: 3px -3px 10px #000;
+}
+
+.item1{
+	background: #5ca0d3;
+}
+
+.item2{
+	background: #c8e6f5;
+}
+
+.item3{
+	background: #f2eee0;
+}
+
+#page-header {
+	font-size: 25px;
+	position: relative;
+	top: 30px;
+}
+
+.title {
+	font-size:20px;
+	position: relative;
+	top:200px;
+	left:5px;
+}
+
+span.back{
+	position:absolute;
+	bottom:10px;
+	right:10px;
+	cursor:pointer;
+	color:#ddd;
+}
+
+.submenu{
+	position: relative;
+	width: 100%;
+	height: 30%;
+	display: none;
+	top: 70%;
+	background:#000;
+	position:absolute;
+	opacity:0.7;
+	z-index:13;
+	text-align: left;
+}
+
+.submenu ul li{
+	list-style: none;
+	color:#ddd;
+	cursor:pointer;
+	padding:10px;
+}
+
+.content{
+/*	visibility: hidden;*/
+	width: 70%;
+	position:relative;
+	top: 4%;
+	border-bottom:1px solid #000;
+	left:-100%;
+	-moz-box-shadow:4px 0 7px #000;
+	-webkit-box-shadow:4px 0 7px #000;
+	box-shadow:4px 0 7px #000;
+}
+
+.content > .content_1{
+	display: none;
+	height: 490px;
+	background: #5ca0d3;
+}
+
+.content > .content_2{
+	display: none;
+	height: 490px;
+	background: #c8e6f5;
+}
+
+.content > .content_3{
+	display: none;
+	height: 490px;
+	background: #f2eee0;
+}
+
+/* Medium devices (phones, 576px and up)*/
+@media only screen and (max-width: 576px) {
+	.item {
+		width: 100%;
+	}
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media only screen and (max-width: 768px) {
+	.item {
+		width: 20%;
+	}
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media only screen and (max-width: 992px) {
+	.item {
+		width: 25%;
+
+	}
+}
