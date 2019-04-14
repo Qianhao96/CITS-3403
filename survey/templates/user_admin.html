@@ -1,13 +1,51 @@
 {% extends 'base.html' %}
 
 {% block extraCss %} 
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/user_admin.css') }}">
 {% endblock extraCss %}
 
 {% block title %} {{ title }} {% endblock title %}
 
 {% block content %}
 <div class="container">
-	<h1>Hello admin</h1>
-	{{current_user.is_admin}}
+	<h1>Hello Admin</h1>
+	<p>This is an adminstrator view, that can add and delete polls, delete responses, and add and delete users. </p>
+</div>
+<div class="container">
+<div class="row">
+  <div class="col-3">
+    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-user" role="tab" aria-controls="v-pills-home" aria-selected="true">User</a>
+      <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
+      <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
+      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
+    </div>
+  </div>
+  <div class="col-9">
+    <div class="tab-content" id="v-pills-tabContent">
+      <div class="tab-pane fade show active" id="v-pills-user" role="tabpanel" aria-labelledby="v-pills-home-tab">
+		<table id="user_table">
+			<tr>
+				<th style="text-align: center;">Firstname</th>
+				<th style="text-align: center;">Lastname</th>
+				<th style="text-align: center;">Gender</th>
+				<th style="text-align: center;">Email</th>
+			</tr>
+			{% for user in users %}
+			<tr>
+				<td>{{user.firstname}}</td>
+				<td>{{user.lastname}}</td>
+				<td>{{user.gender}}</td>
+				<td>{{user.email}}</td>
+			</tr>
+			{% endfor %}
+		</table>
+      </div>
+      <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
+      <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+      <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+    </div>
+  </div>
+</div>
 </div>
 {% endblock content %}
