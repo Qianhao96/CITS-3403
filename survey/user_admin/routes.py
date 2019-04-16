@@ -1,4 +1,4 @@
-from flask import render_template, Blueprint, flash, redirect, url_for
+from flask import render_template, Blueprint, flash, redirect, url_for, json, request
 from survey.models import User
 from survey.user_admin.forms import RegistrationForm
 from survey import db, bcrypt
@@ -25,3 +25,13 @@ def user_index():
 		flash('New user account has been created!', 'success')
 		return redirect(url_for('user_admin.user_index'))
 	return render_template('user_admin.html', users=users, title="Admin", form=form)
+
+
+@user_admin.route("/admin_delete_user", methods=['POST'])
+@admin_login_required
+def admin_delete_user():
+	email = request.get_json()['email']
+	user = User.query.filter_by(email=email).first()
+	db.session.delete(user)
+	db.session.commit()
+	return json.dumps({'status':'OK','message':'User ' + email + ' has been successfuly deleted'});

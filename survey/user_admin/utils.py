@@ -1,6 +1,6 @@
 from functools import wraps
-from flask import g, request, redirect, url_for, flash
-from flask_login import login_user, current_user, logout_user, login_required
+from flask import redirect, url_for, flash
+from flask_login import current_user
 
 def admin_login_required(f):
     @wraps(f)

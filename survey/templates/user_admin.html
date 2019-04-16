@@ -16,176 +16,196 @@
 {% block content %}
 <div class="container">
 	<h1>Hello Admin</h1>
-	<p>This is an adminstrator view, that can add and delete polls, delete responses, and add and delete users. </p>
 </div>
 <div class="container">
-<div class="row">
-  <div class="col-3">
-    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-      <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-user" role="tab" aria-controls="v-pills-user" aria-selected="true">User</a>
-      <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
-      <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
-      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
-    </div>
-  </div>
-  <div class="col-9">
-    <div class="tab-content" id="v-pills-tabContent">
-      <div class="tab-pane fade show active " id="v-pills-user" role="tabpanel" aria-labelledby="v-pills-user-tab">
-		<table id="user_table" class="transparent">
-			<thead>
-				<tr>
-					<th style="text-align: center;">Firstname</th>
-					<th style="text-align: center;">Lastname</th>
-					<th style="text-align: center;">Gender</th>
-					<th style="text-align: center;">Email</th>
-					<th style="text-align: center;">Action</th>
-				</tr>
-			</thead>
-			<tbody>
-				{% for user in users %}
-				<tr>
-					<td>{{user.firstname}}</td>
-					<td>{{user.lastname}}</td>
-					<td>{{user.gender}}</td>
-					<td>{{user.email}}</td>
-					<td>
-						<button type="button" class="btn btn-light" data-toggle="modal" data-target="#add_user"><i class="fa fa-user-plus"></i></button>
-   						<button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-user-minus"></i></button>
-   						<button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-user-edit"></i></button>
-					</td>
-				{% endfor %}
-			</tbody>
-		</table>
-		<div class="modal fade" id="add_user" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		  <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <h5 class="modal-title" id="exampleModalLabel">User Details</h5>
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		          <span aria-hidden="true">&times;</span>
-		        </button>
-		      </div>
-		      <div class="modal-body">
-		        <article class="card-body">
-				<form method="POST">
-					{{ form.hidden_tag() }}
-					<div class="form-row">
-						<div class="col form-group">
-							{{ form.firstname.label() }}
-							{% if form.firstname.errors %}
-							{{ form.firstname(class="form-control is-invalid") }}
+	<div class="row">
+	  <div class="col-lg-3">
+	    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+	      <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-user" role="tab" aria-controls="v-pills-user" aria-selected="true">User</a>
+	      <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
+	      <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
+	      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
+	    </div>
+	  </div>
+	  <div class="col-lg-9">
+	    <div class="tab-content" id="v-pills-tabContent">
+	      <div class="tab-pane fade show active " id="v-pills-user" role="tabpanel" aria-labelledby="v-pills-user-tab">
+	      	<p>You are able to add, delete and edit users!</p>
+			<table id="user_table" class="transparent">
+				<thead>
+					<tr>
+						<th style="text-align: center;">Firstname</th>
+						<th style="text-align: center;">Lastname</th>
+						<th style="text-align: center;">Gender</th>
+						<th style="text-align: center;">Email</th>
+						<th style="text-align: center;">Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for user in users %}
+					<tr value={{ user.email }}>
+						<td>{{user.firstname}}</td>
+						<td>{{user.lastname}}</td>
+						<td>{{user.gender}}</td>
+						<td>{{user.email}}</td>
+						<td>
+							<button type="button" class="btn btn-light" data-toggle="modal" data-target="#add_user"><i class="fa fa-user-plus"></i></button>
+	   						<button type="button" class="btn btn-light a_d_u" data-toggle="modal" data-target="#delete_user"><i class="fa fa-user-minus"></i></button>
+	   						<button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-user-edit"></i></button>
+						</td>
+					{% endfor %}
+				</tbody>
+			</table>
+			<div class="modal fade" id="add_user" tabindex="-1" role="dialog" aria-labelledby="add_user" aria-hidden="true">
+			  <div class="modal-dialog modal-dialog-centered" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="exampleModalLabel">User Details</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+			        <article class="card-body">
+					<form method="POST">
+						{{ form.hidden_tag() }}
+						<div class="form-row">
+							<div class="col form-group">
+								{{ form.firstname.label() }}
+								{% if form.firstname.errors %}
+								{{ form.firstname(class="form-control is-invalid") }}
+								<div class="invalid-feedback">
+									{% for error in form.firstname.errors %}
+									<span>{{ error }}</span>
+									{% endfor %}
+								</div>
+								{% else %}
+								{{ form.firstname(class="form-control") }}
+								{% endif %}
+							</div> <!-- form-group end.// -->
+							<div class="col form-group">
+								{{ form.lastname.label() }}
+								{% if form.lastname.errors %}
+								{{ form.lastname(class="form-control is-invalid") }}
+								<div class="invalid-feedback">
+									{% for error in form.lastname.errors %}
+									<span>{{ error }}</span>
+									{% endfor %}
+								</div>
+								{% else %}
+								{{ form.lastname(class="form-control") }}
+								{% endif %}
+							</div> <!-- form-group end.// -->
+						</div> <!-- form-row end.// -->
+						<div class="form-group">
+							{{ form.email.label() }}
+							{% if form.email.errors %}
+							{{ form.email(class="form-control is-invalid") }}
 							<div class="invalid-feedback">
-								{% for error in form.firstname.errors %}
+								{% for error in form.email.errors %}
 								<span>{{ error }}</span>
 								{% endfor %}
 							</div>
 							{% else %}
-							{{ form.firstname(class="form-control") }}
+							{{ form.email(class="form-control") }}
 							{% endif %}
+							<small class="form-text text-muted">We'll never share your email with anyone else.</small>
 						</div> <!-- form-group end.// -->
-						<div class="col form-group">
-							{{ form.lastname.label() }}
-							{% if form.lastname.errors %}
-							{{ form.lastname(class="form-control is-invalid") }}
+						<div class="form-group">
+							{% if form.gender.errors %}
+							<span class="form-control is-invalid">
+								{% for subfield in form.gender %}
+								<tr>
+									<td>{{ subfield }}</td>
+									<td>{{ subfield.label(class="mr-5") }}</td>
+								</tr>
+								{% endfor %}
+							</span>
 							<div class="invalid-feedback">
-								{% for error in form.lastname.errors %}
+								{% for error in form.gender.errors %}
 								<span>{{ error }}</span>
 								{% endfor %}
 							</div>
 							{% else %}
-							{{ form.lastname(class="form-control") }}
-							{% endif %}
-						</div> <!-- form-group end.// -->
-					</div> <!-- form-row end.// -->
-					<div class="form-group">
-						{{ form.email.label() }}
-						{% if form.email.errors %}
-						{{ form.email(class="form-control is-invalid") }}
-						<div class="invalid-feedback">
-							{% for error in form.email.errors %}
-							<span>{{ error }}</span>
-							{% endfor %}
-						</div>
-						{% else %}
-						{{ form.email(class="form-control") }}
-						{% endif %}
-						<small class="form-text text-muted">We'll never share your email with anyone else.</small>
-					</div> <!-- form-group end.// -->
-					<div class="form-group">
-						{% if form.gender.errors %}
-						<span class="form-control is-invalid">
 							{% for subfield in form.gender %}
 							<tr>
 								<td>{{ subfield }}</td>
 								<td>{{ subfield.label(class="mr-5") }}</td>
 							</tr>
 							{% endfor %}
-						</span>
-						<div class="invalid-feedback">
-							{% for error in form.gender.errors %}
-							<span>{{ error }}</span>
-							{% endfor %}
+							{% endif %}
+						</div> <!-- form-group end.// -->
+						<div class="form-group">
+							{{ form.password.label() }}
+							{% if form.password.errors %}
+							{{ form.password(class="form-control is-invalid") }}
+							<div class="invalid-feedback">
+								{% for error in form.password.errors %}
+								<span>{{ error }}</span>
+								{% endfor %}
+							</div>
+							{% else %}
+							{{ form.password(class="form-control") }}
+							{% endif %}
+							<div class="progress">
+								<div class="progress-bar progress-bar-striped progress-bar-animated" id="strength" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Set up your password</div>
+							</div>
+						</div> <!-- form-group end.// -->
+						<div class="form-group">
+							{{ form.confirm_password.label() }}
+							{% if form.confirm_password.errors %}
+							{{ form.confirm_password(class="form-control is-invalid") }}
+							<div class="invalid-feedback">
+								{% for error in form.confirm_password.errors %}
+								<span>{{ error }}</span>
+								{% endfor %}
+							</div>
+							{% else %}
+							{{ form.confirm_password(class="form-control") }}
+							{% endif %}
+						</div> <!-- form-group end.// -->
+						<div>
+							{{ form.is_admin.label() }}
+							{{ form.is_admin() }}
 						</div>
-						{% else %}
-						{% for subfield in form.gender %}
-						<tr>
-							<td>{{ subfield }}</td>
-							<td>{{ subfield.label(class="mr-5") }}</td>
-						</tr>
-						{% endfor %}
-						{% endif %}
-					</div> <!-- form-group end.// -->
-					<div class="form-group">
-						{{ form.password.label() }}
-						{% if form.password.errors %}
-						{{ form.password(class="form-control is-invalid") }}
-						<div class="invalid-feedback">
-							{% for error in form.password.errors %}
-							<span>{{ error }}</span>
-							{% endfor %}
-						</div>
-						{% else %}
-						{{ form.password(class="form-control") }}
-						{% endif %}
-						<div class="progress">
-							<div class="progress-bar progress-bar-striped progress-bar-animated" id="strength" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Set up your password</div>
-						</div>
-					</div> <!-- form-group end.// -->
-					<div class="form-group">
-						{{ form.confirm_password.label() }}
-						{% if form.confirm_password.errors %}
-						{{ form.confirm_password(class="form-control is-invalid") }}
-						<div class="invalid-feedback">
-							{% for error in form.confirm_password.errors %}
-							<span>{{ error }}</span>
-							{% endfor %}
-						</div>
-						{% else %}
-						{{ form.confirm_password(class="form-control") }}
-						{% endif %}
-					</div> <!-- form-group end.// -->
-					<div>
-						{{ form.is_admin.label() }}
-						{{ form.is_admin() }}
-					</div>
-					<div class="form-group">
-						{{ form.submit(class="btn btn-primary btn-block") }}
-					</div> <!-- form-group// -->
-				</form>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-		      </div>
-		    </div>
-		  </div>
-		</div>
-      </div>
-      <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
-      <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
-      <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
-    </div>
-  </div>
-</div>
+						<div class="form-group">
+							{{ form.submit(class="btn btn-primary btn-block") }}
+						</div> <!-- form-group// -->
+					</form>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- Button trigger modal -->
+			<div class="modal fade" id="delete_user" tabindex="-1" role="dialog" aria-labelledby="delete_user" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+			  <div class="modal-dialog modal-dialog-centered" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="exampleModalLongTitle">Warning!</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+			        Are you sure that you want to delete this user?
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" id="cancel_delete_user" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+			        <button id="admin_delete_user" type="button" class="btn btn-primary" data-dismiss="modal">Delete</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+	      </div>
+	      <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
+	      <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+	      <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+	    </div>
+	  </div>
+	</div>
 </div>
 {% endblock content %}
 
