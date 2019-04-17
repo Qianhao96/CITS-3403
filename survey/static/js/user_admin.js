@@ -12,7 +12,7 @@ $(document).ready(function () {
     });
 
     $('#admin_delete_user').click(function(){
-    	var email = $('.selected').attr('value')
+    	var email = $('.selected').attr('id')
 		$.ajax({
 			url: '/admin_delete_user',
 			dataType: "json",
