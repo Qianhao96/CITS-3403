@@ -19,7 +19,7 @@ class RegistrationForm(FlaskForm):
 	confirm_password = PasswordField('Confirm Password', 
 		validators=[DataRequired(), EqualTo('password')])
 	is_admin = BooleanField('New admin?')
-	submit = SubmitField('Sign up ')
+	user_submit = SubmitField('Creat New User')
 
 	def validate_email(self, email):
 		user = User.query.filter_by(email=email.data).first()
@@ -29,3 +29,8 @@ class RegistrationForm(FlaskForm):
 	def validate_gender(self, gender):
 		if gender.data == 'None':
 			raise ValidationError('Please secect your gender')
+
+
+class NewCategoryForm(FlaskForm):
+	name = StringField('Category name', validators=[DataRequired(), Length(min=1, max=50)])
+	category_submit = SubmitField('Creat New Category')
