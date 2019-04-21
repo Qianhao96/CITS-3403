@@ -2,6 +2,7 @@
 <table id="user_table" class="transparent">
 	<thead>
 		<tr>
+			<th>ID</th>
 			<th>Firstname</th>
 			<th>Lastname</th>
 			<th>Gender</th>
@@ -12,6 +13,7 @@
 	<tbody>
 		{% for user in users %}
 		<tr id={{ user.email }}>
+			<td>{{user.id}}</td>
 			<td>{{user.firstname}}</td>
 			<td>{{user.lastname}}</td>
 			<td>{{user.gender}}</td>

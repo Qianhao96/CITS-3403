@@ -7,6 +7,7 @@ $(document).ready(function () {
 
 	userInitialization();
 	categoryInitialization();
+	pollInitialization();
 });
 
 function userInitialization() {
@@ -34,7 +35,7 @@ function userInitialization() {
     });
 }
 
-function categoryInitialization(argument) {
+function categoryInitialization() {
 	var response_table = $('#response_table').DataTable();
 
 	$('#cancel_delete_category').on('click', function(){
@@ -57,6 +58,10 @@ function categoryInitialization(argument) {
 			}
 		});
     });
+}
+
+function pollInitialization(){
+	var poll_table = $('#poll_table').DataTable();
 }
 
 

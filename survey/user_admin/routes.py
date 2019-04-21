@@ -11,10 +11,12 @@ user_admin = Blueprint('user_admin', __name__)
 def user_index():
 	users = User.query.all()
 	categories = Category.query.all()
+	polls = Pool.query.all()
+	responses = Response.query.all()
 	user_form = RegistrationForm()
 	category_form = NewCategoryForm()
 	return render_template('user-admin/user_admin.html', 
-		users=users, categories=categories, 
+		users=users, categories=categories, polls=polls, responses=responses,
 		user_form=user_form, category_form = category_form,
 		title="Admin")
 

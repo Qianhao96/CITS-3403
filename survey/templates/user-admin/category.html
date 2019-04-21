@@ -2,6 +2,7 @@
 <table id="response_table" class="transparent">
 	<thead>
 		<tr>
+			<th>ID</th>
 			<th>Category Name</th>
 			<th>Action</th>
 		</tr>
@@ -9,6 +10,7 @@
 	<tbody>
 		{% for category in categories %}
 		<tr id={{ category.id }}>
+			<td>{{category.id}}</td>
 			<td>{{category.name}}</td>
 			<td>
 				<button type="button" class="btn btn-light" data-toggle="modal" data-target="#add_category"><i class="fa fa-plus"></i></button>
