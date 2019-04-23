@@ -1,5 +1,5 @@
 <p id="Category_description">You are able to add and delete Categories!</p>
-<table id="response_table" class="transparent">
+<table id="category_table" class="transparent">
 	<thead>
 		<tr>
 			<th>ID</th>
@@ -32,16 +32,16 @@
         <form method="POST" action="{{ url_for('user_admin.add_category') }}">
         	{{ category_form.csrf_token(id="category") }}
         	<div class="col form-group">
-				{{ category_form.name.label() }}
-				{% if category_form.name.errors %}
-				{{ category_form.name(class="form-control is-invalid") }}
+				{{ category_form.category_name.label() }}
+				{% if category_form.category_name.errors %}
+				{{ category_form.category_name(class="form-control is-invalid") }}
 				<div class="invalid-feedback">
-					{% for error in category_form.name.errors %}
+					{% for error in category_form.category_name.errors %}
 					<span>{{ error }}</span>
 					{% endfor %}
 				</div>
 				{% else %}
-				{{ category_form.name(class="form-control") }}
+				{{ category_form.category_name(class="form-control") }}
 				{% endif %}
 			</div> <!-- form-group end.// -->
 			<div class="form-group">

@@ -5,63 +5,58 @@ $(document).ready(function () {
     	$(this).parent().parent().addClass('selected');
     });
 
+	// $('#add_user').modal('show');
+	
 	userInitialization();
 	categoryInitialization();
 	pollInitialization();
+	responseInitialization();
 });
 
 function userInitialization() {
 	var user_table = $('#user_table').DataTable();
 
-    $('#cancel_delete_user').on('click', function(){
-    	$('.selected').removeClass('selected');
-    });
-
-    $('#admin_delete_user').click(function(){
-    	var email = $('.selected').attr('id')
-		$.ajax({
-			url: '/admin_delete_user',
-			dataType: "json",
-			data: JSON.stringify({'email': email}),
-			contentType: "application/json; charset=utf-8",
-			type: 'POST',
-			success: function(response){
-				displayMessage(user_table, response['message'], 'success')
-			},
-			error: function(error){
-				displayMessage(user_table, response['message'], 'error')
-			}
-		});
-    });
+    ajaxDeletion(user_table, '#cancel_delete_user', '#admin_delete_user', '/admin_delete_user')
 }
 
 function categoryInitialization() {
-	var response_table = $('#response_table').DataTable();
+	var category_table = $('#category_table').DataTable();
 
-	$('#cancel_delete_category').on('click', function(){
+    ajaxDeletion(category_table, '#cancel_delete_category', '#admin_delete_category', '/admin_delete_category')
+}
+
+function pollInitialization(){
+	var poll_table = $('#poll_table').DataTable();
+
+ 	ajaxDeletion(poll_table, '#cancel_delete_poll', '#admin_delete_poll', '/admin_delete_poll')
+}
+
+function responseInitialization(){
+	var response_table = $('#response_table').DataTable();
+}
+
+
+function ajaxDeletion(table, cancel_delete, admin_delete, url, ){
+	$(cancel_delete).on('click', function(){
     	$('.selected').removeClass('selected');
     });
 
-    $('#admin_delete_category').click(function(){
+    $(admin_delete).click(function(){
     	var id = $('.selected').attr('id')
 		$.ajax({
-			url: '/admin_delete_category',
+			url: url,
 			dataType: "json",
 			data: JSON.stringify({'id': id}),
 			contentType: "application/json; charset=utf-8",
 			type: 'POST',
 			success: function(response){
-				displayMessage(response_table, response['message'], 'success')
+				displayMessage(table, response['message'], 'success')
 			},
 			error: function(error){
-				displayMessage(response_table, response['message'], 'error')
+				displayMessage(table, response['message'], 'error')
 			}
 		});
     });
-}
-
-function pollInitialization(){
-	var poll_table = $('#poll_table').DataTable();
 }
 
 

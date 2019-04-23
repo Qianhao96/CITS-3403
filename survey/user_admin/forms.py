@@ -1,8 +1,6 @@
-import os
-import secrets
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, RadioField, SubmitField, BooleanField, TextField
-from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
+from wtforms import StringField, PasswordField, RadioField, SubmitField, BooleanField, TextField, IntegerField, SelectField
+from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError, NumberRange
 from survey.models import User
 from flask_login import current_user
 from survey import bcrypt
@@ -19,7 +17,7 @@ class RegistrationForm(FlaskForm):
 	confirm_password = PasswordField('Confirm Password', 
 		validators=[DataRequired(), EqualTo('password')])
 	is_admin = BooleanField('New admin?')
-	user_submit = SubmitField('Creat New User')
+	submit = SubmitField('Creat New User')
 
 	def validate_email(self, email):
 		user = User.query.filter_by(email=email.data).first()
@@ -32,5 +30,25 @@ class RegistrationForm(FlaskForm):
 
 
 class NewCategoryForm(FlaskForm):
-	name = StringField('Category name', validators=[DataRequired(), Length(min=1, max=50)])
+	category_name = StringField('Category name', validators=[DataRequired(), Length(min=1, max=50)])
 	category_submit = SubmitField('Creat New Category')
+
+
+class NewPollForm(FlaskForm):
+	poll_name = StringField('Name', validators=[DataRequired()])
+	rank = StringField('Rank', validators=[DataRequired()])
+	category_poll = SelectField('Category Name', choices=[('1','Movie'), ('2','Music'), ('3','Recipe')])
+	poll_submit = SubmitField('Creat New Poll')
+
+
+
+
+
+
+
+
+
+
+
+
+
