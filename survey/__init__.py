@@ -43,8 +43,11 @@ def create_app(confif_class=Config):
 	from survey.users.routes import users
 	from survey.main.routes import main
 	from survey.errors.error import errors
+	from survey.polls.polls import polls
 	app.register_blueprint(users)
 	app.register_blueprint(main)
 	app.register_blueprint(errors)
+	app.register_blueprint(polls)
+
 
 	return app
