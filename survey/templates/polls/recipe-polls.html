@@ -1,0 +1,46 @@
+<div class="head">
+	<div class="polls-title row">
+		<img class="icon-style" src="../../static/image/polls/computer.png" alt="" />
+		<h5 class="u-inline-block">Criteria</h5>
+	</div>
+
+	<div class="music-polls-description" dir="auto">
+		<div class="polls-title row">
+			<img class="icon-style" src="../../static/image/polls/text-align.png" alt="" />
+			<h5 class="u-inline-block">Criteria</h5>
+		</div>
+	</div>
+
+	<div class="row">
+		<ul>
+			<li>First Past the Post Voting</li>
+			<li>How it's works<ul>
+					<li>Voters indicate on the ballot the movie that you most favourite</li>
+					<li>The candidate who receives the most votes wins</li>
+					<li>Sometimes described as winner takes all</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+
+	<h1>Optional</h1>
+	<ul>
+		<li>There a button to watch the recipe</li>
+	</ul>
+
+	<div class="row">
+		<img class="icon-style" src="../../static/image/polls/polls.png" alt="" />
+		Ballot Options
+	</div>
+
+	{% for recipe in recipes %}
+	<div class="row">
+		<div class="col-4">
+			<img src="../../static/image/general/Octocat_4.png" style="width:64px; height: 64px;" />
+			<div class="movie-name"></div>
+			<input class="poll-vote" type="radio" name="vote" value="1">
+		</div>
+	</div>
+	{% endfor %}
+
+</div>
