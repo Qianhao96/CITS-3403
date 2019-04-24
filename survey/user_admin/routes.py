@@ -19,28 +19,37 @@ def user_index():
 	return render_template('user-admin/user_admin.html', 
 		users=users, categories=categories, polls=polls, responses=responses,
 		user_form=user_form, category_form = category_form, poll_form=poll_form,
-		title="Admin")
-
+		title="Admin", data={'form_checking':False})
+	
 
 @user_admin.route("/add_user", methods=['POST'])
 @admin_login_required
 def add_user():
-	form = RegistrationForm()
+	users = User.query.all()
+	categories = Category.query.all()
+	polls = Pool.query.all()
+	responses = Response.query.all()
+	user_form = RegistrationForm()
+	category_form = NewCategoryForm()
+	poll_form = NewPollForm()
 	# Check Form input and encrypt the password before store them
-	if form.validate_on_submit():
-		hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-		user = User(firstname = form.firstname.data, 
-			lastname = form.lastname.data,
-			email = form.email.data,
-			gender = form.gender.data,
+	if user_form.validate_on_submit():
+		hashed_password = bcrypt.generate_password_hash(user_form.password.data).decode('utf-8')
+		user = User(firstname = user_form.firstname.data, 
+			lastname = user_form.lastname.data,
+			email = user_form.email.data,
+			gender = user_form.gender.data,
 			password = hashed_password,
-			is_admin = form.is_admin.data)
+			is_admin = user_form.is_admin.data)
 		db.session.add(user)
 		db.session.commit()
 		flash('New user account has been created!', 'success')
 		return redirect(url_for('user_admin.user_index'))
-	flash(u'New user account has not been created!, Please try again, or look the log error', 'danger')
-	return redirect(url_for('user_admin.user_index'))
+	flash(u'New user account has not been created! Please try again, or look the log error', 'danger')
+	return render_template('user-admin/user_admin.html', 
+		users=users, categories=categories, polls=polls, responses=responses,
+		user_form=user_form, category_form = category_form, poll_form=poll_form,
+		title="Admin", data={'form': 'user_form', 'form_checking': True})
 
 @user_admin.route("/admin_delete_user", methods=['POST'])
 @admin_login_required
@@ -55,15 +64,23 @@ def admin_delete_user():
 @user_admin.route("/add_category", methods=['POST'])
 @admin_login_required
 def add_category():
-	form = NewCategoryForm()
-	if form.validate_on_submit():
-		category = Category(name = form.category_name.data)
+	users = User.query.all()
+	categories = Category.query.all()
+	polls = Pool.query.all()
+	responses = Response.query.all()
+	user_form = RegistrationForm()
+	category_form = NewCategoryForm()
+	poll_form = NewPollForm()
+	if category_form.validate_on_submit():
+		category = Category(name = category_form.category_name.data)
 		db.session.add(category)
 		db.session.commit()
 		flash('New category has been added!', 'success')
 		return redirect(url_for('user_admin.user_index'))
-	flash(u'New category has not been created!, Please try again, or look the log error', 'danger')
-	return redirect(url_for('user_admin.user_index'))
+	return render_template('user-admin/user_admin.html', 
+		users=users, categories=categories, polls=polls, responses=responses,
+		user_form=user_form, category_form = category_form, poll_form=poll_form,
+		title="Admin", data={'form': 'category_form', 'form_checking': True})
 
 
 @user_admin.route("/admin_delete_category", methods=['POST'])
@@ -79,17 +96,25 @@ def admin_delete_category():
 @user_admin.route("/admin_add_poll", methods=['POST'])
 @admin_login_required
 def admin_add_poll():
-	form = NewPollForm(request.form)
-	if form.validate_on_submit():
-		poll = Pool(name = form.poll_name.data,
-			rank = form.rank.data,
-			category_id = form.category_poll.data)
+	users = User.query.all()
+	categories = Category.query.all()
+	polls = Pool.query.all()
+	responses = Response.query.all()
+	user_form = RegistrationForm()
+	category_form = NewCategoryForm()
+	poll_form = NewPollForm()
+	if poll_form.validate_on_submit():
+		poll = Pool(name = poll_form.poll_name.data,
+			rank = poll_form.rank.data,
+			category_id = poll_form.category_poll.data)
 		db.session.add(poll)
 		db.session.commit()
 		flash('New poll has been added!', 'success')
 		return redirect(url_for('user_admin.user_index'))
-	flash(u'New poll has not been created!, Please try again, or look the log error', 'danger')
-	return redirect(url_for('user_admin.user_index'))
+	return render_template('user-admin/user_admin.html', 
+		users=users, categories=categories, polls=polls, responses=responses,
+		user_form=user_form, category_form = category_form, poll_form=poll_form,
+		title="Admin", data={'form': 'poll_form', 'form_checking': True})
 
 
 @user_admin.route("/admin_delete_poll", methods=['POST'])

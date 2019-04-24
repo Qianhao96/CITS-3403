@@ -5,8 +5,6 @@ $(document).ready(function () {
     	$(this).parent().parent().addClass('selected');
     });
 
-	// $('#add_user').modal('show');
-	
 	userInitialization();
 	categoryInitialization();
 	pollInitialization();
@@ -73,3 +71,9 @@ function displayMessage(table, message, type) {
 		$('#js_alert_message').html('Deteltion failed, please refresh the page and try again');
 	}
 }
+
+
+
+
+
+

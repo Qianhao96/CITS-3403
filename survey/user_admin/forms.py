@@ -36,7 +36,7 @@ class NewCategoryForm(FlaskForm):
 
 class NewPollForm(FlaskForm):
 	poll_name = StringField('Name', validators=[DataRequired()])
-	rank = StringField('Rank', validators=[DataRequired()])
+	rank = IntegerField('Rank (Please initial this file with 0)', validators=[DataRequired(), NumberRange(max=0, min=0)])
 	category_poll = SelectField('Category Name', choices=[('1','Movie'), ('2','Music'), ('3','Recipe')])
 	poll_submit = SubmitField('Creat New Poll')
 
