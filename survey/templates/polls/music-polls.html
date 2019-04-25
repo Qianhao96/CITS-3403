@@ -1,18 +1,16 @@
 <div class="head">
-	<div class="polls-title row">
-		<img class="icon-style" src="../../static/image/polls/computer.png" alt="" />
-		<h5 class="u-inline-block">Criteria</h5>
+	<div class="poll-title row">
+		<img class="icon-style" src="../../static/image/polls/computer.png" alt=">>" />
+		Best Lassangne Recipe
 	</div>
-
-	<div class="music-polls-description" dir="auto">
-		<div class="polls-title row">
-			<img class="icon-style" src="../../static/image/polls/text-align.png" alt="" />
-			<h5 class="u-inline-block">Criteria</h5>
+	<div class="poll-description" dir="auto">
+		<div class="poll-title row">
+			<img class="icon-style" src="../../static/image/polls/text-align.png" alt=">>" />
+			Description
 		</div>
 	</div>
-
 	<div class="row">
-		<ul>
+		<ul class="vote-rules">
 			<li>First Past the Post Voting</li>
 			<li>How it's works<ul>
 					<li>Voters indicate on the ballot the movie that you most favourite</li>
@@ -22,36 +20,33 @@
 			</li>
 		</ul>
 	</div>
-
-	<h1>Optional</h1>
+	<div class="poll-title">Optional</div>
 	<ul>
-		<li>Click to play the music</li>
+		<li>There a button to watch the recipe</li>
 	</ul>
-
-	<div class="row">
-		<img class="icon-style" src="../../static/image/polls/polls.png" alt="" />
+	<div class="row poll-title">
+		<img class="icon-style" height="34" width="52" src="../../static/image/polls/polls.png" alt=">>" />
 		Ballot Options
 	</div>
-
-	{% for music in musics %}
-	<div class="row">
-		<div class="col-2">
-			<div class="author author-image" style="">{{music.name}}</div>
-		</div>
-
-		<div class="col-8">
-			<audio controls class="music-player">
-				<source src="../../static/audio/Lukas%20Graham%20-%207%20Years%20%5BOFFICIAL%20MUSIC%20VIDEO%5D.mp3" type="audio/mp3">
-				Your browser does not support the audio element.
-			</audio>
-		</div>
-
-		<div class="col-2">
-			<input class="poll-vote" type="radio" name="vote" value={{music.id}} onclick="">
-		</div>
-	</div>
-	{% endfor %}
-
-	<button type="button" class="btn btn-dark">Dark</button>
-
 </div>
+
+{% for music in musics %}
+<div class="row">
+	<div class="col-2">
+		<div class="author author-image" style="">{{music.name}}</div>
+	</div>
+
+	<div class="col-8">
+		<audio controls class="music-player">
+			<source src="../../static/audio/Lukas%20Graham%20-%207%20Years%20%5BOFFICIAL%20MUSIC%20VIDEO%5D.mp3" type="audio/mp3">
+			Your browser does not support the audio element.
+		</audio>
+	</div>
+
+	<div class="col-2">
+		<input class="poll-vote" type="radio" name="vote" value={{music.id}} onclick="">
+	</div>
+</div>
+{% endfor %}
+
+
