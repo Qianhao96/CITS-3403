@@ -1,148 +1,146 @@
-/* Extra small devices (portrait phones, less than 576px)*/
-/* No media query for `xs` since this is the default in Bootstrap*/
-
-/* Small devices (landscape phones, 576px and up)*/
-body {
-	background-image: none;
-}
-
-.page {
-	background: #000 url(../image/general/stripe.gif) repeat top left !important;
-}
-
-.page {
-	height: 600px;
-	margin: 0 auto;
-	padding: 0;
-	display: block;
-}
-
-.menu {
-	position: relative;
-	width: 70%;
-	height: 70%;
-	font-size: 14px;
-	text-transform: uppercase;
-	color: #fff;
-	margin: 0 auto;
-	right: 4%;
-}
-
-.item {
+.swiper-container {
+	width: 460px;
 	text-align: center;
-	width: 30%;
-	height: 490px;
-	padding: 0px;
-	float: left;
-	border-bottom: 1px solid #000;
-	position: relative;
-	top: 4%;
-	left: 4%;
-	margin-right: 2%;
-	box-shadow: 3px -3px 10px #000;
 }
 
-.item1{
-	background: #5ca0d3;
+.swiper-slide {
+	width: 75% !important;
 }
 
-.item2{
-	background: #c8e6f5;
+.left-0 {
+	margin-left: 12.5%;
 }
 
-.item3{
-	background: #f2eee0;
+.left-1 {
+	margin-left: 25%;
 }
 
-#page-header {
-	font-size: 25px;
-	position: relative;
-	top: 30px;
+.card-border {
+	border: 2px;
+	border-radius: 15px 50px 30px;
+	box-shadow: -1px 15px 30px -12px black;
+}
+
+.card-top-img {
+	background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/coc-background.jpg);
+	background-size: cover;
+	height: 300px;
+	border-radius: 15px 50px 0px 0px;
+}
+
+.card-mid {
+	background-color: white;
 }
 
 .title {
-	font-size:20px;
+	font-size: 2em;
 	position: relative;
-	top:200px;
-	left:5px;
+	margin: 0 auto 1em;
+	padding: 1em 1em .25em 1em;
+	text-align: center;
+	text-transform: uppercase;
 }
 
-span.back{
-	position:absolute;
-	bottom:10px;
-	right:10px;
-	cursor:pointer;
-	color:#ddd;
-}
-
-.submenu{
+.card-status {
 	position: relative;
-	width: 100%;
-	height: 30%;
-	display: none;
-	top: 70%;
-	background:#000;
-	position:absolute;
-	opacity:0.7;
-	z-index:13;
-	text-align: left;
+	text-transform: capitalize;
+	font-size: 12px;
+	font-weight: 700;
+	margin-top: 5px;
 }
 
-.submenu ul li{
-	list-style: none;
-	color:#ddd;
-	cursor:pointer;
-	padding:10px;
+.border-right{
+	border-right:1px solid #BD7C2F;
 }
 
-.content{
-/*	visibility: hidden;*/
-	width: 70%;
-	position:relative;
-	top: 4%;
-	border-bottom:1px solid #000;
-	left:-100%;
-	-moz-box-shadow:4px 0 7px #000;
-	-webkit-box-shadow:4px 0 7px #000;
-	box-shadow:4px 0 7px #000;
+.card-name {
+	position: relative;
+	font-size: 25px;
+	color: black;
+	font-weight: 700;
 }
 
-.content > .content_1{
-	display: none;
-	height: 490px;
-	background: #5ca0d3;
+.card-description {
+	position: relative;
+	padding: 20px;
+	margin-top: 5px;
+	font-size: 14px;
+	color: #9E9E9E;
 }
 
-.content > .content_2{
-	display: none;
-	height: 490px;
-	background: #c8e6f5;
+.music-infos {
+	margin-top: 10px;
+	background-color: #233142;
+	border-bottom-left-radius: 50px;
+	border-bottom-right-radius: 30px
 }
 
-.content > .content_3{
-	display: none;
-	height: 490px;
-	background: #f2eee0;
+.infos {
+	color: white;
+	font-weight: 600;
+	margin-top: 10px;
+	padding-bottom: 10px;
 }
 
-/* Medium devices (phones, 576px and up)*/
-@media only screen and (max-width: 576px) {
-	.item {
-		width: 100%;
+.resize {
+	width: 460px;
+	height: auto;
+}
+
+.text-line-height {
+	line-height: 12px;
+}
+
+.modal {
+  overflow-y:auto;
+}
+
+@media only screen and (max-width: 580px) {
+	.hide {
+		display: none !important;
 	}
 }
 
-/* Medium devices (tablets, 768px and up)*/
-@media only screen and (max-width: 768px) {
-	.item {
-		width: 20%;
-	}
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-/* Large devices (desktops, 992px and up)*/
-@media only screen and (max-width: 992px) {
-	.item {
-		width: 25%;
+.info-name{
+	font-size: 12px;
+	padding-bottom: 10px;
+}
+/*swipper*/
 
-	}
+.head{
+	color:#17394d;
+}
+
+.poll-title{
+	font-size: 23px;
+	font-weight: 500;
+	right: 100px;
+	font: 16px;
+	padding: 10px;
+}
+
+.author {
+	text-align: center;
+}
+
+.polls-title-img {
+	padding: 10px;
+}
+
+.poll-vote {
+	margin: 0px auto;
+}
+
+.icon-style {
+	padding-right: 20px;
+}
+.vote-rules{
+	padding-left: 100px;
 }

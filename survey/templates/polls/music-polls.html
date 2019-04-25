@@ -1,0 +1,52 @@
+<div class="head">
+	<div class="poll-title row">
+		<img class="icon-style" src="../../static/image/polls/computer.png" alt=">>" />
+		Best Lassangne Recipe
+	</div>
+	<div class="poll-description" dir="auto">
+		<div class="poll-title row">
+			<img class="icon-style" src="../../static/image/polls/text-align.png" alt=">>" />
+			Description
+		</div>
+	</div>
+	<div class="row">
+		<ul class="vote-rules">
+			<li>First Past the Post Voting</li>
+			<li>How it's works<ul>
+					<li>Voters indicate on the ballot the movie that you most favourite</li>
+					<li>The candidate who receives the most votes wins</li>
+					<li>Sometimes described as winner takes all</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div class="poll-title">Optional</div>
+	<ul>
+		<li>There a button to watch the recipe</li>
+	</ul>
+	<div class="row poll-title">
+		<img class="icon-style" height="34" width="52" src="../../static/image/polls/polls.png" alt=">>" />
+		Ballot Options
+	</div>
+</div>
+
+{% for music in musics %}
+<div class="row">
+	<div class="col-2">
+		<div class="author author-image" style="">{{music.name}}</div>
+	</div>
+
+	<div class="col-8">
+		<audio controls class="music-player">
+			<source src="../../static/audio/Lukas%20Graham%20-%207%20Years%20%5BOFFICIAL%20MUSIC%20VIDEO%5D.mp3" type="audio/mp3">
+			Your browser does not support the audio element.
+		</audio>
+	</div>
+
+	<div class="col-2">
+		<input class="poll-vote" type="radio" name="vote" value={{music.id}} onclick="">
+	</div>
+</div>
+{% endfor %}
+
+
