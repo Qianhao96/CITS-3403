@@ -1,13 +1,11 @@
 {% extends 'base.html' %}
-
 {% block extraCss %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/polls.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/swiper/swiper.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/music_polls.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/movie-polls.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/recipe-polls.css') }}">
 {% endblock extraCss %}
-
-
 {% block title %} {{ title }} {% endblock title %}
 {% block content %}
 <div class="title" align="center"><strong>THIS SHOULD BE THE TITLE OF THE PAGE AND LARGE</strong></div>
@@ -18,35 +16,32 @@
 				<div class="card-top-img">
 					<img src="../static/image/polls/wukong_1.png" alt="wukong" />
 				</div>
-
 				{% if not voted_music %}
 				<div class="card-status text-danger">Please Vote the best Music</div>
 				{% else %}
 				<div class="card-status text-success">You have voted</div>
 				{% endif %}
-
 				<div class="card-name">MUSIC</div>
 				<div class="card-description">
 					Wukong is a Holiday Outfit cosmetic item in Battle Royale that could be purchased from the Item Shop in February and March 2018. The Royale Flags Back Bling skin is bundled with this outfit.
 				</div>
-
 				<div class="container-fluid">
 					<div class="row music-infos" style="color: white">
-						<div class="col-4">
-							<div class="infos">{{Categories[1].pool|length}}<sup>S</sup></div>
+						<div class="col-4 border-right">
+							<div class="infos">{{Categories[1].pool|length}}</div>
 							<div class="info-name">#VOTES</div>
 						</div>
-						<div class="col-4">
+						<div class="col-4 border-right">
 							<div class="infos">16/5/2018</div>
-							<div class="info-name">END ATE</div>
+							<div class="info-name">END DATE</div>
 						</div>
 						<div class="col-4">
 							<div class="info-vote">
 								{% if voted_music %}
 								<h5 class="text-warning">Voted</h5>
 								{% else %}
-								<button type="button" class="btn btn-link text-white text-line-height" data-toggle="modal" data-target="#model-1">
-									TAKE<br>a<br>VOTE
+								<button type="button" class="btn btn-link text-white centered info-name" data-toggle="modal" data-target="#model-1">
+									TAKE VOTE
 								</button>
 								{% endif %}
 							</div>
@@ -55,42 +50,37 @@
 				</div><!-- grid system-->
 			</div>
 		</div><!-- end card music-->
-
 		<div class="swiper-slide left-1">
 			<div class="card music card-border">
 				<div class="card-top-img">
 					<img class="resize" src="../static/image/polls/jinx.png" alt="wukong" />
 				</div>
-
 				{% if not voted_movie %}
 				<div class="card-status text-danger">Please Vote the best Movie</div>
 				{% else %}
 				<div class="card-status text-success">You have voted</div>
 				{% endif %}
-
 				<div class="card-name">MOVIE</div>
 				<div class="card-description">
 					Wukong is a Holiday Outfit cosmetic item in Battle Royale that could be purchased from the Item Shop in February and March 2018. The Royale Flags Back Bling skin is bundled with this outfit.
-
 				</div>
-
 				<div class="container-fluid">
 					<div class="row music-infos" style="color: white">
-						<div class="col-4">
-							<div class="infos">{{ users|length }}<sup>S</sup></div>
+						<div class="col-4 border-right">
+							<div class="infos">{{ users|length }}</div>
 							<div class="info-name">#VOTES</div>
 						</div>
-						<div class="col-4">
-							<div class="infos">16</div>
-							<div class="info-name">DATE</div>
+						<div class="col-4 border-right">
+							<div class="infos">16/5/2018</div>
+							<div class="info-name">END DATE</div>
 						</div>
 						<div class="col-4">
 							<div class="info-vote">
 								{% if voted_movie %}
-								<h5 class="text-warning">Voted</h5>
+								<h5 class="text-warning centered">Voted</h5>
 								{% else %}
-								<button type="button" class="btn btn-link text-white text-line-height" data-toggle="modal" data-target="#model-2">
-									TAKE<br>a<br>VOTE
+								<button type="button" class="btn btn-link text-white centered info-name" data-toggle="modal" data-target="#model-2">
+									TAKE VOTE
 								</button>
 								{% endif %}
 							</div>
@@ -99,42 +89,37 @@
 				</div><!-- grid system-->
 			</div>
 		</div><!-- end card music-->
-
 		<div class="swiper-slide left-1">
 			<div class="card music card-border">
 				<div class="card-top-img">
 					<img class="resize" src="../static/image/polls/jinx.png" alt="wukong" />
 				</div>
-
 				{% if not voted_recipe %}
 				<div class="card-status text-danger">Please Vote the best Recipe</div>
 				{% else %}
 				<div class="card-status text-success">You have voted</div>
 				{% endif %}
-
 				<div class="card-name">RECIPE</div>
-
 				<div class="card-description">
 					Wukong is a Holiday Outfit cosmetic item in Battle Royale that could be purchased from the Item Shop in February and March 2018. The Royale Flags Back Bling skin is bundled with this outfit.
 				</div>
-
 				<div class="container-fluid">
 					<div class="row music-infos" style="color: white">
-						<div class="col-4">
-							<div class="infos">{{ users|length }}<sup>S</sup></div>
+						<div class="col-4 border-right">
+							<div class="infos">{{ users|length }}</div>
 							<div class="info-name">#VOTES</div>
 						</div>
-						<div class="col-4">
-							<div class="infos">16</div>
-							<div class="info-name">DATE</div>
+						<div class="col-4 border-right">
+							<div class="infos">16/5/2018</div>
+							<div class="info-name">END DATE</div>
 						</div>
-						<div class="col-4">
+						<div class="col-4 ">
 							<div class="info-vote">
 								{% if voted_recipe %}
-								<h5 class="text-warning">Voted</h5>
+								<h5 class="text-warning centered">Voted</h5>
 								{% else %}
-								<button type="button" class="btn btn-link text-white text-line-height" data-toggle="modal" data-target="#model-3">
-									TAKE<br>a<br>VOTE
+								<button type="button" class="btn btn-link text-white centered info-name" data-toggle="modal" data-target="#model-3">
+									TAKE VOTE
 								</button>
 								{% endif %}
 							</div>
@@ -143,13 +128,10 @@
 				</div><!-- grid system-->
 			</div>
 		</div><!-- end card music-->
-
 	</div> <!-- end wrapper -->
-
 	<div class="swiper-button-prev hide"></div>
 	<div class="swiper-button-next hide"></div>
 </div> <!-- end container -->
-
 <!-- Modal -->
 <div class="modal fade" id="model-1" data-backdrop="static" data-keyboard="false">
 	<div class="modal-dialog modal-lg" role="document">
@@ -169,7 +151,6 @@
 		</div>
 	</div>
 </div>
-
 <div class="modal fade" id="model-2" data-backdrop="static" data-keyboard="false">
 	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">
@@ -189,7 +170,6 @@
 		</div>
 	</div>
 </div>
-
 <div class="modal fade" id="model-3" data-backdrop="static" data-keyboard="false">
 	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">
@@ -209,8 +189,6 @@
 		</div>
 	</div>
 </div>
-
-
 {% endblock content %}
 {% block extraScript %}
 <script type="text/javascript" src="{{url_for('static', filename='js/polls.js')}}"></script>
