@@ -31,10 +31,12 @@ function pollInitialization(){
 
 function responseInitialization(){
 	var response_table = $('#response_table').DataTable();
+
+	ajaxDeletion(response_table, '#cancel_delete_response', '#admin_delete_response', '/admin_delete_response')
 }
 
 
-function ajaxDeletion(table, cancel_delete, admin_delete, url, ){
+function ajaxDeletion(table, cancel_delete, admin_delete, url){
 	$(cancel_delete).on('click', function(){
     	$('.selected').removeClass('selected');
     });

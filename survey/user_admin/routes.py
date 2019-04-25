@@ -16,6 +16,7 @@ def user_index():
 	user_form = RegistrationForm()
 	category_form = NewCategoryForm()
 	poll_form = NewPollForm()
+	poll_form.rank.data = 0
 	return render_template('user-admin/user_admin.html', 
 		users=users, categories=categories, polls=polls, responses=responses,
 		user_form=user_form, category_form = category_form, poll_form=poll_form,
@@ -126,6 +127,15 @@ def admin_delete_poll():
 	db.session.commit()
 	return json.dumps({'status':'OK','message':"Pool has been successfuly deleted"});
 
+
+@user_admin.route("/admin_delete_response", methods=['POST'])
+@admin_login_required
+def admin_delete_response():
+	id = request.get_json()['id']
+	category = Response.query.filter_by(id=id).first()
+	db.session.delete(category)
+	db.session.commit()
+	return json.dumps({'status':'OK','message':"category has been successfuly deleted"});
 
 
 
