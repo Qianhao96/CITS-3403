@@ -52,6 +52,7 @@ the purpose of the web application, explaining both the context and the social c
     - from survey.models import User
     - User.query.all()
     - should be empty array
+    - user=User(firstname='admin', lastname='admin',email='admin@gmail.com', password='admin', gender='M', is_admin=True)
 
 # email testing 
   - in config.py
@@ -67,6 +68,7 @@ the purpose of the web application, explaining both the context and the social c
   - git add -u :/ (只会 add 已经track的 file)
   - git push <remote_name> --delete <branch_name> (Delete remote branch)
   - git clone --single-branch --branch <branchname> host:/dir.git
+  - git checkout -b <branchname> <origin/branchname> (Checkout a specific branch)
 
 # Naming Conventions
   - Class names: CamelCase, with acronyms kept uppercase (HTTPWriter and not HttpWriter)

@@ -27,3 +27,9 @@ reset password
 
 account page
 	- UI Beautify
+
+
+
+
+-Footer(time, eg..)
+-DB(Poll -- url, category--picture)

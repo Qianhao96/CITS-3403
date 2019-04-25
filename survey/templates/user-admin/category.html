@@ -1,0 +1,70 @@
+<p id="Category_description">You are able to add and delete Categories!</p>
+<table id="category_table" class="transparent">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Category Name</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for category in categories %}
+		<tr id={{ category.id }}>
+			<td>{{category.id}}</td>
+			<td>{{category.name}}</td>
+			<td>
+				<button type="button" class="btn btn-light" data-toggle="modal" data-target="#add_category"><i class="fa fa-plus"></i></button>
+				<button type="button" class="btn btn-light a_d_u" data-toggle="modal" data-target="#delete_category"><i class="fa fa-minus"></i></button>
+				<!-- <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-user-edit"></i></button> -->
+			</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+<div class="modal fade" id="add_category" tabindex="-1" role="dialog" aria-labelledby="add_category" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Please input a new category</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">Cancel</button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="{{ url_for('user_admin.add_category') }}">
+        	{{ category_form.csrf_token(id="category") }}
+        	<div class="col form-group">
+				{{ category_form.category_name.label() }}
+				{% if category_form.category_name.errors %}
+				{{ category_form.category_name(class="form-control is-invalid") }}
+				<div class="invalid-feedback">
+					{% for error in category_form.category_name.errors %}
+					<span>{{ error }}</span>
+					{% endfor %}
+				</div>
+				{% else %}
+				{{ category_form.category_name(class="form-control") }}
+				{% endif %}
+			</div> <!-- form-group end.// -->
+			<div class="form-group">
+				{{ category_form.category_submit(class="btn btn-primary btn-block") }}
+			</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="delete_category" tabindex="-1" role="dialog" aria-labelledby="delete_category" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Warning!</h5>
+      </div>
+      <div class="modal-body">
+        Are you sure that you want to delete this category?
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="cancel_delete_category" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button id="admin_delete_category" type="button" class="btn btn-primary" data-dismiss="modal">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
