@@ -40,32 +40,34 @@ class Category(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	name = db.Column(db.String(50), nullable=False)
 	response = db.relationship('Response', backref='category', lazy=True)
-	pool = db.relationship('Pool', backref='category', lazy=True)
+	poll = db.relationship('Poll', backref='category', lazy=True)
 
 	def __repr__(self):
  		return f"Category('{self.name}')"
 
 
-class Pool(db.Model):
+class Poll(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	name = db.Column(db.String(50), nullable=False)
 	rank = db.Column(db.Integer, nullable=False)
 	category_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable=False)
-	response = db.relationship('Response', backref='pool', lazy=True)
+	response = db.relationship('Response', backref='poll', lazy=True)
+	image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
+	video_url = db.Column(db.String(200), nullable=False, default="https://www.youtube.com/embed/m_NeIyG98Nc")
 
 	def __repr__(self):
- 		return f"Pool('{self.name}', '{self.rank}')"
+ 		return f"Poll('{self.name}', '{self.rank}')"
 
 
 class Response(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 	category_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable=False)
-	pool_id = db.Column(db.Integer, db.ForeignKey('pool.id'), nullable=False)
+	pool_id = db.Column(db.Integer, db.ForeignKey('poll.id'), nullable=False)
 	date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
 	def __repr__(self):
-		return f"Response('{self.user.id}', '{self.category.id}', '{self.pool.id}', '{self.date_posted}')"
+		return f"Response('{self.user.id}', '{self.category.id}', '{self.poll.id}', '{self.date_posted}')"
 
 
 

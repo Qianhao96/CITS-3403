@@ -1,8 +1,9 @@
 from flask import render_template, Blueprint, flash, redirect, url_for, json, request
-from survey.models import User, Category, Pool, Response
+from survey.models import User, Category, Poll, Response
 from survey.user_admin.forms import RegistrationForm, NewCategoryForm, NewPollForm
 from survey import db, bcrypt
-from survey.user_admin.utils import admin_login_required
+from survey.user_admin.utils import admin_login_required, save_picture, delete_picture
+
 
 user_admin = Blueprint('user_admin', __name__)
 
@@ -11,7 +12,7 @@ user_admin = Blueprint('user_admin', __name__)
 def user_index():
 	users = User.query.all()
 	categories = Category.query.all()
-	polls = Pool.query.all()
+	polls = Poll.query.all()
 	responses = Response.query.all()
 	user_form = RegistrationForm()
 	category_form = NewCategoryForm()
@@ -28,7 +29,7 @@ def user_index():
 def add_user():
 	users = User.query.all()
 	categories = Category.query.all()
-	polls = Pool.query.all()
+	polls = Poll.query.all()
 	responses = Response.query.all()
 	user_form = RegistrationForm()
 	category_form = NewCategoryForm()
@@ -67,7 +68,7 @@ def admin_delete_user():
 def add_category():
 	users = User.query.all()
 	categories = Category.query.all()
-	polls = Pool.query.all()
+	polls = Poll.query.all()
 	responses = Response.query.all()
 	user_form = RegistrationForm()
 	category_form = NewCategoryForm()
@@ -99,19 +100,24 @@ def admin_delete_category():
 def admin_add_poll():
 	users = User.query.all()
 	categories = Category.query.all()
-	polls = Pool.query.all()
+	polls = Poll.query.all()
 	responses = Response.query.all()
 	user_form = RegistrationForm()
 	category_form = NewCategoryForm()
 	poll_form = NewPollForm()
 	if poll_form.validate_on_submit():
-		poll = Pool(name = poll_form.poll_name.data,
-			rank = poll_form.rank.data,
-			category_id = poll_form.category_poll.data)
-		db.session.add(poll)
-		db.session.commit()
-		flash('New poll has been added!', 'success')
-		return redirect(url_for('user_admin.user_index'))
+		if poll_form.picture.data:
+			picture_file = save_picture(poll_form.picture.data)
+			poll = Poll(name = poll_form.poll_name.data,
+				rank = poll_form.rank.data,
+				category_id = poll_form.category_poll.data,
+				image_file = picture_file,
+				video_url = poll_form.video.data)
+			db.session.add(poll)
+			db.session.commit()
+			flash('New poll has been added!', 'success')
+			return redirect(url_for('user_admin.user_index'))
+	print('failed')
 	return render_template('user-admin/user_admin.html', 
 		users=users, categories=categories, polls=polls, responses=responses,
 		user_form=user_form, category_form = category_form, poll_form=poll_form,
@@ -122,10 +128,11 @@ def admin_add_poll():
 @admin_login_required
 def admin_delete_poll():
 	id = request.get_json()['id']
-	pool = Pool.query.filter_by(id=id).first()
-	db.session.delete(pool)
+	poll = Poll.query.filter_by(id=id).first()
+	delete_picture(poll.image_file)
+	db.session.delete(poll)
 	db.session.commit()
-	return json.dumps({'status':'OK','message':"Pool has been successfuly deleted"});
+	return json.dumps({'status':'OK','message':"Poll has been successfuly deleted"});
 
 
 @user_admin.route("/admin_delete_response", methods=['POST'])

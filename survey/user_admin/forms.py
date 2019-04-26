@@ -4,6 +4,7 @@ from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationE
 from survey.models import User
 from flask_login import current_user
 from survey import bcrypt
+from flask_wtf.file import FileField, FileAllowed
 
 class RegistrationForm(FlaskForm):
 	firstname = StringField('Firstname',
@@ -38,6 +39,8 @@ class NewPollForm(FlaskForm):
 	poll_name = StringField('Name', validators=[DataRequired()])
 	rank = IntegerField('Rank (Please initial this field with 0)', validators=[NumberRange(max=1, min=-1)])
 	category_poll = SelectField('Category Name', choices=[('1','Movie'), ('2','Music'), ('3','Recipe')])
+	picture = FileField('Update Poll Picture (This is compulsory)', validators=[FileAllowed(['jpg', 'png'])])
+	video = StringField('Video Url (A video that describe thsi poll)', validators=[DataRequired()])
 	poll_submit = SubmitField('Creat New Poll')
 
 
