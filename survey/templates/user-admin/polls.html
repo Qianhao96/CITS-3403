@@ -33,7 +33,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">Cancel</button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="{{ url_for('user_admin.admin_add_poll') }}">
+        <form method="POST" action="{{ url_for('user_admin.admin_add_poll') }}" enctype="multipart/form-data">
         	{{ poll_form.csrf_token(id="poll") }}
         	<div class="col form-group">
 				{{ poll_form.poll_name.label() }}
@@ -72,6 +72,28 @@
 				</div>
 				{% else %}
 				{{ poll_form.category_poll(class="form-control") }}
+				{% endif %}
+			</div> <!-- form-group end.// -->
+			<div class="col form-group">
+				{{ poll_form.picture.label() }}
+				{{ poll_form.picture(class="form-control-file") }}
+                {% if poll_form.picture.errors %}
+                    {% for error in poll_form.picture.errors %}
+                        <span class="text-danger">{{ error }}</span></br>
+                    {% endfor %}
+                {% endif %}
+			</div> <!-- form-group end.// -->
+			<div class="col form-group">
+				{{ poll_form.video.label() }}
+				{% if poll_form.video.errors %}
+				{{ poll_form.video(class="form-control is-invalid") }}
+				<div class="invalid-feedback">
+					{% for error in poll_form.video.errors %}
+					<span>{{ error }}</span>
+					{% endfor %}
+				</div>
+				{% else %}
+				{{ poll_form.video(class="form-control") }}
 				{% endif %}
 			</div> <!-- form-group end.// -->
 			<div class="form-group">

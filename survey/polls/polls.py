@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 from survey import db
-from survey.models import User, Category, Pool, Response
+from survey.models import User, Category, Poll, Response
 from flask_login import current_user, login_required
 
 polls = Blueprint('polls', __name__)
@@ -9,9 +9,9 @@ polls = Blueprint('polls', __name__)
 @login_required
 def active_polls():
 	Categories = Category.query.all()
-	movies = Pool.query.filter_by(category_id = 1)
-	musics = Pool.query.filter_by(category_id = 2)
-	recipes = Pool.query.filter_by(category_id = 3)
+	movies = Poll.query.filter_by(category_id = 1)
+	musics = Poll.query.filter_by(category_id = 2)
+	recipes = Poll.query.filter_by(category_id = 3)
 
 	voted_movie = False
 	voted_music = False
