@@ -19,7 +19,7 @@ from survey.admin.views import MyModelView, MyLoginView, MyLogoutView
 from survey.models import User
 from survey.models import Response
 from survey.models import Category
-from survey.models import Pool
+from survey.models import Poll
 admin = Admin(template_mode='bootstrap3')
 
 
@@ -31,7 +31,7 @@ def create_app(confif_class=Config):
 	admin.add_view(MyModelView(User, db.session))
 	admin.add_view(MyModelView(Response, db.session))
 	admin.add_view(MyModelView(Category, db.session))
-	admin.add_view(MyModelView(Pool, db.session))
+	admin.add_view(MyModelView(Poll, db.session))
 	admin.add_view(MyLoginView(name='Login', endpoint='login'))
 	admin.add_view(MyLogoutView(name='Logout', endpoint='logout'))
 
