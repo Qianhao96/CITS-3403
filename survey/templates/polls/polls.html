@@ -2,7 +2,6 @@
 {% block extraCss %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/polls.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/swiper/swiper.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/movie-polls.css') }}">
 {% endblock extraCss %}
 {% block title %} {{ title }} {% endblock title %}
 {% block content %}
@@ -192,6 +191,5 @@
 
 {% block extraScript %}
 <script type="text/javascript" src="{{url_for('static', filename='js/polls.js')}}"></script>
-<script type="text/javascript" src="{{url_for('static', filename='js/movie-polls.js')}}"></script>
 <script type="text/javascript" src="{{url_for('static', filename='js/swiper/swiper.min.js')}}"></script>
 {% endblock extraScript %}

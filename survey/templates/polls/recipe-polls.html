@@ -42,9 +42,9 @@
 					<div class="card-body" style="padding: 10px">
 						<h5 class="card-title text-dark">{{recipe.name}}</h5>
 						{% if current_user.is_active %}
-						<button class="btn btn-link" id="vote" type="button">Vote me</button>
+						<button class="btn btn-link vote" id="{{recipe.id}}" type="button">Vote me</button>
 						{%else%}
-						<a class="login" id="vote" href="{{ url_for('users.logout') }}">Login</a>
+						<a class="login vote" href="{{ url_for('users.logout') }}">Login</a>
 						{%endif%}
 						<h6 class="text-secondary">The 4th moive of avengers The 4th moive of avengers The 4th moive of avengers The 4th moive of avengers </h6>
 						<a class="youtube" data-toggle="modal" href="#recipe{{recipe.id}}">
