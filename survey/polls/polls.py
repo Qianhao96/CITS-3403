@@ -6,7 +6,6 @@ from flask_login import current_user, login_required
 polls = Blueprint('polls', __name__)
 
 @polls.route("/polls", methods=['GET'])
-@login_required
 def active_polls():
 	Categories = Category.query.all()
 	movies = Poll.query.filter_by(category_id = 1)
@@ -17,15 +16,15 @@ def active_polls():
 	voted_music = False
 	voted_recipe = False
 
-	responses = Response.query.filter_by(user_id=current_user.id)
-
-	for response in responses:
-		if response.category_id is 1:
-			voted_movie = True
-		if response.category_id is 2:
-			voted_music = True
-		if response.category_id is 3:
-			voted_recipe = True
+	if current_user.is_active:
+		responses = Response.query.filter_by(user_id=current_user.id)
+		for response in responses:
+			if response.category_id is 1:
+				voted_movie = True
+			if response.category_id is 2:
+				voted_music = True
+			if response.category_id is 3:
+				voted_recipe = True
 
 	return render_template('polls/polls.html',
 						   Categories=Categories,
