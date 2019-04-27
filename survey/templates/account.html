@@ -37,23 +37,22 @@
 							<tr>
 								<th scope="col">#</th>
 								<th scope="col">Polls</th>
-								<th scope="col">Progress</th>
 								<th scope="col">Due Date</th>
+								<th scope="col">delete</th>
 							</tr>
 						</thead>
+
 						<tbody>
+							{%for response in response_table%}
 							<tr>
-								<td data-th="#">1</td>
-								<td data-th="Polls">Example1</td>
-								<td data-th="Progress">Success</td>
-								<td data-th="Submission Date">01/01/1807</td>
+								<td data-th="#">{{response[0]}}</td>
+								<td data-th="Polls">{{response[1]}}</td>
+								<td data-th="Submission Date">{{response[2]}}</td>
+								<td data-th="delete">
+									<button type="button" class="btn btn-outline-primary">Delete</button>
+								</td>
 							</tr>
-							<tr>
-								<td data-th="#">2</td>
-								<td data-th="Polls">Example2</td>
-								<td data-th="Progress">In Porgress</td>
-								<td data-th="Submission Date">01/02/1807</td>
-							</tr>
+							{%endfor%}
 						</tbody>
 					</table>
 				</div>

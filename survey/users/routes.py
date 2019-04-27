@@ -1,7 +1,7 @@
 from flask import render_template, url_for, redirect, request, flash, Blueprint, jsonify
 from survey import db, bcrypt
 from survey.users.forms import RegistrationForm, LoginForm, RequestResetFrom, ResetPasswordFrom, accountResetPasswordForm, accountForm
-from survey.models import User
+from survey.models import User, Response, Poll
 from flask_login import login_user, current_user, logout_user, login_required
 from survey.users.utils import send_reset_email
 from survey.main.routes import get_client
@@ -103,6 +103,15 @@ def account_reset_password():
 @login_required
 def my_account():
 	form = accountForm()
+
+	response_table = [None]
+	responses = Response.query.filter_by(user_id=current_user.id)
+	i = 0
+	for response in responses:
+		poll_name = Poll.query.filter_by(id = response.pool_id).first().name
+		response_table[i] = [i, poll_name, response.date_posted]
+		i+=1
+
 	if not current_user.is_authenticated:
 		return redirect(url_for('users.login'))
 
@@ -111,4 +120,9 @@ def my_account():
 		current_user.lastname = lastnames
 		current_user.email = emails
 		db.session.commit()
-	return render_template('account.html', form = form, client= get_client())
+	return render_template('account.html', form = form, response_table=response_table, client= get_client())
+
+@users.route("/delete_response", methods=['POST'])
+@login_required
+def remove_response():
+	return
