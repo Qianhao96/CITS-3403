@@ -109,7 +109,7 @@ def my_account():
 	i = 0
 	for response in responses:
 		poll_name = Poll.query.filter_by(id = response.pool_id).first().name
-		response_table[i] = [i, poll_name, response.date_posted]
+		response_table[i] = [i, poll_name, str(response.date_posted).split()[0]]
 		i+=1
 
 	if not current_user.is_authenticated:
