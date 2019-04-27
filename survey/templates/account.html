@@ -43,16 +43,20 @@
 						</thead>
 
 						<tbody>
-							{%for response in response_table%}
-							<tr>
-								<td data-th="#">{{response[0]}}</td>
-								<td data-th="Polls">{{response[1]}}</td>
-								<td data-th="Submission Date">{{response[2]}}</td>
-								<td data-th="delete">
-									<button type="button" class="btn btn-outline-primary">Delete</button>
-								</td>
-							</tr>
-							{%endfor%}
+							{%if response_table is defined%}
+								{%for response in response_table%}
+								<tr>
+									<td data-th="#">{{response[0]}}</td>
+									<td data-th="Polls">{{response[1]}}</td>
+									<td data-th="Submission Date">{{response[2]}}</td>
+									<td data-th="delete">
+										<button type="button" class="btn btn-outline-primary rm-vote" id="{{response[3]}}">
+											Delete
+										</button>
+									</td>
+								</tr>
+								{%endfor%}
+							{%endif%}
 						</tbody>
 					</table>
 				</div>
