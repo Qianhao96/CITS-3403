@@ -20,3 +20,4 @@ SQLAlchemy==1.3.0
 Werkzeug==0.14.1
 WTForms==2.2.1
 image==1.5.27
+pytest==4.4.1
