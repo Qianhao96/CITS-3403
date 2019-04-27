@@ -95,6 +95,7 @@
   overflow-y:auto;
 }
 
+
 @media only screen and (max-width: 580px) {
 	.hide {
 		display: none !important;
@@ -112,6 +113,8 @@
 	font-size: 12px;
 	padding-bottom: 10px;
 }
+
+
 /*swipper*/
 
 .head{

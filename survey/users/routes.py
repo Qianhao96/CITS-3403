@@ -4,6 +4,7 @@ from survey.users.forms import RegistrationForm, LoginForm, RequestResetFrom, Re
 from survey.models import User
 from flask_login import login_user, current_user, logout_user, login_required
 from survey.users.utils import send_reset_email
+from survey.main.routes import get_client
 
 users = Blueprint('users', __name__)
 
@@ -24,7 +25,7 @@ def register():
 
 		flash('Your account has been created! You are now able to login', 'success')
 		return redirect(url_for('users.login'))
-	return render_template('register.html', title='Register', form=form)
+	return render_template('register.html', title='Register', form=form, client= get_client())
 
 
 @users.route("/login", methods=['POST', 'GET'])
@@ -40,7 +41,7 @@ def login():
 			return redirect(next_page) if next_page else redirect(url_for('main.index'))
 		else:
 			flash('Login unsuccessful. Please check Email and Password', 'danger')
-	return render_template('login.html', title='Login', form=form)
+	return render_template('login.html', title='Login', form=form, client= get_client())
 
 
 @users.route("/logout")
@@ -60,7 +61,7 @@ def reset_request():
 		send_reset_email(user)
 		flash('An email has been sent to reset your password', 'info')
 		return redirect(url_for('users.login'))
-	return render_template('reset_request.html', title='Reset Password', form=form)
+	return render_template('reset_request.html', title='Reset Password', form=form, client= get_client())
 
 
 @users.route("/reset_password/<token>", methods=['GET', 'POST'])
@@ -79,7 +80,7 @@ def reset_token(token):
 
 		flash('Your password has been updated! You are now able to login', 'success')
 		return redirect(url_for('users.login'))
-	return render_template('reset_token.html', title='Reset Password', form=form, token=token)
+	return render_template('reset_token.html', title='Reset Password', form=form, token=token, client= get_client())
 
 
 @users.route("/account_reset_password", methods=['GET', 'POST'])
@@ -95,7 +96,7 @@ def account_reset_password():
 		flash('Your password has been updated.', 'success')
 		logout()
 		return redirect(url_for('users.login'))
-	return render_template('reset_password.html', form=form)
+	return render_template('reset_password.html', form=form, client= get_client())
 
 
 @users.route("/my_account", methods=['GET', 'POST'])
@@ -110,4 +111,4 @@ def my_account():
 		current_user.lastname = lastnames
 		current_user.email = emails
 		db.session.commit()
-	return render_template('account.html', form = form)
+	return render_template('account.html', form = form, client= get_client())

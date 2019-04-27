@@ -1,8 +1,41 @@
 body {
-	background-image: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 225, 1)),url('../image/general/tree.jpg');
+	background-image: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 225, 1)), url('../image/general/tree.jpg');
 	background-position: left, ;
 }
 
 #alert_message {
 	text-align: -webkit-center;
+	text-align: center;
+}
+
+footer {
+	color: #FFFFFF;
+	background-color: #393939;
+	padding: 15px 0 30px 0;
+	margin-top: 10px;
+	z-index: 1;
+	bottom: 0;
+}
+
+.footer-title {
+	color: #9C9C9C;
+	font: "open sans";
+	margin-top: 0.85em;
+	font-size: 16.5px;
+	font-weight: 100;
+}
+
+.footer-user-info {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+
+.footer-ip-link{
+	color: #9C9C9C;
+	font-size: 10px;
+}
+.footer-ip-link:hover{
+	color:#dfdfdf;
 }

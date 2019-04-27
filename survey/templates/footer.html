@@ -1,0 +1,40 @@
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-4">
+				<h5 class="footer-title">ABOUT THIS WEB</h5>
+				<p>This is a multi-user web application. Written in HTML, CSS, Flask, AJAX, JQuery, and Bootstrap. This application perform some kind of voting or ranking activity, based on the inputs from users</p>
+			</div>
+			<div class="col-4">
+				<h5 class="footer-title">DEVELOPERS</h5>
+				<ul class="footer-user-info">
+					<li>MR QH.Liu</li>
+					<li>MR CJ.Yin</li>
+				</ul>
+			</div>
+			<div class="col-4">
+				<h5 class="footer-title">YOUR INFORMATION</h5>
+				<ul class="footer-user-info">
+					{% if client%}
+					<li>Your IP is&nbsp;<span>{{client[0]}}</span></li>
+					<li>Conutry is&nbsp;<span>{{client[1]}}</span></li>
+					<li>Region is&nbsp;<span>{{client[2]}}</span></li>
+					<li>City is&nbsp;<span>{{client[3]}}</span></li>
+					<li>Language is&nbsp;<span>{{client[4]}}</span></li>
+					<li>Browser is&nbsp;<span>{{client[5]}}</span></li>
+					<li>System is&nbsp;<span>{{client[6]}}</span></li>
+					{% else %}
+					<li>Your IP is&nbsp;<span></span></li>
+					<li>Conutry is&nbsp;<span></span></li>
+					<li>Region is&nbsp;<span></span></li>
+					<li>City is&nbsp;<span></span></li>
+					<li>Language is&nbsp;<span></span></li>
+					<li>Browser is&nbsp;<span></span></li>
+					<li>System is&nbsp;<span></span></li>
+					{% endif %}
+				</ul>
+				<a class="footer-ip-link" href="https://ipstack.com" target="_blank">Thanks to "https://ipstack.com" provide IP Location</a>
+			</div>
+		</div>
+	</div>
+</footer>
