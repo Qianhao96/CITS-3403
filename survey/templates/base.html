@@ -73,14 +73,11 @@
 		{% endif %}
 		{% endwith %}
 	</div>
-	{% block content %}
+	{% block content %} {% endblock %}
 
-	{% endblock %}
-
-	{% extends "footer.html" %}
+	{% include "footer.html" %}
 </body>
 
 <script type="text/javascript" src="{{url_for('static', filename='js/base.js')}}"></script>
 {% block extraScript %} {% endblock %}
-
 </html>
