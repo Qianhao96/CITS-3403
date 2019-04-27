@@ -33,3 +33,6 @@ account page
 
 -Footer(time, eg..)
 -DB(Poll -- url, category--picture)
+-Unit test
+-Comments
+-a suitable software license document
