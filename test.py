@@ -24,9 +24,9 @@ class FlaskTestCase(unittest.TestCase):
 	def test_login_with_corrent_credential(self):
 		tester = app.test_client(self)
 		response = tester.post(
-			'/admin/',
-			 data=dict(email="admin@gmail.com",
-			 		   password="admin"),
+			'/login',
+			 data=dict(email="qianhao.liu1@gmail.com",
+			 		   password="test12345678"),
 			 		   follow_redirects=True)
 		self.assertIn(b'Login successfull', response.data)
 		# self.assertEqual(response.status_code, 204)
