@@ -1,7 +1,7 @@
-from flask import render_template, url_for, redirect, request, flash, Blueprint, jsonify
+from flask import render_template, url_for, redirect, request, flash, Blueprint, jsonify, json
 from survey import db, bcrypt
 from survey.users.forms import RegistrationForm, LoginForm, RequestResetFrom, ResetPasswordFrom, accountResetPasswordForm, accountForm
-from survey.models import User
+from survey.models import User, Response, Poll
 from flask_login import login_user, current_user, logout_user, login_required
 from survey.users.utils import send_reset_email
 from survey.main.routes import get_client
@@ -103,6 +103,16 @@ def account_reset_password():
 @login_required
 def my_account():
 	form = accountForm()
+
+	response_table = []
+	responses = Response.query.filter_by(user_id=current_user.id)
+	i = 0
+	for response in responses:
+		print(response)
+		poll_name = Poll.query.filter_by(id = response.pool_id).first().name
+		response_table.append([i, poll_name, str(response.date_posted).split()[0], response.pool_id])
+		i+=1
+
 	if not current_user.is_authenticated:
 		return redirect(url_for('users.login'))
 
@@ -111,4 +121,28 @@ def my_account():
 		current_user.lastname = lastnames
 		current_user.email = emails
 		db.session.commit()
-	return render_template('account.html', form = form, client= get_client())
+	return render_template('account.html', form = form, response_table=response_table, client= get_client())
+
+@users.route("/delete_response", methods=['POST'])
+@login_required
+def remove_response():
+	poll_id = None
+	try:
+		poll_id = request.get_json()['rm_poll_id']
+		poll_id = int(poll_id)
+	except:
+		return json.dumps({'status':'unsuccess','message':"Bad socket message"})
+	finally:
+		if poll_id is None:
+			return json.dumps({'status':'unsuccess','message':"Bad socket message"})
+
+	responses = Response.query.filter_by(user_id=current_user.id)
+	for response in responses:
+		if response.pool_id is poll_id:
+			db.session.delete(response)
+			poll = Poll.query.filter_by(id = poll_id).first()
+			rank = poll.rank
+			poll.rank = rank - 1
+			db.session.commit()
+			return json.dumps({'status':'OK','message':"Vote successfully removed"})
+	return json.dumps({'status':'unsuccess','message':"You have not yet voted this poll"})

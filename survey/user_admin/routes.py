@@ -143,18 +143,3 @@ def admin_delete_response():
 	db.session.delete(category)
 	db.session.commit()
 	return json.dumps({'status':'OK','message':"category has been successfuly deleted"});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

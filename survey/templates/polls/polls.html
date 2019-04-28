@@ -2,9 +2,6 @@
 {% block extraCss %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/polls.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/swiper/swiper.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/music_polls.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/movie-polls.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/recipe-polls.css') }}">
 {% endblock extraCss %}
 {% block title %} {{ title }} {% endblock title %}
 {% block content %}
@@ -38,8 +35,8 @@
 						<div class="col-4">
 							<div class="info-vote">
 								{% if voted_music %}
-								<h5 class="text-warning">Voted</h5>
-								{% else %}
+								<h5 class="text-warning centered">Voted</h5>
+								{% elif current_user.is_active or not voted_music%}
 								<button type="button" class="btn btn-link text-white centered info-name" data-toggle="modal" data-target="#model-1">
 									TAKE VOTE
 								</button>
@@ -78,7 +75,7 @@
 							<div class="info-vote">
 								{% if voted_movie %}
 								<h5 class="text-warning centered">Voted</h5>
-								{% else %}
+								{% elif current_user.is_active or not voted_movie%}
 								<button type="button" class="btn btn-link text-white centered info-name" data-toggle="modal" data-target="#model-2">
 									TAKE VOTE
 								</button>
@@ -117,7 +114,7 @@
 							<div class="info-vote">
 								{% if voted_recipe %}
 								<h5 class="text-warning centered">Voted</h5>
-								{% else %}
+								{% elif current_user.is_active or not voted_recipe%}
 								<button type="button" class="btn btn-link text-white centered info-name" data-toggle="modal" data-target="#model-3">
 									TAKE VOTE
 								</button>
@@ -132,6 +129,7 @@
 	<div class="swiper-button-prev hide"></div>
 	<div class="swiper-button-next hide"></div>
 </div> <!-- end container -->
+
 <!-- Modal -->
 <div class="modal fade" id="model-1" data-backdrop="static" data-keyboard="false">
 	<div class="modal-dialog modal-lg" role="document">
@@ -193,6 +191,5 @@
 
 {% block extraScript %}
 <script type="text/javascript" src="{{url_for('static', filename='js/polls.js')}}"></script>
-<script type="text/javascript" src="{{url_for('static', filename='js/movie-polls.js')}}"></script>
 <script type="text/javascript" src="{{url_for('static', filename='js/swiper/swiper.min.js')}}"></script>
 {% endblock extraScript %}

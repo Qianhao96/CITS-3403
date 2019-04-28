@@ -32,21 +32,36 @@
 
 {% for music in musics %}
 <div class="row">
-	<div class="col-2">
-		<div class="author author-image" style="">{{music.name}}</div>
+	<div class="card mb-3 movie-container">
+		<div class="row no-gutters">
+			<div class="col-3">
+				<img calss="card-img movie-media" src="static/image/polls/{{music.image_file}}" alt="..." style="width: 95%">
+			</div>
+			<div class="col-9">
+				<div class="card-body" style="padding: 10px">
+					<h5 class="card-title text-dark">{{music.name}}</h5>
+					{% if current_user.is_active %}
+					<button class="btn btn-link vote" id="{{music.id}}" type="button">Vote me</button>
+					{%else%}
+					<a class="login vote" href="{{ url_for('users.logout') }}">Login</a>
+					{%endif%}
+					<h6 class="text-secondary">The 4th moive of avengers The 4th moive of avengers The 4th moive of avengers The 4th moive of avengers </h6>
+					<a class="youtube" data-toggle="modal" href="#music{{music.id}}">
+						<img class="youtube-media" src="{{ url_for('static', filename='image/polls/movie/play.png') }}" alt="YouTube">
+					</a>
+				</div>
+			</div>
+		</div>
 	</div>
-
-	<div class="col-8">
-		<audio controls class="music-player">
-			<source src="../../static/audio/Lukas%20Graham%20-%207%20Years%20%5BOFFICIAL%20MUSIC%20VIDEO%5D.mp3" type="audio/mp3">
-			Your browser does not support the audio element.
-		</audio>
-	</div>
-
-	<div class="col-2">
-		<input class="poll-vote" type="radio" name="vote" value={{music.id}} onclick="">
+	<div class="modal fade" id="music{{music.id}}">
+		<div class="modal-dialog">
+			<div class="modal-content" style="background-color: black; padding=0px;">
+				<div class="modal-body">
+					<iframe class="video-frame" style="width:100%; height: 300px;" src='{{ music.video_url }}' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+					</iframe>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 {% endfor %}
-
-
