@@ -50,13 +50,13 @@ def user_votting():
 		if poll_id is None:
 			return json.dumps({'status':'unsuccess','message':"Bad socket message"})
 
-	responses = Response.query.filter_by(user_id=current_user.id)
-	for response in responses:
-		if response.pool_id is poll_id:
-			return json.dumps({'status':'unsuccess','message':"You have voted"})
-
 	poll = Poll.query.filter_by(id = poll_id).first()
 	category_id = poll.category_id
+
+	responses = Response.query.filter_by(user_id=current_user.id)
+	for response in responses:
+		if response.category_id is category_id:
+			return json.dumps({'status':'unsuccess','message':"You have voted"})
 
 	response = Response(user_id=current_user.id, category_id=category_id,pool_id=poll_id)
 	db.session.add(response)
