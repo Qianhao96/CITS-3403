@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block extraCss %}
+{% endblock extraCss %}
+
+{% block content %}
+<div class='container'>
+	<h2>How Musics rank is going</h2>
+	<h6 class="text-black-50">How Musics rank is going</h6>
+
+	<canvas accesskey=""class='bg-light' id="bar-chart" width="600" height="200"></canvas>
+	<canvas class='bg-light' style="display:none" id="line-chart" width="600" height="200"></canvas>
+
+	<button class='overview' id="{{categoryID[1]}}">Overview</button>
+	<button class='elaborate' id="{{categoryID[1]}}">Elaborate</button>
+</div>
+{% endblock content %}
+
+{% block extraScript %}
+<script type="text/javascript" src="{{url_for('static', filename='js/chart/Chart.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/rank.js')}}"></script>
+{% endblock extraScript %}

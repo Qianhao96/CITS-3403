@@ -1,7 +1,7 @@
 from flask import render_template, url_for, redirect, request, flash, Blueprint, jsonify, json
 from survey import db, bcrypt
 from survey.users.forms import RegistrationForm, LoginForm, RequestResetFrom, ResetPasswordFrom, accountResetPasswordForm, accountForm
-from survey.models import User, Response, Poll
+from survey.models import User, Response, Poll, Category
 from flask_login import login_user, current_user, logout_user, login_required
 from survey.users.utils import send_reset_email
 from survey.main.routes import get_client
@@ -123,6 +123,7 @@ def my_account():
 		db.session.commit()
 	return render_template('account.html', form = form, response_table=response_table, client= get_client())
 
+
 @users.route("/delete_response", methods=['POST'])
 @login_required
 def remove_response():
@@ -146,3 +147,64 @@ def remove_response():
 			db.session.commit()
 			return json.dumps({'status':'OK','message':"Vote successfully removed"})
 	return json.dumps({'status':'unsuccess','message':"You have not yet voted this poll"})
+
+
+@users.route("/index", methods=['GET'])
+def home():
+	categorys = Category.query
+	categoryID = []
+	for category in categorys:
+		categoryID.append(category.id)
+	return render_template('index.html', categoryID=categoryID, client= get_client())
+
+
+def normalizeData(catId):
+	if catId is None:
+		return [],[]
+	name = []
+	data = []
+	polls = Poll.query.filter_by(category_id=catId).order_by(Poll.rank.desc())
+	for poll in polls:
+		name.append(poll.name)
+		data.append(poll.rank)
+	return name, data
+
+
+@users.route("/getOverview", methods=['POST'])
+def getData():
+	categoryId = None
+	try:
+		categoryId = request.get_json()['id']
+		categoryId = int(categoryId)
+	except:
+		return json.dumps({'status':'unsuccess','message':"Bad socket message"})
+	finally:
+		if categoryId is None and Category.query.filter_by(id=categoryId) is None:
+			return json.dumps({'status':'unsuccess','message':"Bad socket message"})
+	data = normalizeData(categoryId)
+	return jsonify({'status':'unsuccess', 'data': data})
+
+def inside():
+	print("i am in")
+
+def normalizeElab(catId):
+	datas = []
+	names = []
+	label = []
+	responses = Response.query.filter_by(category_id=catId)
+	for response in responses:
+		inside()
+
+@users.route("/getElaborate", methods=['POST'])
+def getEData():
+	categoryId = None
+	try:
+		categoryId = request.get_json()['id']
+		categoryId = int(categoryId)
+	except:
+		return json.dumps({'status':'unsuccess','message':"Bad socket message"})
+	finally:
+		if categoryId is None and Category.query.filter_by(id=categoryId) is None:
+			return json.dumps({'status':'unsuccess','message':"Bad socket message"})
+	normalizeElab(categoryId)
+	return json.dumps({'status':'unsuccess','message':"Bad socket message"})
