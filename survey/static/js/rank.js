@@ -27,9 +27,9 @@ function displaybarChart(param) {
 		contentType: "application/json; charset=utf-8",
 		type: 'POST',
 		success: function (message) {
-			$("#bar-chart").show();
-			$("#line-chart").hide();
-			new Chart(document.getElementById("bar-chart"), {
+			$("#bar-chart"+id).show();
+			$("#line-chart"+id).hide();
+			new Chart(document.getElementById("bar-chart"+id), {
 				type: 'horizontalBar',
 				data: {
 					labels: message.data[0],
@@ -47,7 +47,7 @@ function displaybarChart(param) {
 						xAxes: [{
 							ticks: {
 								suggestedMin: 0,
-								suggestedMax:message.data[1][0]+1
+								suggestedMax: message.data[1][0] + 1
 							}
             			}]
 					}
@@ -57,45 +57,21 @@ function displaybarChart(param) {
 	});
 }
 
-function displaylineChart(param) {
-	$("#bar-chart").hide();
-	$("#line-chart").show();
-	new Chart(document.getElementById("line-chart"), {
-		type: 'line',
-		data: {
-			labels: ["21/08/2019", "22/08/2019", "23/08/2019", "24/08/2019", "25/08/2019", "26/08/2019", "27/08/2019", "28/08/2019", "29/08/2019", "30/08/2019"],
-			datasets: [{
-					data: [86, 114, 106, 106, 107, 111, 133, 221, 783, 2478],
-					label: "music_5",
-					borderColor: "#3e95cd",
-					fill: false
-			}, {
-					data: [282, 350, 411, 502, 635, 809, 947, 1402, 3700, 5267],
-					label: "music_4",
-					borderColor: "#8e5ea2",
-					fill: false
-			}, {
-					data: [168, 170, 178, 190, 203, 276, 408, 547, 675, 734],
-					label: "music_3",
-					borderColor: "#3cba9f",
-					fill: false
-			}, {
-					data: [40, 20, 10, 16, 24, 38, 74, 167, 508, 784],
-					label: "music_2",
-					borderColor: "#e8c3b9",
-					fill: false
-			}, {
-					data: [6, 3, 2, 2, 7, 26, 82, 172, 312, 433],
-					label: "music_1",
-					borderColor: "#c45850",
-					fill: false
-      }
-    ]
+function data(dict) {
+	arr = new Array();
+	for (var key in dict) {
+		var temp = {
+			data: dict[key],
+			label: key,
+			borderColor: getRandomColor(),
+			fill: false
 		}
-	});
+		arr.push(temp);
+	}
+	return arr;
 }
 
-function test(param){
+function displaylineChart(param) {
 	var id = $(param).attr('id');
 	$.ajax({
 		url: "/getElaborate",
@@ -106,21 +82,32 @@ function test(param){
 		contentType: "application/json; charset=utf-8",
 		type: 'POST',
 		success: function (response) {
-			alert(response['message'])
-		},
-		error: function (error) {
-			alert(response['message'])
+			$("#bar-chart"+id).hide();
+			$("#line-chart"+id ).show();
+			new Chart(document.getElementById("line-chart"+id), {
+				type: 'line',
+				data: {
+					labels: response.label,
+					datasets: data(response.data)
+				}
+			});
 		}
 	});
 }
 
 $(document).ready(function () {
-	$(".elaborate").click(function () {
-		displaylineChart(this);
-		test(this);
-	});
-
-	$(".overview").click(function () {
+	$(".overview").each(function(index) {
 		displaybarChart(this);
 	});
+
+	$(".elaborate").click(function () {
+		displaylineChart(this);
+	});
+
+	$(".overview").each(function(index) {
+		$(this).click(function () {
+			displaybarChart(this);
+		});
+	});
+
 });

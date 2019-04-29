@@ -1,21 +1,20 @@
 {% extends 'base.html' %}
-
 {% block extraCss %}
 {% endblock extraCss %}
+{%block content%}
 
-{% block content %}
+{% for category in categorys%}
 <div class='container'>
-	<h2>How Musics rank is going</h2>
+	<h2>How {{category.name}} rank is going</h2>
 	<h6 class="text-black-50">How Musics rank is going</h6>
 
-	<canvas accesskey=""class='bg-light' id="bar-chart" width="600" height="200"></canvas>
-	<canvas class='bg-light' style="display:none" id="line-chart" width="600" height="200"></canvas>
-
-	<button class='overview' id="{{categoryID[1]}}">Overview</button>
-	<button class='elaborate' id="{{categoryID[1]}}">Elaborate</button>
+	<canvas style="display:none" class='bg-white' id="bar-chart{{category.id}}" width="400" height="200"></canvas>
+	<canvas style="display:none" id="line-chart{{category.id}}" width="400" height="200"></canvas>
+	<button class='overview' id="{{category.id}}">Overview</button>
+	<button class='elaborate' id="{{category.id}}">Elaborate</button>
 </div>
+{%endfor%}
 {% endblock content %}
-
 {% block extraScript %}
 <script type="text/javascript" src="{{url_for('static', filename='js/chart/Chart.min.js')}}"></script>
 <script type="text/javascript" src="{{url_for('static', filename='js/rank.js')}}"></script>

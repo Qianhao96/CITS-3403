@@ -5,6 +5,7 @@ from survey.models import User, Response, Poll, Category
 from flask_login import login_user, current_user, logout_user, login_required
 from survey.users.utils import send_reset_email
 from survey.main.routes import get_client
+from datetime import datetime, timedelta
 
 users = Blueprint('users', __name__)
 
@@ -152,10 +153,7 @@ def remove_response():
 @users.route("/index", methods=['GET'])
 def home():
 	categorys = Category.query
-	categoryID = []
-	for category in categorys:
-		categoryID.append(category.id)
-	return render_template('index.html', categoryID=categoryID, client= get_client())
+	return render_template('index.html', categorys=categorys, client= get_client())
 
 
 def normalizeData(catId):
@@ -184,16 +182,31 @@ def getData():
 	data = normalizeData(categoryId)
 	return jsonify({'status':'unsuccess', 'data': data})
 
-def inside():
-	print("i am in")
 
 def normalizeElab(catId):
-	datas = []
-	names = []
 	label = []
-	responses = Response.query.filter_by(category_id=catId)
-	for response in responses:
-		inside()
+	responses = Response.query.filter_by(category_id=catId).order_by(Response.date_posted)
+
+	if responses.count() is 0:
+		return None,None
+
+	startDate = responses[0].date_posted
+	days = (responses[responses.count()-1].date_posted - startDate).days + 1
+	datas = {}
+	nameDict = {}
+
+	for name in Poll.query.filter_by(category_id=catId):
+		nameDict[name.id] = name.name
+		datas[name.name] = [0]*days
+	for i in range(days):
+		date = startDate + timedelta(days=i)
+		for response in responses.filter_by(date_posted = date):
+			for j in range(i,days):
+				datas[nameDict[response.pool_id]][j] +=1
+		label.append(str(date).split(' ')[0])
+
+	return label,datas
+
 
 @users.route("/getElaborate", methods=['POST'])
 def getEData():
@@ -206,5 +219,6 @@ def getEData():
 	finally:
 		if categoryId is None and Category.query.filter_by(id=categoryId) is None:
 			return json.dumps({'status':'unsuccess','message':"Bad socket message"})
-	normalizeElab(categoryId)
-	return json.dumps({'status':'unsuccess','message':"Bad socket message"})
+	label, datas = normalizeElab(categoryId)
+
+	return jsonify({'status':'unsuccess','label':label,'data':datas})
