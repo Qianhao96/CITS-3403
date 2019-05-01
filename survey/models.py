@@ -2,7 +2,7 @@ from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from survey import db, login_manager
 from flask_login import UserMixin
 from flask import current_app
-from datetime import datetime
+import datetime
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -64,7 +64,7 @@ class Response(db.Model):
 	user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 	category_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable=False)
 	pool_id = db.Column(db.Integer, db.ForeignKey('poll.id'), nullable=False)
-	date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+	date_posted = db.Column(db.DateTime, nullable=False, default=datetime.date.today())
 
 	def __repr__(self):
 		return f"Response('{self.user.id}', '{self.category.id}', '{self.poll.id}', '{self.date_posted}')"

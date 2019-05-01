@@ -40,17 +40,20 @@
 			<div class="col-9">
 				<div class="card-body" style="padding: 10px">
 					<h5 class="card-title text-dark">{{movie.name}}</h5>
-					<button class="btn btn-link" id="vote" type="button">Vote me</button>
+					{% if current_user.is_active %}
+					<button class="btn btn-link vote" id="{{movie.id}}" type="button">Vote me</button>
+					{%else%}
+					<a class="login vote" href="{{ url_for('users.logout') }}">Login</a>
+					{%endif%}
 					<h6 class="text-secondary">The 4th moive of avengers The 4th moive of avengers The 4th moive of avengers The 4th moive of avengers </h6>
-					<a class="youtube" data-toggle="modal" href="#{{movie.name}}">
+					<a class="youtube" data-toggle="modal" href="#movie{{movie.id}}">
 						<img class="youtube-media" src="{{ url_for('static', filename='image/polls/movie/play.png') }}" alt="YouTube">
 					</a>
 				</div>
 			</div>
 		</div>
 	</div>
-
-	<div class="modal fade" id="{{movie.name}}">
+	<div class="modal fade" id="movie{{movie.id}}">
 		<div class="modal-dialog">
 			<div class="modal-content" style="background-color: black; padding=0px;">
 				<div class="modal-body">

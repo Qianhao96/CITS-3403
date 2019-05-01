@@ -2,7 +2,6 @@
 
 {% block extraCss %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/account.css') }}">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 {% endblock extraCss %}
 
 {% block title %} {{ current_user.firstname }} {% endblock title %}
@@ -37,23 +36,26 @@
 							<tr>
 								<th scope="col">#</th>
 								<th scope="col">Polls</th>
-								<th scope="col">Progress</th>
-								<th scope="col">Due Date</th>
+								<th scope="col">date voted</th>
+								<th scope="col">delete</th>
 							</tr>
 						</thead>
+
 						<tbody>
-							<tr>
-								<td data-th="#">1</td>
-								<td data-th="Polls">Example1</td>
-								<td data-th="Progress">Success</td>
-								<td data-th="Submission Date">01/01/1807</td>
-							</tr>
-							<tr>
-								<td data-th="#">2</td>
-								<td data-th="Polls">Example2</td>
-								<td data-th="Progress">In Porgress</td>
-								<td data-th="Submission Date">01/02/1807</td>
-							</tr>
+							{%if response_table is defined%}
+								{%for response in response_table%}
+								<tr>
+									<td data-th="#">{{response[0]}}</td>
+									<td data-th="Polls">{{response[1]}}</td>
+									<td data-th="Submission Date">{{response[2]}}</td>
+									<td data-th="delete">
+										<button type="button" class="btn btn-outline-primary rm-vote" id="{{response[3]}}">
+											Delete
+										</button>
+									</td>
+								</tr>
+								{%endfor%}
+							{%endif%}
 						</tbody>
 					</table>
 				</div>

@@ -14,7 +14,8 @@ footer {
 	padding: 15px 0 30px 0;
 	margin-top: 10px;
 	z-index: 1;
-	bottom: 0;
+	position: relative;
+	bottom: -40px;
 }
 
 .footer-title {
@@ -32,10 +33,11 @@ footer {
 	width: 100%;
 }
 
-.footer-ip-link{
+.footer-ip-link {
 	color: #9C9C9C;
 	font-size: 10px;
 }
-.footer-ip-link:hover{
-	color:#dfdfdf;
+
+.footer-ip-link:hover {
+	color: #dfdfdf;
 }
