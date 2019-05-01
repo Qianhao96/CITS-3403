@@ -1,17 +1,21 @@
 {% extends 'base.html' %}
 {% block extraCss %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
 {% endblock extraCss %}
 {%block content%}
 
 {% for category in categorys%}
-<div class='container'>
-	<h2>How {{category.name}} rank is going</h2>
-	<h6 class="text-black-50">How Musics rank is going</h6>
-
-	<canvas style="display:none" class='bg-white' id="bar-chart{{category.id}}" width="400" height="200"></canvas>
-	<canvas style="display:none" id="line-chart{{category.id}}" width="400" height="200"></canvas>
-	<button class='overview' id="{{category.id}}">Overview</button>
-	<button class='elaborate' id="{{category.id}}">Elaborate</button>
+<div class='container chart-border'>
+	<div class="row d-flex justify-content-center">
+		<div class="col-md-9 pb-5 pt-5" >
+			<h2>How {{category.name}} rank is going</h2>
+			<h6 class="text-black-50">How Musics rank is going</h6>
+			<canvas class='transparent' id="bar-chart{{category.id}}"></canvas>
+			<canvas class='transparent ' id="line-chart{{category.id}}"></canvas>
+			<button class='overview btn btn-outline-success' id="{{category.id}}">Overview</button>
+			<button class='elaborate btn btn-outline-info' id="{{category.id}}">Elaborate</button>
+		</div>
+	</div>
 </div>
 {%endfor%}
 {% endblock content %}
