@@ -115,8 +115,15 @@ def admin_add_poll():
 				video_url = poll_form.video.data)
 			db.session.add(poll)
 			db.session.commit()
-			flash('New poll has been added!', 'success')
-			return redirect(url_for('user_admin.user_index'))
+		else:
+			poll = Poll(name = poll_form.poll_name.data,
+			rank = poll_form.rank.data,
+			category_id = poll_form.category_poll.data,
+			video_url = poll_form.video.data)
+			db.session.add(poll)
+			db.session.commit()
+		flash('New poll has been added!', 'success')
+		return redirect(url_for('user_admin.user_index'))
 	print('failed')
 	return render_template('user-admin/user_admin.html', 
 		users=users, categories=categories, polls=polls, responses=responses,
@@ -129,7 +136,8 @@ def admin_add_poll():
 def admin_delete_poll():
 	id = request.get_json()['id']
 	poll = Poll.query.filter_by(id=id).first()
-	delete_picture(poll.image_file)
+	if poll.image_file != 'default.jpg':
+		delete_picture(poll.image_file)
 	db.session.delete(poll)
 	db.session.commit()
 	return json.dumps({'status':'OK','message':"Poll has been successfuly deleted"});

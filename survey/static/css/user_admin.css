@@ -11,3 +11,9 @@ td, th {
 	font-family: fantasy;
 	font-weight: bold;
 }
+
+.admin_add_button{
+	position: absolute;
+    right: 20px;
+    margin-bottom: 5px;
+}
