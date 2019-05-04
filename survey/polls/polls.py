@@ -15,6 +15,10 @@ def active_polls():
 	musics = Poll.query.filter_by(category_id = 2)
 	recipes = Poll.query.filter_by(category_id = 3)
 
+	movie_vote = Response.query.filter_by(category_id = 1).count()
+	music_vote = Response.query.filter_by(category_id = 2).count()
+	recipe_vote = Response.query.filter_by(category_id = 3).count()
+
 	voted_movie = False
 	voted_music = False
 	voted_recipe = False
@@ -37,6 +41,9 @@ def active_polls():
 						   voted_movie=voted_movie,
 						   voted_music=voted_music,
 						   voted_recipe=voted_recipe,
+						   movie_vote=movie_vote,
+						   music_vote=music_vote,
+						   recipe_vote=recipe_vote,
 						   client= get_client())
 
 

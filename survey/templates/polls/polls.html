@@ -5,27 +5,26 @@
 {% endblock extraCss %}
 {% block title %} {{ title }} {% endblock title %}
 {% block content %}
-<div class="title" align="center"><strong>THIS SHOULD BE THE TITLE OF THE PAGE AND LARGE</strong></div>
-<div class="swiper-container mb-3" style="min-height:400px;">
+<div class="swiper-container mb-3 mt-3" style="min-height:400px;">
 	<div class="swiper-wrapper">
 		<div class="swiper-slide left-0">
 			<div class="card music card-border">
 				<div class="card-top-img">
-					<img src="../static/image/polls/wukong_1.png" alt="wukong" />
+					<img src="../static/image/polls/Edd.jpg" alt="Ed" />
 				</div>
 				{% if not voted_music %}
-				<div class="card-status text-danger">Please Vote the best Music</div>
+				<div class="card-status text-danger">Vote your favorite song from Ed Sheeran</div>
 				{% else %}
 				<div class="card-status text-success">You have voted</div>
 				{% endif %}
 				<div class="card-name">MUSIC</div>
 				<div class="card-description">
-					Wukong is a Holiday Outfit cosmetic item in Battle Royale that could be purchased from the Item Shop in February and March 2018. The Royale Flags Back Bling skin is bundled with this outfit.
+					Edward Christopher "Ed" Sheeran MBE (born 17 February 1991) is an English singer-songwriter and guitarist. He also writes and produces songs on his own and created his label, Paw Print Records. Sheeran is recognized for doing pop music. 
 				</div>
 				<div class="container-fluid">
 					<div class="row music-infos" style="color: white">
 						<div class="col-4 border-right">
-							<div class="infos">{{Categories[1].Poll|length}}</div>
+							<div class="infos">{{music_vote}}</div>
 							<div class="info-name">#VOTES</div>
 						</div>
 						<div class="col-4 border-right">
@@ -50,21 +49,21 @@
 		<div class="swiper-slide left-1">
 			<div class="card music card-border">
 				<div class="card-top-img">
-					<img class="resize" src="../static/image/polls/jinx.png" alt="wukong" />
+					<img src="../static/image/polls/Marvel.jpg" alt="wukong" />
 				</div>
 				{% if not voted_movie %}
-				<div class="card-status text-danger">Please Vote the best Movie</div>
+				<div class="card-status text-danger">Vote for your favorite Marvel movie</div>
 				{% else %}
 				<div class="card-status text-success">You have voted</div>
 				{% endif %}
 				<div class="card-name">MOVIE</div>
 				<div class="card-description">
-					Wukong is a Holiday Outfit cosmetic item in Battle Royale that could be purchased from the Item Shop in February and March 2018. The Royale Flags Back Bling skin is bundled with this outfit.
+					The Marvel Cinematic Universe (MCU) is an American media franchise and shared universe centered on a series of superhero films, independently produced by Marvel Studios and based on characters that appear in American comic books published by Marvel Comics.
 				</div>
 				<div class="container-fluid">
 					<div class="row music-infos" style="color: white">
 						<div class="col-4 border-right">
-							<div class="infos">{{ users|length }}</div>
+							<div class="infos">{{movie_vote}}</div>
 							<div class="info-name">#VOTES</div>
 						</div>
 						<div class="col-4 border-right">
@@ -89,21 +88,21 @@
 		<div class="swiper-slide left-1">
 			<div class="card music card-border">
 				<div class="card-top-img">
-					<img class="resize" src="../static/image/polls/jinx.png" alt="wukong" />
+					<img src="../static/image/polls/Chinese.jpg" alt="Marvel" />
 				</div>
 				{% if not voted_recipe %}
-				<div class="card-status text-danger">Please Vote the best Recipe</div>
+				<div class="card-status text-danger">Vote for your favorite Chinese cuisine</div>
 				{% else %}
 				<div class="card-status text-success">You have voted</div>
 				{% endif %}
 				<div class="card-name">RECIPE</div>
 				<div class="card-description">
-					Wukong is a Holiday Outfit cosmetic item in Battle Royale that could be purchased from the Item Shop in February and March 2018. The Royale Flags Back Bling skin is bundled with this outfit.
+					Chinese cuisine is an important part of Chinese culture, which includes cuisine originating from the diverse regions of China, as well as from Chinese people in other parts of the world. Because of the Chinese diaspora and historical power of the country, Chinese cuisine has influenced many other cuisines in Asia, with modifications made to cater to local palates. 
 				</div>
 				<div class="container-fluid">
 					<div class="row music-infos" style="color: white">
 						<div class="col-4 border-right">
-							<div class="infos">{{ users|length }}</div>
+							<div class="infos">{{recipe_vote}}</div>
 							<div class="info-name">#VOTES</div>
 						</div>
 						<div class="col-4 border-right">

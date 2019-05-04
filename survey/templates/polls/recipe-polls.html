@@ -30,8 +30,8 @@
 	</div>
 </div>
 
+{% for recipe in recipes %}
 <div class="row">
-	{% for recipe in recipes %}
 	<div class="row">
 		<div class="card mb-3 movie-container">
 			<div class="row no-gutters">
@@ -65,5 +65,5 @@
 			</div>
 		</div>
 	</div>
-	{% endfor %}
 </div>
+{% endfor %}
