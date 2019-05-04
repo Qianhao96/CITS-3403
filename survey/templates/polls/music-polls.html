@@ -43,7 +43,7 @@
 					{% if current_user.is_active %}
 					<button class="btn btn-link vote" id="{{music.id}}" type="button">Vote me</button>
 					{%else%}
-					<a class="login vote" href="{{ url_for('users.logout') }}">Login</a>
+					<a class="login vote" href="{{ url_for('users.login') }}">Login</a>
 					{%endif%}
 					<h6 class="text-secondary">Get more information by clicking the play button!!! </h6>
 					<a class="youtube" data-toggle="modal" href="#music{{music.id}}">
