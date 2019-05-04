@@ -2,6 +2,7 @@ from flask import render_template, Blueprint
 from flask import request
 import urllib.request
 import json
+from survey.models import User, Response, Poll, Category
 
 main = Blueprint('main', __name__)
 access_key='4c0fc23c4090d22cf284ecce6d043517'
@@ -35,6 +36,7 @@ def index():
 	if request.user_agent.platform is "macos":
 		request.user_agent.platform = "mcintosh"
 	client = process()
-	return render_template('base.html', client=client)
+	categorys = Category.query
+	return render_template('index.html', categorys=categorys, client= client)
 
 
