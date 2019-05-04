@@ -3,6 +3,7 @@ from survey import db
 from survey.models import User, Category, Poll, Response
 from flask_login import current_user, login_required
 from datetime import datetime, timedelta
+from survey.main.routes import get_client
 
 
 polls = Blueprint('polls', __name__)
@@ -35,7 +36,8 @@ def active_polls():
 						   recipes=recipes,
 						   voted_movie=voted_movie,
 						   voted_music=voted_music,
-						   voted_recipe=voted_recipe)
+						   voted_recipe=voted_recipe,
+						   client= get_client())
 
 
 @polls.route("/vote", methods=['POST'])
@@ -68,12 +70,6 @@ def user_votting():
 	db.session.commit()
 
 	return json.dumps({'status':'OK','message':"Vote success"})
-
-
-# @polls.route("/index", methods=['GET'])
-# def home():
-# 	categorys = Category.query
-# 	return render_template('index.html', categorys=categorys, client= get_client())
 
 
 def normalizeData(catId):

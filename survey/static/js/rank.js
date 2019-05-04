@@ -27,32 +27,37 @@ function displaybarChart(param) {
 		contentType: "application/json; charset=utf-8",
 		type: 'POST',
 		success: function (message) {
-			$("#bar-chart"+id).show();
-			$("#line-chart"+id).hide();
-			new Chart(document.getElementById("bar-chart"+id), {
-				type: 'horizontalBar',
-				data: {
-					labels: message.data[0],
-					datasets: [{
-						label: "Votes",
-						backgroundColor: gerListRandomColor(5),
-						data: message.data[1]
-				}]
-				},
-				options: {
-					legend: {
-						display: false
+			if ((message.data[0]).length > 0 && (message.data[1]).length > 0){
+				$("#bar-chart"+id).show();
+				$("#line-chart"+id).hide();
+				new Chart(document.getElementById("bar-chart"+id), {
+					type: 'horizontalBar',
+					data: {
+						labels: message.data[0],
+						datasets: [{
+							label: "Votes",
+							backgroundColor: gerListRandomColor(5),
+							data: message.data[1]
+					}]
 					},
-					scales: {
-						xAxes: [{
-							ticks: {
-								suggestedMin: 0,
-								suggestedMax: message.data[1][0] + 1
-							}
-            			}]
+					options: {
+						legend: {
+							display: false
+						},
+						scales: {
+							xAxes: [{
+								ticks: {
+									suggestedMin: 0,
+									suggestedMax: message.data[1][0] + 1
+								}
+	            			}]
+						}
 					}
-				}
-			});
+				});
+			}else{
+				$('#info'+id).html('There is no value to display');
+				$('#poll-button'+id).hide()
+			}
 		}
 	});
 }

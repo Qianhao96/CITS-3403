@@ -3,6 +3,7 @@ from survey.models import User, Category, Poll, Response
 from survey.user_admin.forms import RegistrationForm, NewCategoryForm, NewPollForm
 from survey import db, bcrypt
 from survey.user_admin.utils import admin_login_required, save_picture, delete_picture
+from survey.main.routes import get_client
 
 
 user_admin = Blueprint('user_admin', __name__)
@@ -21,7 +22,7 @@ def user_index():
 	return render_template('user-admin/user_admin.html', 
 		users=users, categories=categories, polls=polls, responses=responses,
 		user_form=user_form, category_form = category_form, poll_form=poll_form,
-		title="Admin", data={'form_checking':False})
+		title="Admin", data={'form_checking':False}, client= get_client())
 	
 
 @user_admin.route("/add_user", methods=['POST'])
@@ -51,7 +52,7 @@ def add_user():
 	return render_template('user-admin/user_admin.html', 
 		users=users, categories=categories, polls=polls, responses=responses,
 		user_form=user_form, category_form = category_form, poll_form=poll_form,
-		title="Admin", data={'form': 'user_form', 'form_checking': True})
+		title="Admin", data={'form': 'user_form', 'form_checking': True}, client= get_client())
 
 @user_admin.route("/admin_delete_user", methods=['POST'])
 @admin_login_required
@@ -82,7 +83,7 @@ def add_category():
 	return render_template('user-admin/user_admin.html', 
 		users=users, categories=categories, polls=polls, responses=responses,
 		user_form=user_form, category_form = category_form, poll_form=poll_form,
-		title="Admin", data={'form': 'category_form', 'form_checking': True})
+		title="Admin", data={'form': 'category_form', 'form_checking': True}, client= get_client())
 
 
 @user_admin.route("/admin_delete_category", methods=['POST'])
@@ -128,7 +129,7 @@ def admin_add_poll():
 	return render_template('user-admin/user_admin.html', 
 		users=users, categories=categories, polls=polls, responses=responses,
 		user_form=user_form, category_form = category_form, poll_form=poll_form,
-		title="Admin", data={'form': 'poll_form', 'form_checking': True})
+		title="Admin", data={'form': 'poll_form', 'form_checking': True}, client= get_client())
 
 
 @user_admin.route("/admin_delete_poll", methods=['POST'])
