@@ -82,3 +82,8 @@ the purpose of the web application, explaining both the context and the social c
 
 # Project structure 
   - In Web structure folder
+
+# Unit test with selenium
+ -chromedriver     2.24.1 
+ -selenium         3.141.0
+ -Also need to download webdrive(chromedriver for chrome)--->https://sites.google.com/a/chromium.org/chromedriver/home

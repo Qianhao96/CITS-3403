@@ -14,25 +14,25 @@ $(document).ready(function () {
 function userInitialization() {
 	var user_table = $('#user_table').DataTable();
 
-    ajaxDeletion(user_table, '#cancel_delete_user', '#admin_delete_user', '/admin_delete_user')
+    ajaxDeletion(user_table, '#cancel_delete_user', '#admin_delete_user', '/admin_delete_user');
 }
 
 function categoryInitialization() {
 	var category_table = $('#category_table').DataTable();
 
-    ajaxDeletion(category_table, '#cancel_delete_category', '#admin_delete_category', '/admin_delete_category')
+    ajaxDeletion(category_table, '#cancel_delete_category', '#admin_delete_category', '/admin_delete_category');
 }
 
 function pollInitialization(){
 	var poll_table = $('#poll_table').DataTable();
 
- 	ajaxDeletion(poll_table, '#cancel_delete_poll', '#admin_delete_poll', '/admin_delete_poll')
+ 	ajaxDeletion(poll_table, '#cancel_delete_poll', '#admin_delete_poll', '/admin_delete_poll');
 }
 
 function responseInitialization(){
 	var response_table = $('#response_table').DataTable();
 
-	ajaxDeletion(response_table, '#cancel_delete_response', '#admin_delete_response', '/admin_delete_response')
+	ajaxDeletion(response_table, '#cancel_delete_response', '#admin_delete_response', '/admin_delete_response');
 }
 
 
