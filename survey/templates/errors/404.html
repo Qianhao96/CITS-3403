@@ -29,9 +29,12 @@
 				<a href="javascript:;" id="js-history-back">Previous page</a>
 			</p>
 		</div>
+		<script>
+			var backButton = document.getElementById('js-history-back')
+			backButton.onclick = function() {
+				history.go(-1)
+			}
+		</script>
 	</div>
 </div>
 {% endblock content %}
-{% block extraScript %}
-<script type="text/javascript" src="{{url_for('static', filename='js/404.js')}}"></script>
-{% endblock extraScript %}

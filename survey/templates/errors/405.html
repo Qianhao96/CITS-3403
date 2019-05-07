@@ -1,9 +1,40 @@
 {% extends 'base.html' %}
 
-{% block title %} {{ current_user.firstname }} {% endblock title %}
+{% block extraCss %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/404.css') }}">
+{% endblock extraCss %}
+
+{% block title %} {{ 405 }} {% endblock title %}
 {% block content %}
-<div class="content-section">
-    <h1>Something went wrong (500)</h1>
-    <p>We're experiencing some trouble on our end. Please try again in the near future</p>
+<div class="page">
+	<div class="error">
+		<h1 class="header">
+			<a href="/" class="logo">
+				<img src="../../static/image/general/Octocat_4.png" srcset="../../static/image/general/Octocat_4.png 2x" alt="Octocat">
+			</a>
+			-
+			<img src="../../static/image/general/4.png" srcset="../../static/image/general/4.png 10x" alt="Is 4">
+			<img src="../../static/image/general/0.png" srcset="../../static/image/general/0.png 10x" alt="Is 4">
+			<img src="../../static/image/general/4.png" srcset="../../static/image/general/4.png 10x" alt="Is 4">
+		</h1>
+		<div class="content">
+			<p>
+				<strong>Polls of Not Allowed, opps! <br> Detected 405 <br> That’s all we find ....? </strong>
+			</p>
+			<p>Take me back please</p>
+			<hr>
+			<p>
+				<a href="/">Back to Home</a>
+				<span>Or</span>
+				<a href="javascript:;" id="js-history-back">Previous page</a>
+			</p>
+		</div>
+		<script>
+			var backButton = document.getElementById('js-history-back')
+			backButton.onclick = function() {
+				history.go(-1)
+			}
+		</script>
+	</div>
 </div>
 {% endblock content %}

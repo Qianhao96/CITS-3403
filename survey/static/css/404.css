@@ -6,6 +6,10 @@ body {
 		rgba(0, 0, 0, 0.7)), url('../image/general/tree.jpg');
 }
 
+.page{
+	min-height: 100vh;
+}
+
 img {
 	border: none;
 }
