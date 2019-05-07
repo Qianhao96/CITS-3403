@@ -1,6 +1,6 @@
 .content{
 	width: 100vw;
-    height: 80vh;
+    min-height: 100vh;
 }
 
 #row {

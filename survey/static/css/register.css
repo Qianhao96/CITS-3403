@@ -13,5 +13,5 @@
 #register_form {
 	margin-top: 10%;
 	width: 500px;
-	height: 100vh;
+	min-height: 100vh;
 }

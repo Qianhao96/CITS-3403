@@ -1,9 +1,0 @@
-.transparent{
-	background:rgba(255,255,255,0.5);
-	display:none
-}
-
-.chart-border {
-	border-right: 2px solid #e8e8e8;
-	border-left: 2px solid #e8e8e8;
-}

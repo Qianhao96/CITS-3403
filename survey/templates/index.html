@@ -1,24 +1,38 @@
 {% extends 'base.html' %}
 {% block extraCss %}
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+<style>
+	.transparent{
+	background:rgba(255,255,255,0.5);
+	display:none;
+}
+.page {
+	border-right: 2px solid #e8e8e8;
+	border-left: 2px solid #e8e8e8;
+	border-bottom: 2px solid #e8e8e8;
+	min-height: 100vh;
+	width: 90%;
+	margin: 0 auto;
+}
+</style>
 {% endblock extraCss %}
 {%block content%}
-
-{% for category in categorys%}
-<div class='container chart-border'>
-	<div class="row d-flex justify-content-center">
-		<div class="col-md-9 pb-5 pt-5" >
-			<div class="row">
-				<h2 id="info{{category.id}}" class="col-md-6">How {{category.name}} rank is going</h2>
-				<span id="poll-button{{category.id}}" class="col-md-6" style="position: absolute; right: -200px;"><button class='overview btn btn-outline-success' id="{{category.id}}">Overview</button>
-				<button class='elaborate btn btn-outline-info' id="{{category.id}}">Elaborate</button></span>
+<div class="page">
+	{% for category in categorys%}
+	<div class='container'>
+		<div class="row d-flex justify-content-center">
+			<div class="col-md-9 pb-5 pt-5">
+				<div class="row">
+					<h2 id="info{{category.id}}" class="col-md-6">How {{category.name}} rank is going</h2>
+					<span id="poll-button{{category.id}}" class="col-md-6" style="position: absolute; right: -200px;"><button class='overview btn btn-outline-success' id="{{category.id}}">Overview</button>
+						<button class='elaborate btn btn-outline-info' id="{{category.id}}">Elaborate</button></span>
+				</div>
+				<canvas class='transparent' id="bar-chart{{category.id}}"></canvas>
+				<canvas class='transparent ' id="line-chart{{category.id}}"></canvas>
 			</div>
-			<canvas class='transparent' id="bar-chart{{category.id}}"></canvas>
-			<canvas class='transparent ' id="line-chart{{category.id}}"></canvas>
 		</div>
 	</div>
+	{%endfor%}
 </div>
-{%endfor%}
 {% endblock content %}
 {% block extraScript %}
 <script type="text/javascript" src="{{url_for('static', filename='js/chart/Chart.min.js')}}"></script>
