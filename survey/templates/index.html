@@ -1,40 +1,90 @@
 {% extends 'base.html' %}
 {% block extraCss %}
 <style>
-	.transparent{
-	background:rgba(255,255,255,0.5);
-	display:none;
-}
-.page {
-	border-right: 2px solid #e8e8e8;
-	border-left: 2px solid #e8e8e8;
-	border-bottom: 2px solid #e8e8e8;
-	min-height: 100vh;
-	width: 90%;
-	margin: 0 auto;
-}
+	.transparent {
+		background: rgba(255, 255, 255, 0.5);
+		display: none;
+		width: 100%;
+	}
+
+	.page {
+		border-right: 2px solid #e8e8e8;
+		border-left: 2px solid #e8e8e8;
+		border-bottom: 2px solid #e8e8e8;
+		min-height: 100vh;
+		width: 90%;
+		margin: 0 auto;
+	}
+
+	.centered {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.chart {
+		padding-top: 4%;
+		max-width: 800px;
+		padding-bottom: 6%;
+		margin: 0 auto;
+	}
+
+	.header {
+		font-size: 28px;
+	}
+
+	.index-btns {
+		float: right;
+	}
+
+	.overview {
+		padding: 4px;
+	}
+
+	.elaborate {
+		padding: 4px;
+	}
+
+	@media (max-width: 650px) {
+		.page {
+			width: 100%;
+		}
+
+		.header {
+			font-size: 20px;
+		}
+	}
+
 </style>
 {% endblock extraCss %}
+{% block title %} HOME {% endblock title %}
 {%block content%}
 <div class="page">
 	{% for category in categorys%}
-	<div class='container'>
-		<div class="row d-flex justify-content-center">
-			<div class="col-md-9 pb-5 pt-5">
-				<div class="row">
-					<h2 id="info{{category.id}}" class="col-md-6">How {{category.name}} rank is going</h2>
-					<span id="poll-button{{category.id}}" class="col-md-6" style="position: absolute; right: -200px;"><button class='overview btn btn-outline-success' id="{{category.id}}">Overview</button>
-						<button class='elaborate btn btn-outline-info' id="{{category.id}}">Elaborate</button></span>
-				</div>
-				<canvas class='transparent' id="bar-chart{{category.id}}"></canvas>
-				<canvas class='transparent ' id="line-chart{{category.id}}"></canvas>
+	<div class='chart'>
+		<div class="mb-3" style="display: block">
+			<span class="header" id="info{{category.id}}">
+				How {{category.name}} rank is going
+			</span>
+			<div class="index-btns">
+				<button class='overview btn btn-outline-success' id="{{category.id}}">
+					Overview
+				</button>
+				<button class='elaborate btn btn-outline-info' id="{{category.id}}">
+					Elaborate
+				</button>
 			</div>
+		</div>
+		<div>
+			<canvas class='transparent' id="bar-chart{{category.id}}"></canvas>
+			<canvas class='transparent ' id="line-chart{{category.id}}"></canvas>
 		</div>
 	</div>
 	{%endfor%}
 </div>
 {% endblock content %}
 {% block extraScript %}
-<script type="text/javascript" src="{{url_for('static', filename='js/chart/Chart.min.js')}}"></script>
-<script type="text/javascript" src="{{url_for('static', filename='js/rank.js')}}"></script>
+<script src="{{url_for('static', filename='js/chart/Chart.min.js')}}"></script>
+<script src="{{url_for('static', filename='js/rank.js')}}"></script>
 {% endblock extraScript %}
