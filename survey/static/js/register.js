@@ -2,15 +2,20 @@ var display = false;
 var PWDlength;
 var password;
 var score;
+var emailRegx = /^([0-9A-Za-z]{3,})(\.[a-zA-Z0-9_-]{1,})*@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+var passed = false;
+
+function validiateEmail(){
+	var email = $("#email").val();
+	return emailRegx.test(email);
+}
 
 // red orange green blue
 function passwordC() {
-    "use strict";
     password = $("#password").val();
     PWDlength = password.length;
 
     score = 50;
-
     if (PWDlength < 7) {
         if (!display) {
             $("#strength").html("Add " + (7 - PWDlength).toString() + " characters");
@@ -64,31 +69,51 @@ function passwordC() {
     if (score < 0 || PWDlength === 0) {
         score = 0;
     }
+
+	var passwordPassed = false;
     //color chosen
     if (score >= 25 && score <= 50) {
-        $("#submit").prop("disabled", true);
         $("#strength").css("background-color", "orange");
     } else if (score > 50 && score <= 75) {
-        $("#submit").prop("disabled", false);
+		passwordPassed = true;
         $("#strength").css("background-color", "green");
     } else if (score > 75) {
-        $("#submit").prop("disabled", false);
+		passwordPassed = true;
         $("#strength").css("background-color", "blue");
     } else {
-        $("#submit").prop("disabled", true);
         $("#strength").css("background-color", "red");
     }
 
-    // change the width of the progress
-    var percent = score.toString() + "%";
-    $("#strength").css("width", percent);
+    $("#strength").css("width", score.toString() + "%");
+
+	var FName_L = $("#firstname").val().length;
+	if(FName_L>0 && FName_L<21){
+		var LName_L = $("#firstname").val().length;
+		if(LName_L > 0 && LName_L<21){
+			if ($("input[name='gender']:checked").val()) {
+				if(PWDlength<61){
+					if(validiateEmail()){
+						if(passwordPassed){
+							if(password === $("#confirm_password").val()) passed =true;
+							else passed = false;
+						}else passed = false;
+					}else passed = false;
+				}else passed = false;
+			}else passed = false;
+		}else passed = false;
+	}else passed = false;
+
+	// chose display or not
+	if(passed){
+		$("#submit").prop("disabled", false);
+	}else{
+		$("#submit").prop("disabled", true);
+	}
     display = false;
 }
 
 jQuery((document)).ready(function () {
-    "use strict";
-    $("#submit").prop("disabled", true);
-    $("#password").keydown(function () {
-        passwordC();
-    });
+	setInterval(function() {
+  		passwordC()
+	}, 300);
 });
