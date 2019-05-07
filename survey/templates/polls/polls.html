@@ -5,129 +5,131 @@
 {% endblock extraCss %}
 {% block title %} {{ title }} {% endblock title %}
 {% block content %}
-<div class="swiper-container mb-3 mt-3" style="min-height:400px;">
-	<div class="swiper-wrapper">
-		<div class="swiper-slide left-0">
-			<div class="card music card-border">
-				<div class="card-top-img">
-					<img src="../static/image/polls/Edd.jpg" alt="Ed" />
-				</div>
-				{% if not voted_music %}
-				<div class="card-status text-danger">Vote your favorite song from Ed Sheeran</div>
-				{% else %}
-				<div class="card-status text-success">You have voted</div>
-				{% endif %}
-				<div class="card-name">MUSIC</div>
-				<div class="card-description">
-					Edward Christopher "Ed" Sheeran MBE (born 17 February 1991) is an English singer-songwriter and guitarist. He also writes and produces songs on his own and created his label, Paw Print Records. Sheeran is recognized for doing pop music. 
-				</div>
-				<div class="container-fluid">
-					<div class="row music-infos" style="color: white">
-						<div class="col-4 border-right">
-							<div class="infos">{{music_vote}}</div>
-							<div class="info-name">#VOTES</div>
-						</div>
-						<div class="col-4 border-right">
-							<div class="infos">16/5/2018</div>
-							<div class="info-name">END DATE</div>
-						</div>
-						<div class="col-4">
-							<div class="info-vote">
-								{% if voted_music %}
-								<h5 class="text-warning centered">Voted</h5>
-								{% elif current_user.is_active or not voted_music%}
-								<button type="button" class="btn btn-link text-white centered info-name" data-toggle="modal" data-target="#model-1">
-									TAKE VOTE
-								</button>
-								{% endif %}
+<div style="height: 85vh">
+	<div class="swiper-container mb-3 mt-3" style="min-height:400px;">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide left-0">
+				<div class="card music card-border">
+					<div class="card-top-img">
+						<img src="../static/image/polls/Edd.jpg" alt="Ed" />
+					</div>
+					{% if not voted_music %}
+					<div class="card-status text-danger">Vote your favorite song from Ed Sheeran</div>
+					{% else %}
+					<div class="card-status text-success">You have voted</div>
+					{% endif %}
+					<div class="card-name">MUSIC</div>
+					<div class="card-description">
+						Edward Christopher "Ed" Sheeran MBE (born 17 February 1991) is an English singer-songwriter and guitarist. He also writes and produces songs on his own and created his label, Paw Print Records. Sheeran is recognized for doing pop music.
+					</div>
+					<div class="container-fluid">
+						<div class="row music-infos" style="color: white">
+							<div class="col-4 border-right">
+								<div class="infos">{{music_vote}}</div>
+								<div class="info-name">#VOTES</div>
+							</div>
+							<div class="col-4 border-right">
+								<div class="infos">16/5/2018</div>
+								<div class="info-name">END DATE</div>
+							</div>
+							<div class="col-4">
+								<div class="info-vote">
+									{% if voted_music %}
+									<h5 class="text-warning centered">Voted</h5>
+									{% elif current_user.is_active or not voted_music%}
+									<button type="button" class="btn btn-link text-white centered info-name" data-toggle="modal" data-target="#model-1">
+										TAKE VOTE
+									</button>
+									{% endif %}
+								</div>
 							</div>
 						</div>
+					</div><!-- grid system-->
+				</div>
+			</div><!-- end card music-->
+			<div class="swiper-slide left-1">
+				<div class="card music card-border">
+					<div class="card-top-img">
+						<img src="../static/image/polls/Marvel.jpg" alt="wukong" />
 					</div>
-				</div><!-- grid system-->
-			</div>
-		</div><!-- end card music-->
-		<div class="swiper-slide left-1">
-			<div class="card music card-border">
-				<div class="card-top-img">
-					<img src="../static/image/polls/Marvel.jpg" alt="wukong" />
-				</div>
-				{% if not voted_movie %}
-				<div class="card-status text-danger">Vote for your favorite Marvel movie</div>
-				{% else %}
-				<div class="card-status text-success">You have voted</div>
-				{% endif %}
-				<div class="card-name">MOVIE</div>
-				<div class="card-description">
-					The Marvel Cinematic Universe (MCU) is an American media franchise and shared universe centered on a series of superhero films, independently produced by Marvel Studios and based on characters that appear in American comic books published by Marvel Comics.
-				</div>
-				<div class="container-fluid">
-					<div class="row music-infos" style="color: white">
-						<div class="col-4 border-right">
-							<div class="infos">{{movie_vote}}</div>
-							<div class="info-name">#VOTES</div>
-						</div>
-						<div class="col-4 border-right">
-							<div class="infos">16/5/2018</div>
-							<div class="info-name">END DATE</div>
-						</div>
-						<div class="col-4">
-							<div class="info-vote">
-								{% if voted_movie %}
-								<h5 class="text-warning centered">Voted</h5>
-								{% elif current_user.is_active or not voted_movie%}
-								<button type="button" class="btn btn-link text-white centered info-name" data-toggle="modal" data-target="#model-2">
-									TAKE VOTE
-								</button>
-								{% endif %}
+					{% if not voted_movie %}
+					<div class="card-status text-danger">Vote for your favorite Marvel movie</div>
+					{% else %}
+					<div class="card-status text-success">You have voted</div>
+					{% endif %}
+					<div class="card-name">MOVIE</div>
+					<div class="card-description">
+						The Marvel Cinematic Universe (MCU) is an American media franchise and shared universe centered on a series of superhero films, independently produced by Marvel Studios and based on characters that appear in American comic books published by Marvel Comics.
+					</div>
+					<div class="container-fluid">
+						<div class="row music-infos" style="color: white">
+							<div class="col-4 border-right">
+								<div class="infos">{{movie_vote}}</div>
+								<div class="info-name">#VOTES</div>
+							</div>
+							<div class="col-4 border-right">
+								<div class="infos">16/5/2018</div>
+								<div class="info-name">END DATE</div>
+							</div>
+							<div class="col-4">
+								<div class="info-vote">
+									{% if voted_movie %}
+									<h5 class="text-warning centered">Voted</h5>
+									{% elif current_user.is_active or not voted_movie%}
+									<button type="button" class="btn btn-link text-white centered info-name" data-toggle="modal" data-target="#model-2">
+										TAKE VOTE
+									</button>
+									{% endif %}
+								</div>
 							</div>
 						</div>
+					</div><!-- grid system-->
+				</div>
+			</div><!-- end card music-->
+			<div class="swiper-slide left-1">
+				<div class="card music card-border">
+					<div class="card-top-img">
+						<img src="../static/image/polls/Chinese.jpg" alt="Marvel" />
 					</div>
-				</div><!-- grid system-->
-			</div>
-		</div><!-- end card music-->
-		<div class="swiper-slide left-1">
-			<div class="card music card-border">
-				<div class="card-top-img">
-					<img src="../static/image/polls/Chinese.jpg" alt="Marvel" />
-				</div>
-				{% if not voted_recipe %}
-				<div class="card-status text-danger">Vote for your favorite Chinese cuisine</div>
-				{% else %}
-				<div class="card-status text-success">You have voted</div>
-				{% endif %}
-				<div class="card-name">RECIPE</div>
-				<div class="card-description">
-					Chinese cuisine is an important part of Chinese culture, which includes cuisine originating from the diverse regions of China, as well as from Chinese people in other parts of the world. Because of the Chinese diaspora and historical power of the country, Chinese cuisine has influenced many other cuisines in Asia, with modifications made to cater to local palates. 
-				</div>
-				<div class="container-fluid">
-					<div class="row music-infos" style="color: white">
-						<div class="col-4 border-right">
-							<div class="infos">{{recipe_vote}}</div>
-							<div class="info-name">#VOTES</div>
-						</div>
-						<div class="col-4 border-right">
-							<div class="infos">16/5/2018</div>
-							<div class="info-name">END DATE</div>
-						</div>
-						<div class="col-4 ">
-							<div class="info-vote">
-								{% if voted_recipe %}
-								<h5 class="text-warning centered">Voted</h5>
-								{% elif current_user.is_active or not voted_recipe%}
-								<button type="button" class="btn btn-link text-white centered info-name" data-toggle="modal" data-target="#model-3">
-									TAKE VOTE
-								</button>
-								{% endif %}
+					{% if not voted_recipe %}
+					<div class="card-status text-danger">Vote for your favorite Chinese cuisine</div>
+					{% else %}
+					<div class="card-status text-success">You have voted</div>
+					{% endif %}
+					<div class="card-name">RECIPE</div>
+					<div class="card-description">
+						Chinese cuisine is an important part of Chinese culture, which includes cuisine originating from the diverse regions of China, as well as from Chinese people in other parts of the world. Because of the Chinese diaspora and historical power of the country, Chinese cuisine has influenced many other cuisines in Asia, with modifications made to cater to local palates.
+					</div>
+					<div class="container-fluid">
+						<div class="row music-infos" style="color: white">
+							<div class="col-4 border-right">
+								<div class="infos">{{recipe_vote}}</div>
+								<div class="info-name">#VOTES</div>
+							</div>
+							<div class="col-4 border-right">
+								<div class="infos">16/5/2018</div>
+								<div class="info-name">END DATE</div>
+							</div>
+							<div class="col-4 ">
+								<div class="info-vote">
+									{% if voted_recipe %}
+									<h5 class="text-warning centered">Voted</h5>
+									{% elif current_user.is_active or not voted_recipe%}
+									<button type="button" class="btn btn-link text-white centered info-name" data-toggle="modal" data-target="#model-3">
+										TAKE VOTE
+									</button>
+									{% endif %}
+								</div>
 							</div>
 						</div>
-					</div>
-				</div><!-- grid system-->
-			</div>
-		</div><!-- end card music-->
-	</div> <!-- end wrapper -->
-	<div class="swiper-button-prev hide"></div>
-	<div class="swiper-button-next hide"></div>
-</div> <!-- end container -->
+					</div><!-- grid system-->
+				</div>
+			</div><!-- end card music-->
+		</div> <!-- end wrapper -->
+		<div class="swiper-button-prev hide"></div>
+		<div class="swiper-button-next hide"></div>
+	</div> <!-- end container -->
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="model-1" data-backdrop="static" data-keyboard="false">

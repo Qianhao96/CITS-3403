@@ -22,8 +22,8 @@
 			<td>{{user.gender}}</td>
 			<td>{{user.email}}</td>
 			<td>
-				<button type="button" id="{{ user.email }}add"  class="btn btn-light" data-toggle="modal" data-target="#add_user"><i class="fa fa-user-plus"></i></button>
-				<button type="button" id="{{ user.email }}delete"  class="btn btn-light a_d_u" data-toggle="modal" data-target="#delete_user"><i class="fa fa-user-minus"></i></button>
+				<button type="button" id="{{ user.email }}add" class="btn btn-light" data-toggle="modal" data-target="#add_user"><i class="fa fa-user-plus"></i></button>
+				<button type="button" id="{{ user.email }}delete" class="btn btn-light a_d_u" data-toggle="modal" data-target="#delete_user"><i class="fa fa-user-minus"></i></button>
 				<!-- <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-user-edit"></i></button> -->
 			</td>
 		</tr>
@@ -31,135 +31,135 @@
 	</tbody>
 </table>
 <div class="modal fade" id="add_user" tabindex="-1" role="dialog" aria-labelledby="add_user" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">Cancel</button>
-      </div>
-      <div class="modal-body">
-		<form method="POST", action="{{ url_for('user_admin.add_user') }}">
-			{{ user_form.csrf_token(id="user") }}
-			<div class="form-row">
-				<div class="col form-group">
-					{{ user_form.firstname.label() }}
-					{% if user_form.firstname.errors %}
-					{{ user_form.firstname(class="form-control is-invalid") }}
-					<div class="invalid-feedback">
-						{% for error in user_form.firstname.errors %}
-						<span>{{ error }}</span>
-						{% endfor %}
-					</div>
-					{% else %}
-					{{ user_form.firstname(class="form-control") }}
-					{% endif %}
-				</div> <!-- form-group end.// -->
-				<div class="col form-group">
-					{{ user_form.lastname.label() }}
-					{% if user_form.lastname.errors %}
-					{{ user_form.lastname(class="form-control is-invalid") }}
-					<div class="invalid-feedback">
-						{% for error in user_form.lastname.errors %}
-						<span>{{ error }}</span>
-						{% endfor %}
-					</div>
-					{% else %}
-					{{ user_form.lastname(class="form-control") }}
-					{% endif %}
-				</div> <!-- form-group end.// -->
-			</div> <!-- form-row end.// -->
-			<div class="form-group">
-				{{ user_form.email.label() }}
-				{% if user_form.email.errors %}
-				{{ user_form.email(class="form-control is-invalid") }}
-				<div class="invalid-feedback">
-					{% for error in user_form.email.errors %}
-					<span>{{ error }}</span>
-					{% endfor %}
-				</div>
-				{% else %}
-				{{ user_form.email(class="form-control") }}
-				{% endif %}
-				<small class="form-text text-muted">We'll never share your email with anyone else.</small>
-			</div> <!-- form-group end.// -->
-			<div class="form-group">
-				{% if user_form.gender.errors %}
-				<span class="form-control is-invalid">
-					{% for subfield in user_form.gender %}
-					<tr>
-						<td>{{ subfield }}</td>
-						<td>{{ subfield.label(class="mr-5") }}</td>
-					</tr>
-					{% endfor %}
-				</span>
-				<div class="invalid-feedback">
-					{% for error in user_form.gender.errors %}
-					<span>{{ error }}</span>
-					{% endfor %}
-				</div>
-				{% else %}
-				{% for subfield in user_form.gender %}
-				<tr>
-					<td>{{ subfield }}</td>
-					<td>{{ subfield.label(class="mr-5") }}</td>
-				</tr>
-				{% endfor %}
-				{% endif %}
-			</div> <!-- form-group end.// -->
-			<div class="form-group">
-				{{ user_form.password.label() }}
-				{% if user_form.password.errors %}
-				{{ user_form.password(class="form-control is-invalid") }}
-				<div class="invalid-feedback">
-					{% for error in user_form.password.errors %}
-					<span>{{ error }}</span>
-					{% endfor %}
-				</div>
-				{% else %}
-				{{ user_form.password(class="form-control") }}
-				{% endif %}
-				<div class="progress">
-					<div class="progress-bar progress-bar-striped progress-bar-animated" id="strength" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Set up your password</div>
-				</div>
-			</div> <!-- form-group end.// -->
-			<div class="form-group">
-				{{ user_form.confirm_password.label() }}
-				{% if user_form.confirm_password.errors %}
-				{{ user_form.confirm_password(class="form-control is-invalid") }}
-				<div class="invalid-feedback">
-					{% for error in user_form.confirm_password.errors %}
-					<span>{{ error }}</span>
-					{% endfor %}
-				</div>
-				{% else %}
-				{{ user_form.confirm_password(class="form-control") }}
-				{% endif %}
-			</div> <!-- form-group end.// -->
-			<div>
-				{{ user_form.is_admin.label() }}
-				{{ user_form.is_admin() }}
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">Cancel</button>
 			</div>
-			<div class="form-group">
-				{{ user_form.submit(class="btn btn-primary btn-block") }}
-			</div> <!-- form-group// -->
-		</form>
-      </div>
-    </div>
-  </div>
+			<div class="modal-body">
+				<form method="POST" , action="{{ url_for('user_admin.add_user') }}">
+					{{ user_form.csrf_token(id="user") }}
+					<div class="form-row">
+						<div class="col form-group">
+							{{ user_form.firstname.label() }}
+							{% if user_form.firstname.errors %}
+							{{ user_form.firstname(class="form-control is-invalid") }}
+							<div class="invalid-feedback">
+								{% for error in user_form.firstname.errors %}
+								<span>{{ error }}</span>
+								{% endfor %}
+							</div>
+							{% else %}
+							{{ user_form.firstname(class="form-control") }}
+							{% endif %}
+						</div> <!-- form-group end.// -->
+						<div class="col form-group">
+							{{ user_form.lastname.label() }}
+							{% if user_form.lastname.errors %}
+							{{ user_form.lastname(class="form-control is-invalid") }}
+							<div class="invalid-feedback">
+								{% for error in user_form.lastname.errors %}
+								<span>{{ error }}</span>
+								{% endfor %}
+							</div>
+							{% else %}
+							{{ user_form.lastname(class="form-control") }}
+							{% endif %}
+						</div> <!-- form-group end.// -->
+					</div> <!-- form-row end.// -->
+					<div class="form-group">
+						{{ user_form.email.label() }}
+						{% if user_form.email.errors %}
+						{{ user_form.email(class="form-control is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in user_form.email.errors %}
+							<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						{% else %}
+						{{ user_form.email(class="form-control") }}
+						{% endif %}
+						<small class="form-text text-muted">We'll never share your email with anyone else.</small>
+					</div> <!-- form-group end.// -->
+					<div class="form-group">
+						{% if user_form.gender.errors %}
+						<span class="form-control is-invalid">
+							{% for subfield in user_form.gender %}
+							<tr>
+								<td>{{ subfield }}</td>
+								<td>{{ subfield.label(class="mr-5") }}</td>
+							</tr>
+							{% endfor %}
+						</span>
+						<div class="invalid-feedback">
+							{% for error in user_form.gender.errors %}
+							<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						{% else %}
+						{% for subfield in user_form.gender %}
+						<tr>
+							<td>{{ subfield }}</td>
+							<td>{{ subfield.label(class="mr-5") }}</td>
+						</tr>
+						{% endfor %}
+						{% endif %}
+					</div> <!-- form-group end.// -->
+					<div class="form-group">
+						{{ user_form.password.label() }}
+						{% if user_form.password.errors %}
+						{{ user_form.password(class="form-control is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in user_form.password.errors %}
+							<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						{% else %}
+						{{ user_form.password(class="form-control") }}
+						{% endif %}
+						<div class="progress">
+							<div class="progress-bar progress-bar-striped progress-bar-animated" id="strength" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Set up your password</div>
+						</div>
+					</div> <!-- form-group end.// -->
+					<div class="form-group">
+						{{ user_form.confirm_password.label() }}
+						{% if user_form.confirm_password.errors %}
+						{{ user_form.confirm_password(class="form-control is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in user_form.confirm_password.errors %}
+							<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						{% else %}
+						{{ user_form.confirm_password(class="form-control") }}
+						{% endif %}
+					</div> <!-- form-group end.// -->
+					<div>
+						{{ user_form.is_admin.label() }}
+						{{ user_form.is_admin() }}
+					</div>
+					<div class="form-group">
+						{{ user_form.submit(class="btn btn-primary btn-block") }}
+					</div> <!-- form-group// -->
+				</form>
+			</div>
+		</div>
+	</div>
 </div>
 <!-- Button trigger modal -->
 <div class="modal fade" id="delete_user" tabindex="-1" role="dialog" aria-labelledby="delete_user" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Warning!</h5>
-      </div>
-      <div class="modal-body">
-        Are you sure that you want to delete this user?
-      </div>
-      <div class="modal-footer">
-        <button type="button" id="cancel_delete_user" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button id="admin_delete_user" type="button" class="btn btn-primary" data-dismiss="modal">Delete</button>
-      </div>
-    </div>
-  </div>
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLongTitle">Warning!</h5>
+			</div>
+			<div class="modal-body">
+				Are you sure that you want to delete this user?
+			</div>
+			<div class="modal-footer">
+				<button type="button" id="cancel_delete_user" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+				<button id="admin_delete_user" type="button" class="btn btn-primary" data-dismiss="modal">Delete</button>
+			</div>
+		</div>
+	</div>
 </div>
