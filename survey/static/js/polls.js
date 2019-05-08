@@ -37,9 +37,15 @@ function send_vote(param) {
 		type: 'POST',
 		success: function (response) {
 			$("#successModal").modal();
+			$(".success-btn").click(function () {
+				window.location.reload(true);
+			});
 		},
 		error: function (error) {
 			$("#failModal").modal();
+			$(".failure-btn").click(function () {
+				window.location.href="/";
+			});
 		}
 	});
 }

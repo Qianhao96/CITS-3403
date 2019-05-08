@@ -10,6 +10,7 @@ function delete_response(param) {
 		type: 'POST',
 		success: function (response) {
 			alert(response['message'])
+			window.location.reload(true);
 		},
 		error: function (error) {
 			alert(response['message'])
