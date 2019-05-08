@@ -6,6 +6,7 @@
 {% block title %} {{ title }} {% endblock title %}
 {% block content %}
 <div style="min-height:100vh">
+<!--
 	<h1 style="margin: 0 auto">
 		<span>P</span>
 		<span>O</span>
@@ -18,12 +19,14 @@
 		<span>.</span>
 		<span>.</span>
 	</h1>
-	<div class="swiper-container mb-3 mt-3" style="min-height:400px;">
+-->
+	<div class="swiper-container mb-3 mt-3">
 		<div class="swiper-wrapper">
-			<div class="swiper-slide left-0">
-				<div class="card music card-border">
+		    <!---->
+			<div class="swiper-slide">
+				<div class="card card-border">
 					<div class="card-top-img">
-						<img src="../static/image/polls/Edd.jpg" alt="Ed" />
+						<img class="card-author-img" src="../static/image/polls/Edd.jpg" alt="Ed" />
 					</div>
 					{% if not voted_music %}
 					<div class="card-status text-danger">Vote your favorite song from Ed Sheeran</div>
@@ -58,8 +61,10 @@
 						</div>
 					</div><!-- grid system-->
 				</div>
-			</div><!-- end card music-->
-			<div class="swiper-slide left-1">
+			</div>
+			<!-- end card music-->
+
+			<div class="swiper-slide">
 				<div class="card music card-border">
 					<div class="card-top-img">
 						<img src="../static/image/polls/Marvel.jpg" alt="wukong" />
@@ -98,7 +103,7 @@
 					</div><!-- grid system-->
 				</div>
 			</div><!-- end card music-->
-			<div class="swiper-slide left-1">
+			<div class="swiper-slide">
 				<div class="card music card-border">
 					<div class="card-top-img">
 						<img src="../static/image/polls/Chinese.jpg" alt="Marvel" />
@@ -109,8 +114,9 @@
 					<div class="card-status text-success">You have voted</div>
 					{% endif %}
 					<div class="card-name">RECIPE</div>
-					<div class="card-description">
-						Chinese cuisine is an important part of Chinese culture, which includes cuisine originating from the diverse regions of China, as well as from Chinese people in other parts of the world. Because of the Chinese diaspora and historical power of the country, Chinese cuisine has influenced many other cuisines in Asia, with modifications made to cater to local palates.
+					<div class="card-description overflow-auto">
+						Chinese cuisine is an important part of Chinese culture, which includes cuisine originating from the diverse regions of China, as well as from Chinese people in other parts of the world. Because of the Chinese diaspora and historical power of the country, Chinese cuisine has influenced many other cuisines in Asia.
+						Chinese cuisine is an important part of Chinese culture, which includes cuisine originating from the diverse regions of China, as well as from Chinese people in other parts of the world. Because of the Chinese diaspora and historical power of the country, Chinese cuisine has influenced many other cuisines in Asia.
 					</div>
 					<div class="container-fluid">
 						<div class="row music-infos" style="color: white">
