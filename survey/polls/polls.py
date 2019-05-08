@@ -10,40 +10,25 @@ polls = Blueprint('polls', __name__)
 
 @polls.route("/polls", methods=['GET'])
 def active_polls():
+
 	Categories = Category.query.all()
-	movies = Poll.query.filter_by(category_id = 1)
-	musics = Poll.query.filter_by(category_id = 2)
-	recipes = Poll.query.filter_by(category_id = 3)
+	responses = Response.query
 
-	movie_vote = Response.query.filter_by(category_id = 1).count()
-	music_vote = Response.query.filter_by(category_id = 2).count()
-	recipe_vote = Response.query.filter_by(category_id = 3).count()
+	databases = []
+	for categorie in Categories:
 
-	voted_movie = False
-	voted_music = False
-	voted_recipe = False
-
-	if current_user.is_active:
-		responses = Response.query.filter_by(user_id=current_user.id)
-		for response in responses:
-			if response.category_id is 1:
-				voted_movie = True
-			if response.category_id is 2:
-				voted_music = True
-			if response.category_id is 3:
-				voted_recipe = True
+		temp = Poll.query.filter_by(category_id = categorie.id)
+		response = responses.filter_by(category_id = categorie.id)
+		if current_user.is_active:
+			if response.filter_by(user_id = current_user.id).count() == 0:
+				databases.append([categorie, temp, response.count(), False])
+			else:
+				databases.append([categorie, temp, response.count(), True])
+		else:
+			databases.append([categorie, temp, response.count(), False])
 
 	return render_template('polls/polls.html',
-						   Categories=Categories,
-						   movies=movies,
-						   musics=musics,
-						   recipes=recipes,
-						   voted_movie=voted_movie,
-						   voted_music=voted_music,
-						   voted_recipe=voted_recipe,
-						   movie_vote=movie_vote,
-						   music_vote=music_vote,
-						   recipe_vote=recipe_vote,
+						   databases = databases,
 						   client= get_client())
 
 
