@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
@@ -20,7 +19,6 @@
 	<link rel="shortcut icon" href="#">
 	<title>{% block title %} {% endblock %}</title>
 </head>
-
 <body id="gradient">
 	<nav class="navbar navbar-dark bg-dark navbar-expand-sm sticky-top">
 		<a href="{{ url_for('main.index') }}">
@@ -70,11 +68,8 @@
 		{% endwith %}
 	</div>
 	{% block content %} {% endblock %}
-
 	{% include "footer.html" %}
 </body>
-
 <script type="text/javascript" src="{{url_for('static', filename='js/base.js')}}"></script>
 {% block extraScript %} {% endblock %}
-
 </html>

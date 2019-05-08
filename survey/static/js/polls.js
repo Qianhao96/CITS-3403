@@ -11,8 +11,17 @@ $(document).ready(function () {
 		},
 	});
 
-	$(".vote").click(function() {
-		send_vote(this);
+	$(".vote").click(function () {
+		var $this = this;
+		$("#confirmModal").modal();
+		$(".agree-btn").click(function () {
+			$("#confirmModal").modal('hide');
+			send_vote($this);
+		});
+
+		$(".dismiss-btn").click(function () {
+			$("#confirmModal").modal('hide');
+		});
 	});
 })
 
@@ -27,10 +36,10 @@ function send_vote(param) {
 		contentType: "application/json; charset=utf-8",
 		type: 'POST',
 		success: function (response) {
-			alert(response['message'])
+			$("#successModal").modal();
 		},
 		error: function (error) {
-			alert(response['message'])
+			$("#failModal").modal();
 		}
 	});
 }
