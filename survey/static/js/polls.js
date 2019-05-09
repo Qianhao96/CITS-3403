@@ -13,6 +13,8 @@ $(document).ready(function () {
 
 	$(".vote").click(function () {
 		var $this = this;
+		var element = $("#card-img").css("height");
+		console.log(element);
 		$("#confirmModal").modal();
 		$(".agree-btn").click(function () {
 			$("#confirmModal").modal('hide');
@@ -23,6 +25,11 @@ $(document).ready(function () {
 			$("#confirmModal").modal('hide');
 		});
 	});
+	//    var style = window.getComputedStyle(element);
+	//    var height = style.getPropertyValue('height');
+	//	console.log(height);
+	//	$(".poll-describe").css("height:" +height);
+
 })
 
 function send_vote(param) {
@@ -44,7 +51,7 @@ function send_vote(param) {
 		error: function (error) {
 			$("#failModal").modal();
 			$(".failure-btn").click(function () {
-				window.location.href="/";
+				window.location.href = "/";
 			});
 		}
 	});

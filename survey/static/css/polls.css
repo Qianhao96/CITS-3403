@@ -9,16 +9,6 @@
 	height: 100%;
 }
 
-@media only screen and (min-width: 391px) {}
-
-.left-0 {
-	margin-left: 12.5%;
-}
-
-.left-1 {
-	margin-left: 25%;
-}
-
 .card-border {
 	border: 2px;
 	border-radius: 15px 50px 30px;
@@ -105,13 +95,6 @@
 	overflow-y: auto;
 }
 
-
-@media only screen and (max-width: 580px) {
-	.hide {
-		display: none !important;
-	}
-}
-
 .centered {
 	position: absolute;
 	top: 50%;
@@ -131,10 +114,12 @@
 }
 
 .poll-title {
+	position: relative;
+    left: 10px;
 	font-size: 23px;
 	font-weight: 500;
 	right: 100px;
-	font: 16px;
+	font-size: 16px;
 	padding: 10px;
 }
 
@@ -162,7 +147,37 @@
 }
 
 .vote-rules {
-	padding-left: 100px;
+	width: 95%;
+	padding-left: 18%;
+}
+
+.poll-describe{
+	width:75%;
+	max-height: 190px;
+	overflow:auto;
+}
+@media only screen and (max-width: 991px) {
+	.poll-describe{
+		height: 67px;
+	}
+}
+
+.poll-describe::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.poll-describe::-webkit-scrollbar:vertical {
+    width: 11px;
+}
+
+.poll-describe::-webkit-scrollbar:horizontal {
+    height: 11px;
+}
+
+.poll-describe::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 2px solid white;
+    background-color: rgba(0, 0, 0, .5);
 }
 
 .movie-container {
@@ -195,6 +210,17 @@
 .poll-box {
 	width: 100%;
 	margin: 0 auto;
+}
+
+@media only screen and (max-width: 580px) {
+	.hide {
+		display: none !important;
+	}
+
+	.phone-modal{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
 }
 
 /* new*/
@@ -351,4 +377,10 @@
 	background-color: #FF6666;
 	color: white;
 	padding: 7px 20px 7px 20px;
+}
+
+.youtube {
+	position:absolute;
+	top:50%;
+	right:7%;
 }
