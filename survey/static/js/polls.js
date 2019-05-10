@@ -25,12 +25,15 @@ $(document).ready(function () {
 			$("#confirmModal").modal('hide');
 		});
 	});
-	//    var style = window.getComputedStyle(element);
-	//    var height = style.getPropertyValue('height');
-	//	console.log(height);
-	//	$(".poll-describe").css("height:" +height);
 
-})
+	$(".youtube").click(function () {
+		var modalHref = $(this).attr("href");
+		var youtubeHref = $(this).children("img").attr("value");
+		if($(modalHref).children().length==0){
+			$(modalHref).append("<div class='modal-dialog'><div class='modal-content' style='background-color: black; padding=0px;'><div class='modal-body'><iframe class='video-frame' style='width:100%; height: 300px;' src=" + youtubeHref + " frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen</iframe></div></div></div>");
+		}
+	});
+});
 
 function send_vote(param) {
 	var id = $(param).attr('id');
