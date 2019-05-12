@@ -1,3 +1,10 @@
+.press {
+	color: transparent;
+	background-color: pink;
+	-webkit-background-clip: text;
+	background-clip: text;
+}
+
 .swiper-container {
 	max-width: 350px;
 	text-align: center;
@@ -115,7 +122,7 @@
 
 .poll-title {
 	position: relative;
-    left: 10px;
+	left: 10px;
 	font-size: 23px;
 	font-weight: 500;
 	right: 100px;
@@ -151,33 +158,34 @@
 	padding-left: 18%;
 }
 
-.poll-describe{
-	width:75%;
+.poll-describe {
+	width: 75%;
 	max-height: 190px;
-	overflow:auto;
+	overflow: auto;
 }
+
 @media only screen and (max-width: 991px) {
-	.poll-describe{
+	.poll-describe {
 		height: 67px;
 	}
 }
 
 .poll-describe::-webkit-scrollbar {
-    -webkit-appearance: none;
+	-webkit-appearance: none;
 }
 
 .poll-describe::-webkit-scrollbar:vertical {
-    width: 11px;
+	width: 11px;
 }
 
 .poll-describe::-webkit-scrollbar:horizontal {
-    height: 11px;
+	height: 11px;
 }
 
 .poll-describe::-webkit-scrollbar-thumb {
-    border-radius: 8px;
-    border: 2px solid white;
-    background-color: rgba(0, 0, 0, .5);
+	border-radius: 8px;
+	border: 2px solid white;
+	background-color: rgba(0, 0, 0, .5);
 }
 
 .movie-container {
@@ -217,7 +225,7 @@
 		display: none !important;
 	}
 
-	.phone-modal{
+	.phone-modal {
 		padding-left: 0px;
 		padding-right: 0px;
 	}
@@ -380,7 +388,7 @@
 }
 
 .youtube {
-	position:absolute;
-	top:50%;
-	right:7%;
+	position: absolute;
+	top: 50%;
+	right: 7%;
 }
