@@ -35,4 +35,26 @@ account page
 -DB(Poll -- url, category--picture)
 -Unit test
 -Comments
+
+-DB(Poll -- url, category--picture)
 -a suitable software license document
+-javascript validation
+
+
+
+Category    End Date, category description,  picture
+
+Poll description
+
+
+
+
+
+
+
+
+
+
+
+
+

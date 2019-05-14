@@ -2,7 +2,7 @@ from flask import render_template, Blueprint, flash, redirect, url_for, json, re
 from survey.models import User, Category, Poll, Response
 from survey.user_admin.forms import RegistrationForm, NewCategoryForm, NewPollForm
 from survey import db, bcrypt
-from survey.user_admin.utils import admin_login_required, save_picture, delete_picture
+from survey.user_admin.utils import admin_login_required, save_picture_poll, delete_picture, save_picture_category, delete_category_picture
 from survey.main.routes import get_client
 
 
@@ -18,6 +18,7 @@ def user_index():
 	user_form = RegistrationForm()
 	category_form = NewCategoryForm()
 	poll_form = NewPollForm()
+	poll_form.category_poll.choices=[(category.id, category.name) for category in Category.query.all()]
 	poll_form.rank.data = 0
 	return render_template('user-admin/user_admin.html', 
 		users=users, categories=categories, polls=polls, responses=responses,
@@ -75,9 +76,22 @@ def add_category():
 	category_form = NewCategoryForm()
 	poll_form = NewPollForm()
 	if category_form.validate_on_submit():
-		category = Category(name = category_form.category_name.data)
-		db.session.add(category)
-		db.session.commit()
+		print(request.files)
+		if category_form.catergory_picture.data:
+			print(category_form.catergory_picture.data)
+			picture_file = save_picture_category(category_form.catergory_picture.data)
+			category = Category(name = category_form.category_name.data, 
+				image_file=picture_file, 
+				description=category_form.catergory_description.data,
+				end_date=category_form.end_date.data)
+			db.session.add(category)
+			db.session.commit()
+		else:
+			category = Category(name = category_form.category_name.data,
+			description=category_form.catergory_description.data,
+			end_date=category_form.end_date.data)
+			db.session.add(category)
+			db.session.commit()
 		flash('New category has been added!', 'success')
 		return redirect(url_for('user_admin.user_index'))
 	return render_template('user-admin/user_admin.html', 
@@ -91,6 +105,8 @@ def add_category():
 def admin_delete_category():
 	id = request.get_json()['id']
 	category = Category.query.filter_by(id=id).first()
+	if category.image_file != 'default.jpg':
+		delete_category_picture(category.image_file)
 	db.session.delete(category)
 	db.session.commit()
 	return json.dumps({'status':'OK','message':"Category has been successfuly deleted"});
@@ -107,12 +123,15 @@ def admin_add_poll():
 	category_form = NewCategoryForm()
 	poll_form = NewPollForm()
 	if poll_form.validate_on_submit():
+		print(request.files)
 		if poll_form.picture.data:
-			picture_file = save_picture(poll_form.picture.data)
+			print(poll_form.picture.data)
+			picture_file = save_picture_poll(poll_form.picture.data)
 			poll = Poll(name = poll_form.poll_name.data,
 				rank = poll_form.rank.data,
 				category_id = poll_form.category_poll.data,
 				image_file = picture_file,
+				description=poll_form.description.data,
 				video_url = poll_form.video.data)
 			db.session.add(poll)
 			db.session.commit()
@@ -120,6 +139,7 @@ def admin_add_poll():
 			poll = Poll(name = poll_form.poll_name.data,
 			rank = poll_form.rank.data,
 			category_id = poll_form.category_poll.data,
+			description=poll_form.description.data,
 			video_url = poll_form.video.data)
 			db.session.add(poll)
 			db.session.commit()

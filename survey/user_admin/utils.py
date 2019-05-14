@@ -19,7 +19,7 @@ def admin_login_required(f):
 
 
 
-def save_picture(form_picture):
+def save_picture_poll(form_picture):
     random_hex = secrets.token_hex(8)
     _, f_ext = os.path.splitext(form_picture.filename)
     picture_fn = random_hex + f_ext
@@ -33,5 +33,25 @@ def save_picture(form_picture):
     return picture_fn
 
 
+def save_picture_category(form_picture):
+    random_hex = secrets.token_hex(16)
+    _, f_ext = os.path.splitext(form_picture.filename)
+    picture_fn = random_hex + f_ext
+    picture_path = os.path.join(current_app.root_path, 'static/image/category', picture_fn)
+
+    output_size = (500, 500)
+    i = Image.open(form_picture)
+    i.thumbnail(output_size)
+    i.save(picture_path)
+
+    return picture_fn
+
 def delete_picture(name):
     os.remove(os.path.join(current_app.root_path, 'static/image/polls', name))
+
+
+def delete_category_picture(name):
+    os.remove(os.path.join(current_app.root_path, 'static/image/category', name))
+
+
+

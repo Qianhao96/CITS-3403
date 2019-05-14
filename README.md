@@ -44,14 +44,14 @@ the purpose of the web application, explaining both the context and the social c
 # database creation (New way after restructure) 
   - sqlite3
   - In Python3 shell 
-    - from survey import create_app
-    - app = create_app()
-    - app.app_context().push()
-    - from survey.models import db
-    - db.create_all()
-    - from survey.models import User
-    - User.query.all()
-    - should be empty array
+from survey import create_app
+app = create_app()
+app.app_context().push()
+from survey.models import db
+db.create_all()
+from survey.models import User
+User.query.all()
+     should be empty array
     - user=User(firstname='admin', lastname='admin',email='admin@gmail.com', password='admin', gender='M', is_admin=True)
 
 # email testing 

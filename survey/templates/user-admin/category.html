@@ -32,7 +32,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">Cancel</button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="{{ url_for('user_admin.add_category') }}">
+        <form method="POST" action="{{ url_for('user_admin.add_category') }}" enctype="multipart/form-data">
         	{{ category_form.csrf_token(id="category") }}
         	<div class="col form-group">
 				{{ category_form.category_name.label() }}
@@ -46,6 +46,41 @@
 				{% else %}
 				{{ category_form.category_name(class="form-control") }}
 				{% endif %}
+			</div> <!-- form-group end.// -->
+			<div class="col form-group">
+				{{ category_form.end_date.label() }}
+				{% if category_form.end_date.errors %}
+				{{ category_form.end_date(class="form-control is-invalid") }}
+				<div class="invalid-feedback">
+					{% for error in category_form.end_date.errors %}
+					<span>{{ error }}</span>
+					{% endfor %}
+				</div>
+				{% else %}
+				{{ category_form.end_date(class="form-control") }}
+				{% endif %}
+			</div> <!-- form-group end.// -->
+			<div class="col form-group">
+				{{ category_form.catergory_description.label() }}
+				{% if category_form.catergory_description.errors %}
+				{{ category_form.catergory_description(class="form-control is-invalid") }}
+				<div class="invalid-feedback">
+					{% for error in category_form.catergory_description.errors %}
+					<span>{{ error }}</span>
+					{% endfor %}
+				</div>
+				{% else %}
+				{{ category_form.catergory_description(class="form-control") }}
+				{% endif %}
+			</div> <!-- form-group end.// -->
+			<div class="col form-group">
+				{{ category_form.catergory_picture.label() }}
+				{{ category_form.catergory_picture(class="form-control-file") }}
+                {% if category_form.catergory_picture.errors %}
+                    {% for error in category_form.catergory_picture.errors %}
+                        <span class="text-danger">{{ error }}</span></br>
+                    {% endfor %}
+                {% endif %}
 			</div> <!-- form-group end.// -->
 			<div class="form-group">
 				{{ category_form.category_submit(class="btn btn-primary btn-block") }}

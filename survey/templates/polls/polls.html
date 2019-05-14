@@ -24,7 +24,7 @@
 			<div class="swiper-slide">
 				<div class="card card-border">
 					<div class="card-top-img">
-						<img class="card-author-img" src="../static/image/polls/Edd.jpg" alt="Ed" />
+						<img class="card-author-img" src="static/image/category/{{data[0].image_file}}" alt="Ed" />
 					</div>
 					{% if not data[3] %}
 					<div class="card-status text-danger">Vote your favorite {{data[0].name}}</div>
@@ -33,7 +33,7 @@
 					{% endif %}
 					<div class="card-name">{{data[0].name}}</div>
 					<div class="card-description">
-						Edward Christopher "Ed" Sheeran MBE (born 17 February 1991) is an English singer-songwriter and guitarist. He also writes and produces songs on his own and created his label, Paw Print Records. Sheeran is recognized for doing pop music.
+						{{data[0].description}}
 					</div>
 					<div class="container-fluid">
 						<div class="row music-infos" style="color: white">
@@ -42,7 +42,7 @@
 								<div class="info-name">#VOTES</div>
 							</div>
 							<div class="col-4 border-right">
-								<div class="infos">16/5/2018</div>
+								<div class="infos">{{ data[0].end_date.strftime("%m/%d/%Y") }}</div>
 								<div class="info-name">END DATE</div>
 							</div>
 							<div class="col-4">
@@ -130,7 +130,7 @@
 										{%endif%}
 										<div class="poll-describe">
 											<h6 class="text-secondary">
-												Get more information by clicking the play button!!!
+												{{poll.description}}
 											</h6>
 										</div>
 										<a class="youtube" data-toggle="modal" href="#{{data[0].name}}{{poll.id}}">

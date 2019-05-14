@@ -41,6 +41,9 @@ class Category(db.Model):
 	name = db.Column(db.String(50), nullable=False)
 	response = db.relationship('Response', backref='category', lazy=True)
 	poll = db.relationship('Poll', backref='category', lazy=True)
+	image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
+	description = db.Column(db.String(500), nullable=False, default='There is currrentlly no information. Please wait for update')
+	end_date = db.Column(db.DateTime, nullable=False)
 
 	def __repr__(self):
  		return f"Category('{self.name}')"
@@ -54,6 +57,7 @@ class Poll(db.Model):
 	response = db.relationship('Response', backref='poll', lazy=True)
 	image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
 	video_url = db.Column(db.String(200), nullable=False, default="https://www.youtube.com/embed/m_NeIyG98Nc")
+	description = db.Column(db.String(500), nullable=False, default='Get more information by clicking the play button!!!')
 
 	def __repr__(self):
  		return f"Poll('{self.name}', '{self.rank}')"

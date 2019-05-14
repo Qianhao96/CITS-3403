@@ -99,6 +99,19 @@
 				{{ poll_form.video(class="form-control") }}
 				{% endif %}
 			</div> <!-- form-group end.// -->
+			<div class="col form-group">
+				{{ poll_form.description.label() }}
+				{% if poll_form.description.errors %}
+				{{ poll_form.description(class="form-control is-invalid") }}
+				<div class="invalid-feedback">
+					{% for error in poll_form.description.errors %}
+					<span>{{ error }}</span>
+					{% endfor %}
+				</div>
+				{% else %}
+				{{ poll_form.description(class="form-control") }}
+				{% endif %}
+			</div> <!-- form-group end.// -->			
 			<div class="form-group">
 				{{ poll_form.poll_submit(class="btn btn-primary btn-block") }}
 			</div>
