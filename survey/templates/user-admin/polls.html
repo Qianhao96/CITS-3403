@@ -82,7 +82,7 @@
 				{{ poll_form.picture(class="form-control-file") }}
                 {% if poll_form.picture.errors %}
                     {% for error in poll_form.picture.errors %}
-                        <span class="text-danger">{{ error }}</span></br>
+                        <span class="text-danger">{{ error }}</span><br>
                     {% endfor %}
                 {% endif %}
 			</div> <!-- form-group end.// -->
