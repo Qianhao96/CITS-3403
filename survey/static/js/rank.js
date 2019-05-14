@@ -17,7 +17,7 @@ function gerListRandomColor(length) {
 }
 
 function displaybarChart(param) {
-	var id = $(param).attr('id');
+	var id = $(param).attr('name');
 	$.ajax({
 		url: "/getOverview",
 		dataType: "json",
@@ -77,7 +77,7 @@ function data(dict) {
 }
 
 function displaylineChart(param) {
-	var id = $(param).attr('id');
+	var id = $(param).attr('name');
 	$.ajax({
 		url: "/getElaborate",
 		dataType: "json",

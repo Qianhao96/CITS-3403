@@ -18,7 +18,7 @@
 		</div>
 		<div class="col-md-9 border border-secondary" id="col-md-9">
 			<div class="tab-content " id="v-pills-tabContent">
-				<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+				<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel">
 					<div class="card mt-5 mb-5" id="card">
 						<div class="card-header" id="card_featured">
 							Featured
@@ -30,7 +30,7 @@
 						</ul>
 					</div>
 				</div>
-				<div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+				<div class="tab-pane fade" id="v-pills-profile" role="tabpanel">
 					<table class="res_table">
 						<thead>
 							<tr>
@@ -59,7 +59,7 @@
 						</tbody>
 					</table>
 				</div>
-				<div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+				<div class="tab-pane fade" id="v-pills-messages" role="tabpanel">
 					<form method="POST" action="{{ url_for('users.my_account') }}">
 						{{ form.hidden_tag() }}
 						<div class="form-row">
@@ -118,4 +118,4 @@
 	</div>
 </div>
 {% endblock content %}
-{% block extraScript %} <script type="text/javascript" src="{{url_for('static', filename='js/account.js')}}"></script> {% endblock extraScript %}
+{% block extraScript %} <script src="{{url_for('static', filename='js/account.js')}}"></script> {% endblock extraScript %}

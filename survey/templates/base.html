@@ -65,6 +65,8 @@
 	{% block content %} {% endblock %}
 	{% include "footer.html" %}
 </body>
-<script src="{{url_for('static', filename='js/base.js')}}"></script>
-{% block extraScript %} {% endblock %}
+
+{% block extraScript %}
+	<script src="{{url_for('static', filename='js/base.js')}}"></script>
+{% endblock %}
 </html>
