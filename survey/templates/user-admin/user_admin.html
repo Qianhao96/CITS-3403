@@ -48,7 +48,6 @@
 	</div>
 </div>
 {% endblock content %}
-
 {% block extraScript %}
 {% if data.form_checking %}
 <script type="text/javascript">
@@ -66,7 +65,6 @@
 		}
 	}
 	formModal('{{ data.form }}');
-
 </script>
 {% endif %}
 <script src="{{url_for('static', filename='js/user_admin.js')}}"></script>
