@@ -1,3 +1,4 @@
+<!--User Admin Polls.html-->
 <div class="row">
 	<p id="polls_description" class="col-md-5">You are able to add and delete Polls!</p>
 	<button type="button" class="btn btn-light col-xs-2 admin_add_button" data-toggle="modal" data-target="#add_poll"><i class="fa fa-plus"></i></button>
@@ -20,8 +21,8 @@
 			<td>{{poll.category_id}}</td>
 			<td>{{poll.rank}}</td>
 			<td>
-				<button type="button" id="poll{{poll.name}}add" class="btn btn-light" data-toggle="modal" data-target="#add_poll"><i class="fa fa-plus"></i></button>
-				<button type="button" id="poll{{poll.name}}delete" class="btn btn-light a_d_u" data-toggle="modal" data-target="#delete_poll"><i class="fa fa-minus"></i></button>
+				<button type="button" id="poll{{poll.name|replace(" ","")}}add" class="btn btn-light" data-toggle="modal" data-target="#add_poll"><i class="fa fa-plus"></i></button>
+				<button type="button" id="poll{{poll.name|replace(" ","")}}delete" class="btn btn-light a_d_u" data-toggle="modal" data-target="#delete_poll"><i class="fa fa-minus"></i></button>
 				<!-- <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-user-edit"></i></button> -->
 			</td>
 		</tr>
@@ -136,3 +137,4 @@
     </div>
   </div>
 </div>
+<!--End User Admin Polls.html-->

@@ -41,7 +41,7 @@
 									{% if data[3] %}
 									<h5 class="text-warning centered">Voted</h5>
 									{% elif not data[3]%}
-									<button type="button" class="btn btn-link text-white centered info-name" data-toggle="modal" data-target="#{{data[0].name}}">
+									<button type="button" class="btn btn-link text-white centered info-name" data-toggle="modal" data-target="#{{data[0].name|replace(" ","")}}">
 										TAKE VOTE
 									</button>
 									{% endif %}
@@ -59,7 +59,7 @@
 
 	{%for data in databases%}
 	<!-- Modal -->
-	<div class="modal fade" id="{{data[0].name}}" data-backdrop="static" data-keyboard="false">
+	<div class="modal fade" id="{{data[0].name|replace(" ","")}}" data-backdrop="static" data-keyboard="false">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
 				<div class="modal-header" style="border-bottom: none">
@@ -124,14 +124,14 @@
 												{{poll.description}}
 											</h6>
 										</div>
-										<a class="youtube" data-toggle="modal" href="#{{data[0].name}}{{poll.id}}">
+										<a class="youtube" data-toggle="modal" href="#{{data[0].name|replace(" ","")}}{{poll.id}}">
 											<img class="youtube-media" src="{{ url_for('static', filename='image/polls/play.png') }}" alt="YouTube" id="{{poll.video_url}}">
 										</a>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="modal fade" id="{{data[0].name}}{{poll.id}}">
+						<div class="modal fade" id="{{data[0].name|replace(" ","")}}{{poll.id}}">
 						</div>
 					</div>
 					{%endfor%}

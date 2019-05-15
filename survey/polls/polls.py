@@ -16,7 +16,6 @@ def active_polls():
 
 	databases = []
 	for categorie in Categories:
-
 		temp = Poll.query.filter_by(category_id = categorie.id)
 		response = responses.filter_by(category_id = categorie.id)
 		if current_user.is_active:

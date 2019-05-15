@@ -14,8 +14,6 @@ def user_index():
 	users = User.query.all()
 	categories = Category.query.all()
 	polls = Poll.query.all()
-	for poll in polls:
-		poll.name = poll.name.replace(" ", "")
 	responses = Response.query.all()
 	user_form = RegistrationForm()
 	category_form = NewCategoryForm()
