@@ -12,7 +12,7 @@
 	</thead>
 	<tbody>
 		{% for response in responses %}
-		<tr id={{ response.id }}>
+		<tr id=response.{{ response.id }}>
 			<td>{{response.id}}</td>
 			<td>{{response.user_id}}</td>
 			<td>{{response.pool_id}}</td>
