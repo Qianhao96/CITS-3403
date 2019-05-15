@@ -50,9 +50,6 @@
 {% endblock content %}
 
 {% block extraScript %}
-<script src="{{url_for('static', filename='js/user_admin.js')}}"></script>
-<script src="{{url_for('static', filename='js/register.js')}}"></script>
-
 {% if data.form_checking %}
 <script type="text/javascript">
 	function formModal(form) {
@@ -72,4 +69,6 @@
 
 </script>
 {% endif %}
+<script src="{{url_for('static', filename='js/user_admin.js')}}"></script>
+<script src="{{url_for('static', filename='js/register.js')}}"></script>
 {% endblock extraScript %}

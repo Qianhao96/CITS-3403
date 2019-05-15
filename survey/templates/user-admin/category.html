@@ -1,6 +1,8 @@
 <div class="row">
 	<p id="Category_description">You are able to add and delete Categories!</p>
-	<button type="button" id="poll_add" class="btn btn-light col-xs-2 admin_add_button" data-toggle="modal" data-target="#add_category"><i class="fa fa-plus"></i></button>
+	<button type="button" class="btn btn-light col-xs-2 admin_add_button" data-toggle="modal" data-target="#add_category">
+		<i class="fa fa-plus"></i>
+	</button>
 </div>
 <table id="category_table" class="transparent">
 	<thead>
@@ -27,7 +29,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Please input a new category</h5>
+        <h5 class="modal-title">Please input a new category</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">Cancel</button>
       </div>
       <div class="modal-body">
@@ -77,7 +79,7 @@
 				{{ category_form.catergory_picture(class="form-control-file") }}
                 {% if category_form.catergory_picture.errors %}
                     {% for error in category_form.catergory_picture.errors %}
-                        <span class="text-danger">{{ error }}</span></br>
+                        <span class="text-danger">{{ error }}</span><br>
                     {% endfor %}
                 {% endif %}
 			</div> <!-- form-group end.// -->
