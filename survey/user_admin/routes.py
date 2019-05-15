@@ -22,11 +22,11 @@ def user_index():
 	poll_form = NewPollForm()
 	poll_form.category_poll.choices=[(category.id, category.name) for category in Category.query.all()]
 	poll_form.rank.data = 0
-	return render_template('user-admin/user_admin.html', 
+	return render_template('user-admin/user_admin.html',
 		users=users, categories=categories, polls=polls, responses=responses,
 		user_form=user_form, category_form = category_form, poll_form=poll_form,
 		title="Admin", data={'form_checking':False}, client= get_client())
-	
+
 
 @user_admin.route("/add_user", methods=['POST'])
 @admin_login_required
@@ -41,7 +41,7 @@ def add_user():
 	# Check Form input and encrypt the password before store them
 	if user_form.validate_on_submit():
 		hashed_password = bcrypt.generate_password_hash(user_form.password.data).decode('utf-8')
-		user = User(firstname = user_form.firstname.data, 
+		user = User(firstname = user_form.firstname.data,
 			lastname = user_form.lastname.data,
 			email = user_form.email.data,
 			gender = user_form.gender.data,
@@ -52,7 +52,7 @@ def add_user():
 		flash('New user account has been created!', 'success')
 		return redirect(url_for('user_admin.user_index'))
 	flash(u'New user account has not been created! Please try again, or look the log error', 'danger')
-	return render_template('user-admin/user_admin.html', 
+	return render_template('user-admin/user_admin.html',
 		users=users, categories=categories, polls=polls, responses=responses,
 		user_form=user_form, category_form = category_form, poll_form=poll_form,
 		title="Admin", data={'form': 'user_form', 'form_checking': True}, client= get_client())
@@ -60,8 +60,8 @@ def add_user():
 @user_admin.route("/admin_delete_user", methods=['POST'])
 @admin_login_required
 def admin_delete_user():
-	email = request.get_json()['id']
-	user = User.query.filter_by(email=email).first()
+	id = request.get_json()['id']
+	user = User.query.filter_by(id=email).first()
 	db.session.delete(user)
 	db.session.commit()
 	return json.dumps({'status':'OK','message':'User ' + email + ' has been successfuly deleted'});
@@ -82,8 +82,8 @@ def add_category():
 		if category_form.catergory_picture.data:
 			print(category_form.catergory_picture.data)
 			picture_file = save_picture_category(category_form.catergory_picture.data)
-			category = Category(name = category_form.category_name.data, 
-				image_file=picture_file, 
+			category = Category(name = category_form.category_name.data,
+				image_file=picture_file,
 				description=category_form.catergory_description.data,
 				end_date=category_form.end_date.data)
 			db.session.add(category)
@@ -96,7 +96,7 @@ def add_category():
 			db.session.commit()
 		flash('New category has been added!', 'success')
 		return redirect(url_for('user_admin.user_index'))
-	return render_template('user-admin/user_admin.html', 
+	return render_template('user-admin/user_admin.html',
 		users=users, categories=categories, polls=polls, responses=responses,
 		user_form=user_form, category_form = category_form, poll_form=poll_form,
 		title="Admin", data={'form': 'category_form', 'form_checking': True}, client= get_client())
@@ -148,7 +148,7 @@ def admin_add_poll():
 		flash('New poll has been added!', 'success')
 		return redirect(url_for('user_admin.user_index'))
 	print('failed')
-	return render_template('user-admin/user_admin.html', 
+	return render_template('user-admin/user_admin.html',
 		users=users, categories=categories, polls=polls, responses=responses,
 		user_form=user_form, category_form = category_form, poll_form=poll_form,
 		title="Admin", data={'form': 'poll_form', 'form_checking': True}, client= get_client())

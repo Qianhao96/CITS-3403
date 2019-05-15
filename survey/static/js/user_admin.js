@@ -42,11 +42,11 @@ function ajaxDeletion(table, cancel_delete, admin_delete, url){
     });
 
     $(admin_delete).click(function(){
-    	var id = $('.selected').attr('id')
+    	var id = $('.selected').attr('id').split('.')
 		$.ajax({
 			url: url,
 			dataType: "json",
-			data: JSON.stringify({'id': id}),
+			data: JSON.stringify({'id': id[1]}),
 			contentType: "application/json; charset=utf-8",
 			type: 'POST',
 			success: function(response){
@@ -73,9 +73,3 @@ function displayMessage(table, message, type) {
 		$('#js_alert_message').html('Deteltion failed, please refresh the page and try again');
 	}
 }
-
-
-
-
-
-

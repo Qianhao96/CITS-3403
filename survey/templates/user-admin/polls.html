@@ -14,7 +14,7 @@
 	</thead>
 	<tbody>
 		{% for poll in polls %}
-		<tr id={{ poll.id }}>
+		<tr id=poll.{{ poll.id }}>
 			<td>{{poll.id}}</td>
 			<td>{{poll.name}}</td>
 			<td>{{poll.category_id}}</td>
@@ -111,7 +111,7 @@
 				{% else %}
 				{{ poll_form.description(class="form-control") }}
 				{% endif %}
-			</div> <!-- form-group end.// -->			
+			</div> <!-- form-group end.// -->
 			<div class="form-group">
 				{{ poll_form.poll_submit(class="btn btn-primary btn-block") }}
 			</div>
