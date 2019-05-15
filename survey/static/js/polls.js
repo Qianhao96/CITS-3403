@@ -1,9 +1,5 @@
 var trans_change = 0;
 $(document).ready(function () {
-	setInterval(function () {
-		transperenty()
-	}, 1000);
-
 	var swiper = new Swiper('.swiper-container', {
 		spaceBetween: 130,
 		pagination: {
@@ -37,13 +33,6 @@ $(document).ready(function () {
 		}
 	});
 });
-
-function transperenty() {
-	trans_change += 0.1;
-	trans_change = trans_change % 1.0;
-	console.log(trans_change);
-	$(".press").css("opacity",""+trans_change);
-}
 
 function send_vote(param) {
 	var id = $(param).attr('id');
