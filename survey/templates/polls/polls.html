@@ -6,18 +6,9 @@
 {% block title %}polls{% endblock title %}
 {% block content %}
 <div style="min-height:100vh">
-	<h1 style="text-align:center;margin-top:20px;">
-		<span class="press">P</span>
-		<span class="press">O</span>
-		<span class="press">L</span>
-		<span class="press">L</span>
-		<span class="press">I</span>
-		<span class="press">N</span>
-		<span class="press">G</span>
-		<span class="press vert-move">.</span>
-		<span class="press vert-move">.</span>
-		<span class="press vert-move">.</span>
-	</h1>
+	<div style="text-align: center;margin-bottom:30px">
+		<img class="polling" src="../../static/image/polls/polling.png">
+	</div>
 	<div class="swiper-container mb-3 mt-3">
 		<div class="swiper-wrapper">
 			{%for data in databases%}
