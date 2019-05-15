@@ -12,6 +12,14 @@
 
 #register_form {
 	margin-top: 10%;
-	width: 500px;
 	min-height: 100vh;
+	max-width: 500px;
+}
+
+
+
+.sign-up-position {
+	position: absolute;
+	top:10px;
+	left: 10px;
 }

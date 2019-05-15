@@ -7,11 +7,11 @@
 {% block content %}
 <div class="container" id="register_form">
 	<div class="card">
-		<header class="card-header">
+		<h2 class="card-header">
 			<a href="{{ url_for('users.login') }}" class="float-right btn btn-outline-primary mt-1">Log in</a>
-			<h4 class="card-title mt-2">Sign up</h4>
-		</header>
-		<article class="card-body">
+			<span class="card-title mt-2 sign-up-position">Sign up</span>
+		</h2>
+		<div class="card-body">
 			<form method="POST" action="{{ url_for('users.register') }}">
 				{{ form.hidden_tag() }}
 				<div class="form-row">
@@ -60,12 +60,14 @@
 				<div class="form-group">
 					{% if form.gender.errors %}
 					<span class="form-control is-invalid">
-						{% for subfield in form.gender %}
-						<tr>
-							<td>{{ subfield }}</td>
-							<td>{{ subfield.label(class="mr-5") }}</td>
-						</tr>
-						{% endfor %}
+						<div class="row">
+							{% for subfield in form.gender %}
+							<div class="col">
+								{{ subfield }}
+								{{ subfield.label(class="mr-5") }}
+							</div>
+							{% endfor %}
+						</div>
 					</span>
 					<div class="invalid-feedback">
 						{% for error in form.gender.errors %}
@@ -73,12 +75,14 @@
 						{% endfor %}
 					</div>
 					{% else %}
-					{% for subfield in form.gender %}
-					<tr>
-						<td>{{ subfield }}</td>
-						<td>{{ subfield.label(class="mr-5") }}</td>
-					</tr>
-					{% endfor %}
+					<div class="row">
+						{% for subfield in form.gender %}
+						<div class="col">
+							{{ subfield }}
+							{{ subfield.label(class="mr-5") }}
+						</div>
+						{% endfor %}
+					</div>
 					{% endif %}
 				</div>
 				<div class="form-group">
@@ -118,10 +122,8 @@
 				<span>Have an account ?</span> <br>
 				<a href="{{ url_for('users.login') }}">Log In</a>
 			</div>
-		</article>
+		</div>
 	</div>
 </div>
 {% endblock content %}
-{% block extraScript %}
-<script src="{{url_for('static', filename='js/register.js')}}"></script>
-{% endblock extraScript %}
+{% block extraScript %} <script src="{{url_for('static', filename='js/register.js')}}"></script> {% endblock extraScript %}
