@@ -18,7 +18,7 @@ def user_index():
 	user_form = RegistrationForm()
 	category_form = NewCategoryForm()
 	poll_form = NewPollForm()
-	poll_form.category_poll.choices=[(category.id, category.name) for category in Category.query.all()]
+	poll_form.category_poll.choices=[(str(category.id), category.name) for category in Category.query.all()]
 	poll_form.rank.data = 0
 	return render_template('user-admin/user_admin.html',
 		users=users, categories=categories, polls=polls, responses=responses,
@@ -36,6 +36,7 @@ def add_user():
 	user_form = RegistrationForm()
 	category_form = NewCategoryForm()
 	poll_form = NewPollForm()
+	poll_form.category_poll.choices=[(str(category.id), category.name) for category in Category.query.all()]
 	# Check Form input and encrypt the password before store them
 	if user_form.validate_on_submit():
 		hashed_password = bcrypt.generate_password_hash(user_form.password.data).decode('utf-8')
@@ -59,10 +60,10 @@ def add_user():
 @admin_login_required
 def admin_delete_user():
 	id = request.get_json()['id']
-	user = User.query.filter_by(id=email).first()
+	user = User.query.filter_by(id=id).first()
 	db.session.delete(user)
 	db.session.commit()
-	return json.dumps({'status':'OK','message':'User ' + email + ' has been successfuly deleted'});
+	return json.dumps({'status':'OK','message':'User has been successfuly deleted'});
 
 
 @user_admin.route("/add_category", methods=['POST'])
@@ -75,6 +76,7 @@ def add_category():
 	user_form = RegistrationForm()
 	category_form = NewCategoryForm()
 	poll_form = NewPollForm()
+	poll_form.category_poll.choices=[(str(category.id), category.name) for category in Category.query.all()]
 	if category_form.validate_on_submit():
 		print(request.files)
 		if category_form.catergory_picture.data:
@@ -122,6 +124,7 @@ def admin_add_poll():
 	user_form = RegistrationForm()
 	category_form = NewCategoryForm()
 	poll_form = NewPollForm()
+	poll_form.category_poll.choices=[(str(category.id), category.name) for category in Category.query.all()]
 	if poll_form.validate_on_submit():
 		print(request.files)
 		if poll_form.picture.data:
