@@ -1,8 +1,7 @@
-.press {
-	color: transparent;
-	background-color: pink;
-	-webkit-background-clip: text;
-	background-clip: text;
+@media only screen and (max-width: 503px) {
+	.polling{
+		width: 95%;
+	}
 }
 
 .swiper-container {
@@ -456,4 +455,3 @@
 	padding: 0;
 	top: 0;
 }
-
