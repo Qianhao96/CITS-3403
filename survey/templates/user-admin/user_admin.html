@@ -8,7 +8,7 @@
 {% endblock extraCss %}
 
 {% block heasExtraScript %}
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 {% endblock heasExtraScript %}
 
 {% block title %} {{ title }} {% endblock title %}
@@ -50,8 +50,8 @@
 {% endblock content %}
 
 {% block extraScript %}
-<script type="text/javascript" src="{{url_for('static', filename='js/user_admin.js')}}"></script>
-<script type="text/javascript" src="{{url_for('static', filename='js/register.js')}}"></script>
+<script src="{{url_for('static', filename='js/user_admin.js')}}"></script>
+<script src="{{url_for('static', filename='js/register.js')}}"></script>
 
 {% if data.form_checking %}
 <script type="text/javascript">

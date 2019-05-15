@@ -37,7 +37,7 @@
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">Cancel</button>
 			</div>
 			<div class="modal-body">
-				<form method="POST" , action="{{ url_for('user_admin.add_user') }}">
+				<form method="POST" action="{{ url_for('user_admin.add_user') }}">
 					{{ user_form.csrf_token(id="user") }}
 					<div class="form-row">
 						<div class="col form-group">
@@ -84,12 +84,14 @@
 					<div class="form-group">
 						{% if user_form.gender.errors %}
 						<span class="form-control is-invalid">
-							{% for subfield in user_form.gender %}
-							<tr>
-								<td>{{ subfield }}</td>
-								<td>{{ subfield.label(class="mr-5") }}</td>
-							</tr>
-							{% endfor %}
+							<div class="row">
+								{% for subfield in user_form.gender %}
+								<div class="col">
+									{{ subfield }}
+									{{ subfield.label(class="mr-5") }}
+								</div>
+								{% endfor %}
+							</div>
 						</span>
 						<div class="invalid-feedback">
 							{% for error in user_form.gender.errors %}
@@ -97,12 +99,14 @@
 							{% endfor %}
 						</div>
 						{% else %}
-						{% for subfield in user_form.gender %}
-						<tr>
-							<td>{{ subfield }}</td>
-							<td>{{ subfield.label(class="mr-5") }}</td>
-						</tr>
-						{% endfor %}
+						<div class="row">
+							{% for subfield in user_form.gender %}
+							<div class="col">
+								{{ subfield }}
+								{{ subfield.label(class="mr-5") }}
+							</div>
+							{% endfor %}
+						</div>
 						{% endif %}
 					</div> <!-- form-group end.// -->
 					<div class="form-group">
