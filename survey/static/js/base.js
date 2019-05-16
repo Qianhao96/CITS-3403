@@ -5,12 +5,24 @@ $(document).ready(function () {
 		dateTime()
 	}, 500);
 
-	$(".click-dropsown").click(function () {
-		var ids = $(this).attr("id");
-		for (var i = 0; i < 3; i++) {
-			if (dw_id[i] != ids) $("." + dw_id[i]).hide();
-		}
-		$("." + ids).show("slow");
+	//	$(".click-dropsown").click(function () {
+	//		var ids = $(this).attr("id");
+	//		for (var i = 0; i < 3; i++) {
+	//			if (dw_id[i] != ids) $("." + dw_id[i]).hide();
+	//		}
+	//		$("." + ids).show("slow");
+	//	});
+
+	$(".click-dropsown").each(function () {
+		var $this = this;
+		var clicked = false;
+		$($this).click(function () {
+			if(clicked==false){
+				$("." + $($this).attr("id")).show("slow");
+				clicked=true;
+			}
+			else $("." + $($this).attr("id")).hide("slow");
+		});
 	});
 });
 
