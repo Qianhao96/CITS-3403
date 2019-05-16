@@ -1,18 +1,53 @@
 <footer>
-	<div class="container">
+	<div class="small-screen">
+		<div class="click-dropsown" id="about">ABOUT THIS WEB</div>
+		<div class="clicked-dw about">
+			<p>This is a multi-user web application. Written in HTML, CSS, Flask, AJAX, JQuery, and Bootstrap. This application perform some kind of voting or ranking activity, based on the inputs from users</p>
+		</div>
+
+		<div class="click-dropsown" id="Deve">DEVELOPERS</div>
+		<div class="clicked-dw Deve">
+			<ul class="sm-footer-user-info">
+				<li>MR QH.Liu</li>
+				<li>MR CJ.Yin</li>
+			</ul>
+		</div>
+
+		<div class="click-dropsown" id="ur-info">YOUR INFORMATION</div>
+		<div class="clicked-dw ur-info">
+			<ul class="sm-footer-user-info">
+				{% if client%}
+				<li>Your IP is:&nbsp;<span>{{client[0]}}</span></li>
+				<li>Language is:&nbsp;<span>{{client[1]}}</span></li>
+				<li>Browser is:&nbsp;<span>{{client[2]}}</span></li>
+				<li>System is:&nbsp;<span>{{client[3]}}</span></li>
+				<li>Curren Time:&nbsp;<span id="current_time"></span> </li>
+				{% else %}
+				<li>Your IP is:&nbsp;<span></span></li>
+				<li>Language is:&nbsp;<span></span></li>
+				<li>Browser is:&nbsp;<span></span></li>
+				<li>System is:&nbsp;<span></span></li>
+				{% endif %}
+			</ul>
+		</div>
+	</div>
+
+	<div class="container large-screen">
 		<div class="row">
-			<div class="col-4">
+			<div class="col">
 				<h5 class="footer-title">ABOUT THIS WEB</h5>
 				<p>This is a multi-user web application. Written in HTML, CSS, Flask, AJAX, JQuery, and Bootstrap. This application perform some kind of voting or ranking activity, based on the inputs from users</p>
 			</div>
-			<div class="col-4">
+
+			<div class="col">
 				<h5 class="footer-title">DEVELOPERS</h5>
 				<ul class="footer-user-info">
 					<li>MR QH.Liu</li>
 					<li>MR CJ.Yin</li>
 				</ul>
 			</div>
-			<div class="col-4">
+
+			<div class="col">
 				<h5 class="footer-title">YOUR INFORMATION</h5>
 				<ul class="footer-user-info">
 					{% if client%}
