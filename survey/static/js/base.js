@@ -18,10 +18,13 @@ $(document).ready(function () {
 		var clicked = false;
 		$($this).click(function () {
 			if(clicked==false){
-				$("." + $($this).attr("id")).show("slow");
-				clicked=true;
+				$("." + $($this).attr("id")).fadeIn();
+				clicked=!clicked;
 			}
-			else $("." + $($this).attr("id")).hide("slow");
+			else{
+				$("." + $($this).attr("id")).fadeOut("slow");
+				clicked=!clicked;
+			}
 		});
 	});
 });
