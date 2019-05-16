@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block extraCss %} 
+{% block extraCss %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 {% endblock extraCss %}
@@ -19,36 +19,38 @@
 				<div class="form-group">
 					<div class="input-group">
 						<div class="input-group-prepend">
-						    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+							<span class="input-group-text"> <i class="fa fa-user"></i> </span>
 						</div>
 						{% if form.email.errors %}
-							{{ form.email(class="form-control is-invalid") }}
-							<div class="invalid-feedback">
-								{% for error in form.email.errors %}
-									<span>{{ error }}</span>
-								{% endfor %}
-							</div>
-						{% else %}	
-							{{ form.email(class="form-control") }}
+						{{ form.email(class="form-control is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.email.errors %}
+							<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						{% else %}
+						{{ form.email(class="form-control") }}
 						{% endif %}
 					</div> <!-- input-group.// -->
+					<span class="text-warning" id="email-invalide" style="display:none;">type your email here</span>
 				</div> <!-- form-group// -->
 				<div class="form-group">
 					<div class="input-group">
 						<div class="input-group-prepend">
-						    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+							<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 						</div>
-				    	{% if form.password.errors %}
-							{{ form.password(class="form-control is-invalid") }}
-							<div class="invalid-feedback">
-								{% for error in form.password.errors %}
-									<span>{{ error }}</span>
-								{% endfor %}
-							</div>
-						{% else %}	
-							{{ form.password(class="form-control") }}
+						{% if form.password.errors %}
+						{{ form.password(class="form-control is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.password.errors %}
+							<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						{% else %}
+						{{ form.password(class="form-control") }}
 						{% endif %}
 					</div> <!-- input-group.// -->
+					<span class="text-warning" id="pwd-invalide" style="display:none">type your password here</span>
 				</div> <!-- form-group// -->
 				<div class="form-check">
 					{{ form.remember(class="form-check-input") }}
@@ -57,7 +59,7 @@
 				<div class="form-group">
 					{{ form.submit(class="btn btn-primary btn-block") }}
 				</div> <!-- form-group// -->
-				<p class="text-center"><a href="{{ url_for('users.reset_request') }}" >Forgot password ?</a></p>
+				<p class="text-center"><a href="{{ url_for('users.reset_request') }}">Forgot password ?</a></p>
 				<div class="text-center">
 					<span>Don't Have an account ?</span> <br>
 					<a href="{{ url_for('users.register') }}">Sign Up</a>
@@ -67,3 +69,31 @@
 	</div> <!-- card.// -->
 </div>
 {% endblock content %}
+{% block extraScript %}
+<script>
+	var emailRegx = /^([0-9A-Za-z]{3,})(\.[a-zA-Z0-9_-]{1,})*@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+	function validiateEmail() {
+		return emailRegx.test($("#email").val());
+	}
+	function simple_pwd_check() {
+		var len = $("#password").val().length;
+		return len>7 && len < 60;
+	}
+	setInterval(function() {
+		if (validiateEmail()) {
+			$("#email-invalide").hide("slow");
+			if (simple_pwd_check()) {
+				$("#pwd-invalide").hide();
+				$("#submit").prop("disabled", false);
+			} else {
+				$("#pwd-invalide").show("slow");
+				$("#submit").prop("disabled", true);
+			}
+		} else {
+			$("#email-invalide").show("slow");
+			$("#submit").prop("disabled", true);
+		}
+	}, 500);
+
+</script>
+{% endblock extraScript %}

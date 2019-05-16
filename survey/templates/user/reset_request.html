@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block extraCss %} 
+{% block extraCss %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 {% endblock extraCss %}
@@ -18,19 +18,20 @@
 				<div class="form-group">
 					<div class="input-group">
 						<div class="input-group-prepend">
-						    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+							<span class="input-group-text"> <i class="fa fa-user"></i> </span>
 						</div>
 						{% if form.email.errors %}
-							{{ form.email(class="form-control is-invalid") }}
-							<div class="invalid-feedback">
-								{% for error in form.email.errors %}
-									<span>{{ error }}</span>
-								{% endfor %}
-							</div>
-						{% else %}	
-							{{ form.email(class="form-control") }}
+						{{ form.email(class="form-control is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.email.errors %}
+							<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						{% else %}
+						{{ form.email(class="form-control") }}
 						{% endif %}
 					</div> <!-- input-group.// -->
+					<span class="text-warning" id="email-invalide" style="display:none;">type your email here</span>
 				</div> <!-- form-group// -->
 				<div class="form-group">
 					{{ form.submit(class="btn btn-primary btn-block") }}
@@ -40,3 +41,20 @@
 	</div> <!-- card.// -->
 </div>
 {% endblock content %}
+{% block extraScript %}
+<script>
+	var emailRegx = /^([0-9A-Za-z]{3,})(\.[a-zA-Z0-9_-]{1,})*@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+	function validiateEmail() {
+		return emailRegx.test($("#email").val());
+	}
+	setInterval(function() {
+		if (validiateEmail()) {
+			$("#email-invalide").hide("slow");
+			$("#submit").prop("disabled", false);
+		} else {
+			$("#email-invalide").show("slow");
+			$("#submit").prop("disabled", true);
+		}
+	}, 400);
+</script>
+{% endblock extraScript %}
