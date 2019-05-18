@@ -171,7 +171,10 @@ def admin_delete_poll():
 @admin_login_required
 def admin_delete_response():
 	id = request.get_json()['id']
-	category = Response.query.filter_by(id=id).first()
-	db.session.delete(category)
+	response = Response.query.filter_by(id=id).first()
+	poll = Poll.query.filter_by(id=response.pool_id).first()
+	rank = poll.rank
+	poll.rank = rank - 1
+	db.session.delete(response)
 	db.session.commit()
 	return json.dumps({'status':'OK','message':"category has been successfuly deleted"});
