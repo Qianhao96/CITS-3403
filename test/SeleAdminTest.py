@@ -57,9 +57,6 @@ class AdminTest(unittest.TestCase):
 		time.sleep(1)
 		driver.find_element_by_id("submit").send_keys(Keys.ENTER)
 		assert "New user account has been created!" in driver.page_source
-		driver.find_element_by_id("user_table_next").send_keys(Keys.ENTER)
-		time.sleep(1)
-		driver.find_element_by_id("user_table_next").send_keys(Keys.ENTER)
 		time.sleep(1)
 		delete_user=driver.find_element_by_id("admintest@gmail.comdelete")
 		delete_user.send_keys(Keys.ENTER)
@@ -70,6 +67,34 @@ class AdminTest(unittest.TestCase):
 		assert "admintest@gmail.com" not in driver.page_source
 
 	def test_b_admin_add_and_delete_poll(self):
+		driver = self.driver
+		# driver.get(domain + "/login")
+		driver.get("http://0.0.0.0:5000/login")
+		email=driver.find_element_by_id("email")
+		email.clear()
+		email.send_keys("qianhao.liu@gmail.com")
+		password=driver.find_element_by_id("password")
+		password.clear()
+		password.send_keys("test12345678")
+		time.sleep(1)
+		driver.find_element_by_id("submit").send_keys(Keys.ENTER)
+		assert "Login successfull" in driver.page_source
+		driver.get("http://0.0.0.0:5000/user_admin")
+		driver.find_element_by_id("v-pills-Category-tab").send_keys(Keys.ENTER)
+		time.sleep(1)
+		driver.find_element_by_id("category_add").send_keys(Keys.ENTER)
+		time.sleep(1)
+		category_name=driver.find_element_by_id("category_name")
+		time.sleep(1)
+		category_name.send_keys('Movie')
+		category_date=driver.find_element_by_id("end_date")
+		category_date.send_keys('20/09/2019')
+		category_description=driver.find_element_by_id("catergory_description")
+		category_description.send_keys('test')
+		time.sleep(1)
+		driver.find_element_by_id("category_submit").send_keys(Keys.ENTER)
+		
+	def test_c_admin_add_and_delete_poll(self):
 		driver = self.driver
 		# driver.get(domain + "/login")
 		driver.get("http://0.0.0.0:5000/login")
@@ -98,10 +123,6 @@ class AdminTest(unittest.TestCase):
 		driver.refresh()
 		assert "Avenger" in driver.page_source
 		driver.find_element_by_id("v-pills-poll-tab").send_keys(Keys.ENTER)
-		time.sleep(1)
-		driver.find_element_by_id("user_table_next").send_keys(Keys.ENTER)
-		time.sleep(1)
-		driver.find_element_by_id("user_table_next").send_keys(Keys.ENTER)
 		time.sleep(1)
 		driver.find_element_by_id("pollAvengerdelete").send_keys(Keys.ENTER)
 		time.sleep(1)
