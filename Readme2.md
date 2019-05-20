@@ -4,7 +4,7 @@
          -Both Admin view are allowed admin to add and delete values
          -One is achived using Flask-admin,and can be accessed by typing the url "http://localhost:5000/admin"
          -Second one is written by us, simply using Dattable plugin, and rending out all the database tables, and adding extra
-# Functionalities
+### Functionalities
           for adding and deleting values
      -There are two user views
          -One is for anonymous users, they can view what poll exist in our database and current poll ranking 
@@ -15,7 +15,7 @@
          -There are four tables(User, Category, poll, Response )
          -User
              -Contains users informations, and a boolean is_admin to check if the user is admin, so it can access the admin
-# Functionalites
+### Functionalites
          -Category
              -Cantains what kind of poll will be created, for example, Movie, Music or Recipe
          -Poll
@@ -29,18 +29,18 @@
 # Development of the application
 
 ### requirments:
-  - pip3 install flask 
-  - pip3 install flask-sqlalchemy
-  - pip3 install flask-wtf
-  - pip3 install flask-bcrypt
-  - pip3 install flask-login (used for session)
-  - pip3 install flask-admin
-  - pip3 install flask-mail
-  - If still having problem please install all dependency from requirment.txt
+     - pip3 install flask 
+     - pip3 install flask-sqlalchemy
+     - pip3 install flask-wtf
+     - pip3 install flask-bcrypt
+     - pip3 install flask-login (used for session)
+     - pip3 install flask-admin
+     - pip3 install flask-mail
+     - If still having problem please install all dependency from requirment.txt
 
 ### database creation (New way after restructure) 
-  - sqlite3
-  - In Python3 shell 
+     - sqlite3
+     - In Python3 shell 
      from survey import create_app<br>
      app = create_app()<br>
      app.app_context().push()<br>
@@ -50,7 +50,7 @@
      User.query.all()<br>
      should be empty array<br>
      Add first flask amdin user
-     ... user=User(firstname='admin', lastname='admin',email='admin@gmail.com', password='admin', gender='M', is_admin=True)
+     1. user=User(firstname='admin', lastname='admin',email='admin@gmail.com', password='admin', gender='M', is_admin=True)
  
  
  
