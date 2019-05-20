@@ -65,7 +65,9 @@
      To stop the application: ctrl + c
      This application is using port 5000
      This application is hosted At http://ycj-lqh-master.herokuapp.com
-     
+
+# Running the test with selenium
+	
 
 
 # git logs

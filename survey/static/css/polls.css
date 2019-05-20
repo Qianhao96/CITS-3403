@@ -116,6 +116,7 @@
 
 /*--end swipper--*/
 
+/* Modal when click Vote me*/
 .head {
 	color: #17394d;
 }
@@ -286,9 +287,9 @@
 		padding-right: 0px;
 	}
 }
+/*end modal vote*/
 
-/* new*/
-
+/* Clicked vote modal display success or failure*/
 .success-box {
 	text-align: center;
 	max-width: 400px;
