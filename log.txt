@@ -1,0 +1,227 @@
+f8049e7 was Qianhao Liu, 2 hours ago, message: Update Readme2
+9a85f6d was Qianhao Liu, 3 hours ago, message: Update Readme2
+708caa5 was Qianhao Liu, 3 hours ago, message: Read me 2, for project submmition
+23b39d6 was Qianhao96, 12 hours ago, message: final test
+fc3c95a was CunjunYin, 2 days ago, message: reference
+9284338 was Qianhao96, 2 days ago, message: fix where rank not minor 1 when use user admin to delete response and sperate test file
+4b2237e was Qianhao96, 4 days ago, message: Merge branch 'master' of https://github.com/Qianhao96/CITS-3403
+e9b9cf6 was Qianhao96, 4 days ago, message: auto test
+ced7bcf was CunjunYin, 4 days ago, message: fix time issue
+ee0879c was CunjunYin, 4 days ago, message: Merge branch 'master' of https://github.com/Qianhao96/CITS-3403
+a3daba3 was CunjunYin, 4 days ago, message: reference
+68c7e6e was CunjunYin, 4 days ago, message: reference
+d63b8f2 was Qianhao96, 4 days ago, message: Merge branch 'master' of https://github.com/Qianhao96/CITS-3403
+d59f54b was Qianhao96, 4 days ago, message: adding category and polls
+f271743 was CunjunYin, 4 days ago, message: login to max-width
+6c03152 was CunjunYin, 4 days ago, message: fix bug
+199f887 was CunjunYin, 4 days ago, message: lala
+5a5c291 was CunjunYin, 4 days ago, message: last one forgot to add
+1ddd8d0 was CunjunYin, 4 days ago, message: fix footer in small screen problem
+b7f382d was CunjunYin, 4 days ago, message: user side email valdiate
+45944e8 was CunjunYin, 5 days ago, message: Merge branch 'master' of https://github.com/Qianhao96/CITS-3403
+cea4e90 was CunjunYin, 5 days ago, message: replace white space
+9803b50 was Qianhao96, 5 days ago, message: fixing error and
+b19345b was Qianhao96, 5 days ago, message: Merge branch 'master' of https://github.com/Qianhao96/CITS-3403
+336017e was Qianhao96, 5 days ago, message: ready to add dummy data
+888c3f1 was CunjunYin, 5 days ago, message: Merge branch 'master' of https://github.com/Qianhao96/CITS-3403
+47f2182 was CunjunYin, 5 days ago, message: poll text image
+5315993 was Qianhao Liu, 5 days ago, message: avoid same id in user admin
+a2fb177 was CunjunYin, 5 days ago, message: solve Validator says “Stray end tag script”
+93ee69d was CunjunYin, 5 days ago, message: w3c bug fix
+707982b was CunjunYin, 5 days ago, message: id bug fix
+ec2ad0f was CunjunYin, 5 days ago, message: remove some error when use w3c
+fd297e7 was CunjunYin, 5 days ago, message: some error fix
+dc2440f was CunjunYin, 5 days ago, message: remove for fun code
+20eab14 was CunjunYin, 5 days ago, message: finish poll vote button
+2278f37 was Qianhao96, 6 days ago, message: Merge branch 'master' of https://github.com/Qianhao96/CITS-3403
+0377b4c was Qianhao96, 6 days ago, message: finalise
+818974c was CunjunYin, 6 days ago, message: fix some issues
+c1679e3 was CunjunYin, 8 days ago, message: poll page pass w3 validator
+30d12c4 was CunjunYin, 10 days ago, message: reduce size
+047574b was CunjunYin, 10 days ago, message: unnessary stuff
+74808fe was CunjunYin, 10 days ago, message: size reudce
+64e9d98 was CunjunYin, 10 days ago, message: load youtube after click, reduce loading time
+084b2b2 was CunjunYin, 11 days ago, message: 7:04 9 may 2019 finish active polls
+4c59253 was CunjunYin, 12 days ago, message: poll.js "ajax reload after success, back to home if erreo" account.js "refresh page"
+70a7bcc was CunjunYin, 12 days ago, message: display custom success and error in ajax send: poll.js
+1f1bcb4 was CunjunYin, 12 days ago, message: 1:43 8/5/2019 change poll page, let lt dyanmically generate
+948f628 was CunjunYin, 12 days ago, message: 12:04 8/5/2019 change avtive polls page
+e2c6b5e was CunjunYin, 13 days ago, message: fix index page
+db9566a was CunjunYin, 13 days ago, message: 5:15 7/52019 more js validiation
+042c588 was CunjunYin, 13 days ago, message: finish error html
+080cdb0 was CunjunYin, 13 days ago, message: Unnecessary file
+4258550 was CunjunYin, 13 days ago, message: remove unused file
+496a456 was CunjunYin, 13 days ago, message: register client side check
+9082334 was CunjunYin, 13 days ago, message: fixed footer -v1
+0558514 was Qianhao96, 2 weeks ago, message: fixing login url in poll html
+08a8eb7 was Qianhao96, 2 weeks ago, message: fixing minore issue on poll html and add a recipe
+9339c12 was Qianhao96, 2 weeks ago, message: final data base
+dfa70c1 was Qianhao Liu, 2 weeks ago, message: Merge pull request #18 from Qianhao96/optimization
+b5d56e7 was Qianhao Liu, 2 weeks ago, message: Merge pull request #17 from Qianhao96/unit-test
+7798613 was Qianhao96, 2 weeks ago, message: finalize file structure
+4550945 was CunjunYin, 2 weeks ago, message: index
+ec8876c was Qianhao96, 2 weeks ago, message: need
+4e81c7b was Qianhao96, 3 weeks ago, message: resolve conflict
+c8c521d was Qianhao96, 3 weeks ago, message: selenium test for admin
+5cdb353 was Qianhao Liu, 3 weeks ago, message: Merge pull request #16 from Qianhao96/chart-rank
+4f82bdd was CunjunYin, 3 weeks ago, message: char display able in index page
+aae294c was CunjunYin, 3 weeks ago, message: multi display chart for polls & solved js get None error
+3d6a397 was CunjunYin, 3 weeks ago, message: solve databases time problem
+a2eed7b was CunjunYin, 3 weeks ago, message: bar chart display able
+b7da7de was Qianhao96, 3 weeks ago, message: login logout and registe test
+7874232 was CunjunYin, 3 weeks ago, message: index page
+38d4331 was Qianhao Liu, 3 weeks ago, message: Merge pull request #15 from Qianhao96/poll-connection-backend
+ac6f0e0 was Qianhao96, 3 weeks ago, message: test for login and logout with correct credential
+b4b0867 was CunjunYin, 3 weeks ago, message: account page able to remove it's own rasponse
+bfd6cd0 was Qianhao96, 3 weeks ago, message: setting up selenium for unit testing
+a7e58b2 was CunjunYin, 3 weeks ago, message: fix displaying data
+46532f1 was CunjunYin, 3 weeks ago, message: able to display user response in account page
+fa86a68 was CunjunYin, 3 weeks ago, message: success vote function done
+57c36f7 was CunjunYin, 3 weeks ago, message: fixed id problem, deleted extra file, merge file
+050ec9c was CunjunYin, 3 weeks ago, message: make music and recipe look like movie
+789cd18 was Qianhao Liu, 3 weeks ago, message: Merge pull request #14 from Qianhao96/poll-connection-backend
+2544ce5 was CunjunYin, 3 weeks ago, message: resolve conflict
+1212fba was CunjunYin, 3 weeks ago, message: delete space
+87abd88 was Qianhao96, 3 weeks ago, message: fix response table
+95150fe was CunjunYin, 3 weeks ago, message:  fixing conflict db
+ff4bb05 was CunjunYin, 3 weeks ago, message:  fixing conflict db
+1e989e5 was CunjunYin, 3 weeks ago, message: fix js not loading and finish footer
+4f0d546 was Qianhao96, 3 weeks ago, message: Merge branch 'master' of https://github.com/Qianhao96/CITS-3403
+d76807b was Qianhao96, 3 weeks ago, message: adding pip3 install image
+06146c6 was Qianhao Liu, 3 weeks ago, message: Merge pull request #13 from Qianhao96/poll-database
+6bede90 was Qianhao96, 3 weeks ago, message: adding new url and picture to db and allow admin to save picture for polls
+ce478cb was CunjunYin, 3 weeks ago, message: footer
+637a690 was Qianhao96, 4 weeks ago, message: fix error page and url in base template
+4b43b54 was Qianhao96, 4 weeks ago, message: fix identation
+a154441 was Qianhao Liu, 4 weeks ago, message: Merge pull request #12 from Qianhao96/poll-info
+5366029 was Qianhao Liu, 4 weeks ago, message: Merge branch 'master' into poll-info
+0ecb22a was CunjunYin, 4 weeks ago, message: Merge pull request #11 from Qianhao96/user-admin
+6ee5140 was CunjunYin, 4 weeks ago, message: 4
+07c3897 was CunjunYin, 4 weeks ago, message: 4
+4eb5b0a was CunjunYin, 4 weeks ago, message: 3
+534e91f was CunjunYin, 4 weeks ago, message: 2
+9ba440c was CunjunYin, 4 weeks ago, message: 1
+e4d3923 was Qianhao96, 4 weeks ago, message: finishing delete response and some other minor fix
+380452c was Qianhao96, 4 weeks ago, message: Fix form error not working and add js to show the tab and form where it should show
+4457a7c was CunjunYin, 4 weeks ago, message: 4
+aeea040 was CunjunYin, 4 weeks ago, message: 3
+5bcaf89 was CunjunYin, 4 weeks ago, message: 2
+95c891f was CunjunYin, 4 weeks ago, message: 1
+5abdfc5 was Qianhao96, 4 weeks ago, message: So far stopped at user-admin poll, one more need to do (response)
+8fd3d8b was CunjunYin, 4 weeks ago, message: update
+4e33fd8 was Qianhao96, 4 weeks ago, message: unfinished user admin
+daf18f0 was Qianhao96, 4 weeks ago, message: Category table function and some minor improment
+0c80569 was Qianhao96, 5 weeks ago, message: Finish up user part for user-admin
+b4b4b9f was Qianhao96, 5 weeks ago, message: Delete user function for user-admin
+3b15aa7 was Qianhao96, 5 weeks ago, message: add self defined decorator to check if admin is loged in
+e732925 was Qianhao96, 5 weeks ago, message: Add user tabel and user modal for adding new user
+c9a3594 was Qianhao96, 5 weeks ago, message: remove pycache file
+42e625e was Qianhao96, 5 weeks ago, message: remove pycache file
+0604873 was Qianhao96, 5 weeks ago, message: rebase and resolve conflict
+a3cb491 was Qianhao96, 5 weeks ago, message: Add user-admin blueprint
+f9658b8 was Qianhao96, 5 weeks ago, message: set up bluprint for user_admin
+ddfc485 was Qianhao96, 5 weeks ago, message: Add user-admin blueprint
+4a84185 was Qianhao96, 5 weeks ago, message: update infor readme file
+70fa510 was Qianhao Liu, 5 weeks ago, message: Merge pull request #9 from Qianhao96/UI
+8fbdf8c was Qianhao Liu, 5 weeks ago, message: Merge branch 'master' into UI
+aa627de was Qianhao96, 5 weeks ago, message: set up bluprint for user_admin
+c1170f3 was CunjunYin, 5 weeks ago, message: animation
+7771cf3 was Qianhao96, 5 weeks ago, message: update readme file
+5c225f4 was Qianhao96, 5 weeks ago, message: fix requirment file for heroku
+4c301b9 was Qianhao96, 5 weeks ago, message: delete host=0.0.0.0 in run.py
+a21432b was Qianhao96, 5 weeks ago, message: ready to deploy on heroku
+f20100d was Qianhao Liu, 5 weeks ago, message: Merge pull request #8 from Qianhao96/poll-database
+bb6e565 was CunjunYin, 5 weeks ago, message: aa
+abc536f was CunjunYin, 5 weeks ago, message: some change
+c599a9c was CunjunYin, 8 weeks ago, message: able to connect from another dvice
+2c758a4 was CunjunYin, 8 weeks ago, message: something again
+35ce083 was CunjunYin, 8 weeks ago, message: something
+26ca372 was Qianhao96, 2 months ago, message: database recreation
+493bf10 was Qianhao96, 2 months ago, message: Fix admin login form display issue on large display
+13a2365 was Qianhao96, 3 months ago, message: fix typo and add db, admin@gmail.com, admin
+f95a36b was Cunjun Yin, 3 months ago, message: png
+4177503 was Cunjun Yin, 3 months ago, message: js
+2d76bde was Cunjun Yin, 3 months ago, message: css
+a3156de was Cunjun Yin, 3 months ago, message: py
+3f7fbe0 was Cunjun Yin, 3 months ago, message: error
+c912c4f was Cunjun Yin, 3 months ago, message: Modified
+ee1d172 was Qianhao96, 3 months ago, message: table for response category ang pools
+8907f4a was CunjunYin, 3 months ago, message: Update README.md
+cd2c973 was Qianhao96, 3 months ago, message: fix backgroud colour and position rgister form and login form
+2857b8d was Cunjun Yin, 3 months ago, message: Merge branch 'master' of https://github.com/Qianhao96/CITS-3403
+6b1b8fc was Cunjun Yin, 3 months ago, message: changed
+647e889 was CunjunYin, 3 months ago, message: Update Things need to do.txt
+97b996a was Qianhao96, 3 months ago, message: fix bug in admin where a normal user login and can see databse
+d89c7db was CunjunYin, 3 months ago, message: Merge pull request #7 from Qianhao96/accountPage
+ab3f7e8 was Qianhao Liu, 3 months ago, message: Merge pull request #6 from Qianhao96/admin
+decbc4d was Cunjun Yin, 3 months ago, message: fixed
+b9803f0 was Cunjun Yin, 3 months ago, message: fixed
+d3e289a was Qianhao96, 3 months ago, message: fix register form responsive
+1e474d0 was Cunjun Yin, 3 months ago, message: route
+8b98801 was Cunjun Yin, 3 months ago, message: new file
+0ac8300 was Cunjun Yin, 3 months ago, message: change
+a941725 was Cunjun Yin, 3 months ago, message: reset password work
+23eef99 was Qianhao96, 3 months ago, message: admin almost fully functional
+2815764 was Cunjun Yin, 3 months ago, message: some new feature
+6aa66de was Cunjun Yin, 3 months ago, message: Finish password Setup
+047149b was Cunjun Yin, 3 months ago, message: Change Password
+8d44c02 was Qianhao96, 3 months ago, message: structure info
+25cc7f5 was Qianhao96, 3 months ago, message: web structure design
+d5ed6d2 was CunjunYin, 3 months ago, message: Delete .DS_Store
+b9b03ee was Qianhao Liu, 3 months ago, message: Delete .DS_Store
+337f8b9 was Cunjun Yin, 3 months ago, message: Merge branch 'master' of https://github.com/Qianhao96/CITS-3403
+9536afe was Cunjun Yin, 3 months ago, message: final password check
+c047f9c was Qianhao96, 3 months ago, message: Merge branch 'master' of https://github.com/Qianhao96/CITS-3403
+66eb0d0 was Qianhao96, 3 months ago, message: delete sample.js
+a52abf3 was Cunjun Yin, 3 months ago, message: fixed password check
+7e050b8 was CunjunYin, 3 months ago, message: Merge pull request #5 from Qianhao96/password
+82ad7ae was Qianhao96, 3 months ago, message: reslove conflicts
+5cfb3d2 was Cunjun Yin, 3 months ago, message: disable submit button
+f32076f was Qianhao96, 3 months ago, message: add pycache
+0db01bd was Qianhao96, 3 months ago, message: info change
+ec702d7 was Qianhao96, 3 months ago, message: restructure project using blueprint
+3aff44a was Cunjun Yin, 3 months ago, message: ss
+69454df was CunjunYin, 3 months ago, message: Update Things need to do.txt
+50281ef was Cunjun Yin, 3 months ago, message: delete
+7233054 was Cunjun Yin, 3 months ago, message: Add color
+d75f2d9 was Cunjun Yin, 3 months ago, message: Modified caculation
+8b5d446 was Cunjun Yin, 3 months ago, message: Move able progresss
+183a1ec was Cunjun Yin, 3 months ago, message: add progress bar
+e401920 was Qianhao96, 3 months ago, message: info
+f3ef3d2 was Qianhao96, 3 months ago, message: change info
+1ecb1c4 was Qianhao Liu, 3 months ago, message: Merge pull request #4 from Qianhao96/reset-password
+643ff1d was Qianhao96, 3 months ago, message: user reset password using email
+3c0a614 was Cunjun Yin, 3 months ago, message: password check
+da9a4c5 was Qianhao Liu, 3 months ago, message: Update README.md
+312e36a was Qianhao96, 3 months ago, message: change info in readme
+491af46 was Qianhao Liu, 3 months ago, message: Merge pull request #3 from Qianhao96/user-authentication
+7a82b5d was Qianhao96, 3 months ago, message: delete .db and add info in readme about how to creat table and check it
+e79d2ad was Qianhao Liu, 3 months ago, message: Merge pull request #2 from Qianhao96/user-authentication
+5de5c1e was Qianhao96, 3 months ago, message: user authentication
+4d4981b was Qianhao96, 3 months ago, message: minor change adding css to login
+6c92277 was Qianhao Liu, 3 months ago, message: Merge pull request #1 from Qianhao96/database_set_up
+661e4c0 was Qianhao96, 3 months ago, message: project file restructure
+8e1cda5 was Qianhao96, 3 months ago, message: fix typo in forms
+237fb1a was Qianhao96, 3 months ago, message: add background image
+ed3b7d0 was Qianhao96, 3 months ago, message: delete regerster.css and move files to static
+b0cc4df was Qianhao96, 3 months ago, message: rename account_creation to register
+cfa9898 was Qianhao96, 3 months ago, message: Merge branch 'master' of https://github.com/Qianhao96/CITS-3403
+694378a was Qianhao96, 3 months ago, message: Readme
+6bf173a was Cunjun Yin, 3 months ago, message: files
+af1ac70 was Qianhao96, 3 months ago, message: add information to reademe
+ab06738 was Qianhao96, 3 months ago, message: rename sign_up to register and using wtform instaed of html form good to use build in validators
+f605309 was Qianhao96, 3 months ago, message: code style
+bc623ab was Qianhao96, 3 months ago, message: add login page and fix url between login and sign up page
+7b9ea4d was Qianhao96, 3 months ago, message: registration form
+0efbc31 was Qianhao96, 3 months ago, message: move to example folder
+d494ae5 was CunjunYin, 3 months ago, message: Add files via upload
+692e9aa was Qianhao96, 3 months ago, message: testing
+ce7d3cb was Qianhao96, 3 months ago, message: rename templates
+5559f2c was Qianhao Liu, 3 months ago, message: Update README.md
+0730c9d was Qianhao96, 3 months ago, message: add image
+1dca3a8 was Qianhao96, 3 months ago, message: bootstrap, ajax and jquery
+ebdb91e was Qianhao96, 3 months ago, message: How to run
+23e0bb8 was Qianhao96, 3 months ago, message: Set up
+b619369 was Qianhao Liu, 3 months ago, message: Update README.md
+c844c8b was Qianhao Liu, 3 months ago, message: Update README.md
+95c9051 was Qianhao Liu, 3 months ago, message: Initial commit

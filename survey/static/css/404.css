@@ -25,11 +25,11 @@ a:hover {
 
 .error {
 	margin: 169px auto 0;
-	width: 404px;
+	max-width: 404px;
 }
 
 .error-wide {
-	width: 500px;
+	max-width: 500px;
 }
 
 @media (max-width: 500px) {
