@@ -85,9 +85,16 @@
 							<ul class="vote-rules">
 								<li>First Past the Post Voting</li>
 								<li>How it's works<ul>
-										<li>Voters indicate on the ballot the movie that you most favourite</li>
+										<li>
+											Vote your most favourite {{data[0].name}}
+										</li>
+										<li>
+											You can only vote for only one candidate
+										</li>
 										<li>The candidate who receives the most votes wins</li>
-										<li>You have to login to vote</li>
+										{% if not current_user.is_active%}
+										<li class="text-danger">You have to login to vote</li>
+										{%endif%}
 									</ul>
 								</li>
 							</ul>
