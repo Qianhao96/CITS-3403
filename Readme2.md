@@ -59,7 +59,7 @@
      To run the application: python3 run.py
      To stop the application: ctrl + c
      This application is using port 5000
-     This application is hosted At [http://ycj-lqh-master.herokuapp.com/]
+     This application is hosted At http://ycj-lqh-master.herokuapp.com
      
 
 
