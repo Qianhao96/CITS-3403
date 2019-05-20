@@ -2,7 +2,7 @@
      -User Authentication is achived by using Flask-login module
      -There are two Admin views
          -Both Admin view are allowed admin to add and delete values
-         -One is achived using Flask-admin,and can be accessed by typing the url http://localhost:5000/admin
+         -One is achived using Flask-admin,and can be accessed by typing the url "http://localhost:5000/admin"
          -Second one is written by us, simply using Dattable plugin, and rending out all the database tables, and adding extra  functionalities
           for adding and deleting values
      -There are two user views
