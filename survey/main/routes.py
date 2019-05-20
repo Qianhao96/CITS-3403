@@ -13,16 +13,17 @@ def get_client():
 
 def process():
 	ip = request.remote_addr
+	re = request.user_agent
+	if re.platform is "macos":
+		request.user_agent.platform = "mcintosh"
 	info = [ip,
 			request.accept_languages[0][0].capitalize(),
-			request.user_agent.browser.capitalize(),
-			request.user_agent.platform.capitalize()]
+			re.browser.capitalize(),
+			re.platform.capitalize()]
 	return info
 
 @main.route("/")
 def index():
-	if request.user_agent.platform is "macos":
-		request.user_agent.platform = "mcintosh"
 	client = process()
 	categorys = Category.query
 	return render_template('index.html', categorys=categorys, client= client)
