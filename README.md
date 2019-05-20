@@ -1,3 +1,7 @@
+#Important 
+-Please also look at README2.md for detailed information
+-This one is an over view 
+
 # CITS-3403
 Web Application Project: Social Choice
 Due 12pm, May 20, 2019
