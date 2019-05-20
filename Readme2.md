@@ -56,9 +56,13 @@
  
  
 # Instructions to launch the applictaion (running on localhost), and dependencies (i.e. required modules)
-To run the application: python3 run.py
-To stop the application: ctrl + c
+     To run the application: python3 run.py
+     To stop the application: ctrl + c
+     This application is using port 5000
+     This application is hosted At (http://ycj-lqh-master.herokuapp.com/)
+     
 
 
-#git logs
-    -git --no-pager log > log.txt
+# git logs
+    -log file: log.txt
+    
