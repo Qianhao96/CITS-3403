@@ -1,3 +1,7 @@
+# Contributors
+	- Cunjun Yin (22249435)
+	- Qianhao Liu (21952083)
+
 # Project design
      -User Authentication is achived by using Flask-login module
      -There are two Admin views
@@ -27,6 +31,7 @@
       
              
 # Development of the application
+	- require python3, pip3
 
 ### requirments:
      - pip3 install flask 
@@ -41,18 +46,18 @@
 ### database creation (New way after restructure) 
      - sqlite3
      - In Python3 shell 
-     from survey import create_app<br>
-     app = create_app()<br>
-     app.app_context().push()<br>
-     from survey.models import db<br>
-     db.create_all()<br>
-     from survey.models import User<br>
-     User.query.all()<br>
-     should be empty array<br>
-     Add first flask amdin user
-     1. user=User(firstname='admin', lastname='admin',email='admin@gmail.com', password='admin', gender='M', is_admin=True)
- 
- 
+     from survey import create_app
+     app = create_app()
+     app.app_context().push()
+     from survey.models import db
+     db.create_all()
+     from survey.models import User
+     User.query.all()
+     should be empty array
+     Create flask admin user
+     user=User(firstname='admin', lastname='admin',email='admin@gmail.com', password='admin', gender='M', is_admin=True)
+	 Note: this user can only login in http://localhost:5000/admin
+	 
  
  
 # Instructions to launch the applictaion (running on localhost), and dependencies (i.e. required modules)
