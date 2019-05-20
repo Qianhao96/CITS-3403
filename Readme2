@@ -5,3 +5,9 @@
  
  
  Instructions to launch the applictaion (running on localhost), and dependencies (i.e. required modules)
+
+
+
+
+Exporting git logs
+    -git --no-pager log > log.txt
