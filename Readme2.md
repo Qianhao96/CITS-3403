@@ -3,7 +3,8 @@
      -There are two Admin views
          -Both Admin view are allowed admin to add and delete values
          -One is achived using Flask-admin,and can be accessed by typing the url "http://localhost:5000/admin"
-         -Second one is written by us, simply using Dattable plugin, and rending out all the database tables, and adding extra  functionalities
+         -Second one is written by us, simply using Dattable plugin, and rending out all the database tables, and adding extra
+# Functionalities
           for adding and deleting values
      -There are two user views
          -One is for anonymous users, they can view what poll exist in our database and current poll ranking 
@@ -13,7 +14,8 @@
          -Sqlite3 are used for building the database
          -There are four tables(User, Category, poll, Response )
          -User
-             -Contains users informations, and a boolean is_admin to check if the user is admin, so it can access the admin #  functionalites
+             -Contains users informations, and a boolean is_admin to check if the user is admin, so it can access the admin
+# Functionalites
          -Category
              -Cantains what kind of poll will be created, for example, Movie, Music or Recipe
          -Poll
