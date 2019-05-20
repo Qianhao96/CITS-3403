@@ -148,5 +148,9 @@ def remove_response():
 			return json.dumps({'status':'OK','message':"Vote successfully removed"})
 	return json.dumps({'status':'unsuccess','message':"You have not yet voted this poll"})
 
+@users.route("/about", methods=['GET'])
+def about():
+	return render_template('user/about.html', title='About',client= get_client())
+
 
 
