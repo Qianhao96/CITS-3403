@@ -8,7 +8,6 @@
          -Both Admin view are allowed admin to add and delete values
          -One is achived using Flask-admin,and can be accessed by typing the url "http://localhost:5000/admin"
          -Second one is written by us, simply using Dattable plugin, and rending out all the database tables, and adding extra
-### Functionalities
           for adding and deleting values
      -There are two user views
          -One is for anonymous users, they can view what poll exist in our database and current poll ranking 
@@ -19,7 +18,6 @@
          -There are four tables(User, Category, poll, Response )
          -User
              -Contains users informations, and a boolean is_admin to check if the user is admin, so it can access the admin
-### Functionalites
          -Category
              -Cantains what kind of poll will be created, for example, Movie, Music or Recipe
          -Poll
@@ -34,14 +32,8 @@
 	- require python3, pip3
 
 ### requirments:
-     - pip3 install flask 
-     - pip3 install flask-sqlalchemy
-     - pip3 install flask-wtf
-     - pip3 install flask-bcrypt
-     - pip3 install flask-login (used for session)
-     - pip3 install flask-admin
-     - pip3 install flask-mail
-     - If still having problem please install all dependency from requirment.txt
+     -Please install all dependency from requirment.txt
+     -Using any preferred python version to run---pip install -r requirment.txt
 
 ### database creation (New way after restructure) 
      - sqlite3
@@ -57,6 +49,9 @@
      Create flask admin user
      user=User(firstname='admin', lastname='admin',email='admin@gmail.com', password='admin', gender='M', is_admin=True)
 	 Note: this user can only login in http://localhost:5000/admin
+
+     -Or database can be created using testDB.py under test folder, 
+     -All table will be created and a admin user(qianhao.liu@gmail.com, test12345678) will be created as well.
 	 
  
  
@@ -67,7 +62,9 @@
      This application is hosted At http://ycj-lqh-master.herokuapp.com
 
 # Running the test with selenium
-	
+	-We are using Selenium for automate testing, Google chrome or Firefox can be used to run sutomate test
+    -"chromedriver" or "Firefoxdriver" webdriver need to be downloaded and put it under the correct path, so Selenium can find it
+    -For example using Mac, chromedriver need to be placed under /usr/local/bin/chromedriver
 
 
 # git logs

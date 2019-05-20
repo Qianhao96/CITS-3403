@@ -23,3 +23,6 @@ SQLAlchemy==1.2.18
 sqlparse==0.3.0
 Werkzeug==0.14.1
 WTForms==2.2.1
+selenium==3.141.0
+chromedriver==2.24.1
+urllib3==1.25.1
