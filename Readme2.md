@@ -28,7 +28,7 @@
              
 # Development of the application
 
-## requirments:
+### requirments:
   - pip3 install flask 
   - pip3 install flask-sqlalchemy
   - pip3 install flask-wtf
@@ -38,7 +38,7 @@
   - pip3 install flask-mail
   - If still having problem please install all dependency from requirment.txt
 
-## database creation (New way after restructure) 
+### database creation (New way after restructure) 
   - sqlite3
   - In Python3 shell 
      from survey import create_app<br>
@@ -49,7 +49,8 @@
      from survey.models import User<br>
      User.query.all()<br>
      should be empty array<br>
-          - user=User(firstname='admin', lastname='admin',email='admin@gmail.com', password='admin', gender='M', is_admin=True)
+     Add first flask amdin user
+     ... user=User(firstname='admin', lastname='admin',email='admin@gmail.com', password='admin', gender='M', is_admin=True)
  
  
  
