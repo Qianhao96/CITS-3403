@@ -39,15 +39,15 @@
 ## database creation (New way after restructure) 
   - sqlite3
   - In Python3 shell 
-from survey import create_app
-app = create_app()
-app.app_context().push()
-from survey.models import db
-db.create_all()
-from survey.models import User
-User.query.all()
-     should be empty array
-    - user=User(firstname='admin', lastname='admin',email='admin@gmail.com', password='admin', gender='M', is_admin=True)
+     from survey import create_app<br>
+     app = create_app()<br>
+     app.app_context().push()<br>
+     from survey.models import db<br>
+     db.create_all()<br>
+     from survey.models import User<br>
+     User.query.all()<br>
+     should be empty array<br>
+          - user=User(firstname='admin', lastname='admin',email='admin@gmail.com', password='admin', gender='M', is_admin=True)
  
  
  
